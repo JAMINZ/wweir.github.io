@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>vim脚本学习</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+我的<a href="http:../file/vimrc">.vimrc文件</a>
+</p>
+
+<h4 id="toc_0.0.0.1">几个常用例子</h4>
+<p>
+获取当前buffer编号、行数、列数、并将光标前移一格
+<code>setpos('.',[bufnr('.'), getline('.'), col('.') - 1, 0])</code>
+</p>
+
+</body>
+</html>

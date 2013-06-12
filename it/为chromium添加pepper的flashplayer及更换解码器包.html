@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>为chromium添加pepper的flashplayer及更换解码器包</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h4 id="toc_0.0.0.1">添加libpepflashplayer.so</h4>
+<ol>
+<li>
+vim /etc/chromium-browser/default
+
+<li>
+添加 --ppapi-flash-path=/……/libpepflashplayer.so
+
+</ol>
+
+<h4 id="toc_0.0.0.2">更换闭源解码</h4>
+<ol>
+<li>
+sudo apt-get install chromium-codecs-ffmpeg-extra
+
+</ol>
+
+</body>
+</html>

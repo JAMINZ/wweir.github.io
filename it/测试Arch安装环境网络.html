@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>测试Arch安装环境网络</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h3 id="toc_0.0.1">一般连网思考方向</h3>
+<ul>
+<li>
+启用接口
+
+</ul>
+<p>
+<code>ip link set wlan0(eth0) up</code>
+</p>
+<ul>
+<li>
+启用dhcp
+
+</ul>
+<p>
+<code>dhcpcd wlan0(eth0)</code>
+</p>
+<ul>
+<li>
+更改DNS (更改前先<code>ping -c 3 8.8.8.8</code> )
+
+</ul>
+<p>
+<code>echo nameserver &gt;&gt; /etc/resolv.conf</code>
+</p>
+<ul>
+<li>
+加密的无线
+
+</ul>
+<p>
+<code>wifi-menu</code>
+</p>
+<h4 id="toc_0.0.1.1">宽带播号</h4>
+<ol>
+<li>
+<code>pppoe-setup</code>
+
+<li>
+name:()
+
+<li>
+eth0:[eth0,wlan0,……k]
+
+<li>
+valua:no
+
+<li>
+server:server
+
+<li>
+passwd:
+
+<li>
+repasswd:
+
+<li>
+firewall:[0,1,2]
+
+<li>
+y/n:y
+
+</ol>
+
+<h3 id="toc_0.0.2">安装如上的可用环境</h3>
+<ul>
+<li>
+<code>wpa_supplicant</code>
+
+<li>
+<code>net-tools</code>
+
+<li>
+<code>rp-pppoe</code>
+
+</ul>
+
+</body>
+</html>

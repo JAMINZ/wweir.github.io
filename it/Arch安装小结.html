@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>Arch安装小结</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<ol>
+<li>
+下载iso文件
+
+<li>
+<code>dd if=arch*.iso of=/dev/sd[a,b,c,d]</code>
+
+<li>
+usb启动
+
+<li>
+<a href="测试Arch安装环境网络.html">测试Arch安装环境网络</a>
+
+<li>
+<code>cfdisk</code>
+
+<li>
+<code>mkfs.ext4 /dev/sda[1,2,3,4,]</code>
+
+<li>
+<code>mkswap /dev/sda*</code>
+
+<li>
+<code>swapon /dev/sda*</code>
+
+<li>
+<code>mount /dev/sda* /mnt/{,home/,……}</code>
+
+<li>
+<code>vi /etc/pacman.d/mirrors</code>
+
+<li>
+<code>pacstrap /mnt base base-devel vim syslinux net-tools wpa_supplicant netcfg dialog</code>
+
+<li>
+<code>genfstab -p /mnt &gt;&gt; /mnt/etc/fstab</code>
+
+<li>
+<code>arch-chroot /mnt</code>
+
+<li>
+<code>vim /etc/fstab</code> 加入参数<code>noauto,x-systemd.automount</code>
+
+<li>
+<code>vim /boot/syslinux/syslinux.conf</code>
+
+<li>
+<code>syslinux-install_update -iam</code>
+
+<li>
+<code>pacman -S wqy-microhei</code>
+
+<li>
+<code>[vi, nano] /etc/locale.gen</code>
+
+<li>
+<code>locale-gen</code>
+
+<li>
+<code>hwclock --systohc --utc</code>
+
+<li>
+<code>mkinitcpio -p linux</code>
+
+<li>
+<code>passwd</code>
+
+<li>
+<code>useradd -m -g users -s /bin/bash (username)</code>
+
+<li>
+<code>passwd (username)</code>
+
+<li>
+<code>pacman -S sudo</code>
+
+<li>
+<code>visudo</code>
+
+<li>
+<code>&lt;C-D&gt;</code>
+
+<li>
+<code>umount /mnt/{,home/,mnt/}</code>
+
+<li>
+<code>reboot</code>
+
+<li>
+<code>hostnamectl set-hostname Archlinux</code>
+
+<li>
+<code>timedatectl set-timezone Asia/Shanghai</code>
+
+<li>
+<code>localectl set-locale LANG="zh_CN.UTF-8"</code>
+
+<li>
+<code>timedatectl set-local-rtc false</code>
+
+<li>
+开启DHCP自动开启<code>systemctl enable dhcpcd@[wlan0,eth0].service</code>
+
+<li>
+<code>reboot</code>
+
+</ol>
+<hr />
+<ol>
+<li>
+<code>pacman -S xorg-sever xorg-xinit xorg-utils xorg-server-utils alsa-utils</code>
+
+<li>
+<code>pacman -S mesa xf86-video-[intel,ati]/nvidia xf86-input-synaptics</code>
+
+<li>
+<code>startx</code>
+
+<li>
+<code>grep EE /var/log/Xorg.0.log</code>
+
+<li>
+安装上一步缺的东西
+
+<li>
+安装桌面环境
+
+</ol>
+<hr />
+<h4 id="toc_0.0.0.1">安装yaourt</h4>
+<p>
+<strong>yaourt使用中无需root权限</strong>
+</p>
+<ol>
+<li>
+<code>vim /etc/pacman.d/mirrors</code>
+
+<li>
+加入
+<pre>
+[archlinuxfr]
+SigLevel = Optional TrustAll
+ Server = http://repo.archlinux.fr/$arch
+</pre>
+
+<li>
+<code>pacman -S yajl</code>
+
+<li>
+<code>pacman -S yaourt</code>
+
+<li>
+<code>yaourt -Syua</code>
+
+<li>
+<code>pacman -S yaourt</code>
+
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>只读权限</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+linux的权限管理比较特殊，只能限制对文件的修改，而不能限制删除文件。
+</p>
+
+<p>
+若要限制删除文件需要为父目录取消相应权限
+</p>
+
+<p>
+或者<code>chattr +i filename</code>单独为文件加上任何用户禁止删除、修改、链接的权限
+</p>
+
+</body>
+</html>

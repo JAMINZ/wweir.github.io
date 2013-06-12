@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<title>vimwiki 2.0.1.stu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<p>
+从真正开始使用vim大概有半年了（今年4月开始接触，太难入门），其中学的比较多的就有一项是vim了，正如<a href="../关于本博客.html">我的另一篇博客</a>所说，需求产生行动，用文绉绉的话讲就是<a href="知行合一.html">知行合一</a>。
+</p>
+
+<p>
+好吧，我用vimwiki也有大概20天了，这些天里肯定是没少查阅各种资料，从中也学到了很多（当然，没学到东西也就没有文章了）。
+</p>
+
+<p>
+当然在学习过程中也发现了一些问题。比如大多中文资料都是1.×版本的，2.×版本的中文资料基本上只能找到一篇，讲得也不够深入，甚至还有表述不好，或者说会引起读者曲解的地方。故此在此作一文以方便自己日后使用，也方便后来之人。
+<hr />
+本文适合有一点vim使用基础的人进行vimwiki2.*的入门，如果没有，那还是一步一步地走路吧，毕竟vim入门还是有些难度的
+</p>
+
+<p>
+<a href="http:../file/vimwiki.txt">这里</a>有份不错的资料，原本记录在googlecode，国内使用总是有些不便的，可以的话建议到 <a href="http://vim-script-cn.googlecode.com/svn/trunk/doc/vimwiki.cnx">http://vim-script-cn.googlecode.com/svn/trunk/doc/vimwiki.cnx</a> 去读最新的版本。当然想真正学好vimwiki，还是得看<code>:h vimwiki</code>的！
+<hr />
+</p>
+<h3 id="toc_0.0.1">安装</h3>
+<ol>
+<li>
+安装vim
+
+<li>
+从<a href="http://www.vim.org/scripts/script.php?script_id=2226">这里</a>或者<a href="https://code.google.com/p/vimwiki/downloads/list">这里</a>下载最新的vimwiki的安装文件，并<code>:so %</code>安装之
+
+<li>
+配置.vimrc,保证里面至少有以下内容
+<pre>
+	filetype indent on
+	filetype plugin indent on
+	filetype plugin on
+	syntax enable
+	syntax on
+</pre>
+
+</ol>
+<hr />
+<h3 id="toc_0.0.2">基本命令</h3>
+
+<table>
+<tr>
+<th>
+\ww
+</th>
+<th>
+打开vimwiki主页
+</th>
+</tr>
+<tr>
+<th>
+\w\w
+</th>
+<th>
+打开当天日记
+</th>
+</tr>
+<tr>
+<th>
+\wt
+</th>
+<th>
+新窗口打开主页
+</th>
+</tr>
+<tr>
+<th>
+\ws
+</th>
+<th>
+选择打开的wiki页面
+</th>
+</tr>
+<tr>
+<th>
+\wd
+</th>
+<th>
+删除当前wiki页面
+</th>
+</tr>
+<tr>
+<th>
+\wr
+</th>
+<th>
+重命名当前页面
+</th>
+</tr>
+<tr>
+<th>
+&lt;Enter&gt;
+</th>
+<th>
+进入、创建名为选中部分的wiki页面
+</th>
+</tr>
+<tr>
+<th>
+&lt;Shift - Enter&gt;
+</th>
+<th>
+分割当前页面，并在上侧打开选中的wiki页面
+</th>
+</tr>
+<tr>
+<th>
+&lt;Ctrl - Enter&gt;
+</th>
+<th>
+分割当前页面，并在左侧打开选中的wiki页面
+</th>
+</tr>
+<tr>
+<th>
+&lt;Backspace&gt;
+</th>
+<th>
+返回上个wiki页面
+</th>
+</tr>
+<tr>
+<th>
+&lt;Tab&gt;
+</th>
+<th>
+跳转到下个wiki词条
+</th>
+</tr>
+<tr>
+<th>
+&lt;Shift-Tab&gt;
+</th>
+<th>
+跳转到上个wiki词条
+</th>
+</tr>
+<tr>
+<th>
+:Vimwiki2HTML
+</th>
+<th>
+转换当前页面到html
+</th>
+</tr>
+<tr>
+<th>
+:VimwikiAll2HTML
+</th>
+<th>
+转换所有页面到html
+</th>
+</tr>
+<tr>
+<th>
+:VimwikiTable × ×
+</th>
+<th>
+插入如当前的表格（“× ×”为表格列数、行数）
+</th>
+</tr>
+</table>
+<hr />
+<h3 id="toc_0.0.3">基础语法</h3>
+<hr />
+<p>
+左侧为编辑所得，右侧为源码
+<table>
+<tr>
+<th>
+<strong>粗体</strong>
+</th>
+<th>
+<code>*粗体*</code>
+</th>
+</tr>
+<tr>
+<th>
+<em>斜体</em>
+</th>
+<th>
+<code>_斜体_</code>
+</th>
+</tr>
+<tr>
+<th>
+<del>删除线</del>
+</th>
+<th>
+<code>~~删除线~~</code>
+</th>
+</tr>
+<tr>
+<th>
+<a href="http://weiki.tk">http://weiki.tk</a>
+</th>
+<th>
+<code>http://weiki.tk</code>
+</th>
+</tr>
+<tr>
+<th>
+<a href="http://weiki.tk">weiki</a>
+</th>
+<th>
+<code>[[http://weiki.tk|weiki]]</code>
+</th>
+</tr>
+<tr>
+<th>
+<a href="http:../mdj.ogg">牡丹江.ogg</a>
+</th>
+<th>
+<code>[[http:../mdj.ogg|牡丹江.ogg]]</code>
+</th>
+</tr>
+<tr>
+<th>
+<img src="../favicon.ico" />
+</th>
+<th>
+<code>{{../favicon.ico}}</code>
+</th>
+</tr>
+<tr>
+<th>
+<a href="http://weiki.tk"><img src="../favicon.ico" /></a>
+</th>
+<th>
+<code>[[http://weiki.tk|{{../favicon.ico}}]]</code>
+</th>
+</tr>
+</table>
+</p>
+
+<p>
+说明一下，还有两个很实用的语法就是
+</p>
+
+<pre>
+  `  `
+</pre>
+<p>
+和<code>{{{  }}}</code>
+要说有什么作用嘛，你看到的这两个就是我把它们包含在对方中间显示出来的效果。也就是包含在这两个中间的语法都不会生效，很适合写些代码的
+</p>
+
+
+
+<p>
+2012-11-29 19:08:48
+</p>
+
+</body>
+</html>
