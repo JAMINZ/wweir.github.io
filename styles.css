@@ -142,7 +142,7 @@ header {
 header h1#logo {
     display: block;
     padding: 0px;
-    font-size: 1.5em;
+    font-size: 1.6em;
     height: 1.5em;
     padding: .3em 1em;
     background: #cc3333;
@@ -194,7 +194,7 @@ i[class^="icon-"] {
 }
 
 .article h1 {
-    font-size: 1.4em;
+    font-size: 1.6em;
 }
 
 .article h1:first-child {
