@@ -1,0 +1,543 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
+.container {
+		margin: 0 auto;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    
+}
+.nav {
+		display: block;
+		float: left;
+		position: fixed;
+		padding: 3px;
+		border-radius: 2px;
+		margin: 40px 0 0 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    background: #ffffff; overflow: hidden;
+}
+.nav ul {
+		background: #fafafb;
+		border-radius: 2px;
+		border: 1px solid #d8d8d8;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+}
+.nav ul li {
+		display: list-item;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #eee;
+}
+.nav ul li a {
+		display: block;
+		padding: 8px 10px 8px 8px;
+		text-shadow: 0 1px 0 #fff;
+		border-left: 2px solid #fafafb;
+		color: #4183c4;
+		text-decoration: none;
+}
+.nav ul li a:-webkit-any-link {
+		cursor: auto;
+}
+.markdown-body {
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		display: block;
+		width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+.markdown-body a.absent {
+    color: #CC0000;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    padding: 0;
+    position: relative;
+}
+.markdown-body h1 .mini-icon-link, .markdown-body h2 .mini-icon-link, .markdown-body h3 .mini-icon-link, .markdown-body h4 .mini-icon-link, .markdown-body h5 .mini-icon-link, .markdown-body h6 .mini-icon-link {
+    color: #000000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .mini-icon-link, .markdown-body h2:hover a.anchor .mini-icon-link, .markdown-body h3:hover a.anchor .mini-icon-link, .markdown-body h4:hover a.anchor .mini-icon-link, .markdown-body h5:hover a.anchor .mini-icon-link, .markdown-body h6:hover a.anchor .mini-icon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    color: #000000;
+    font-size: 28px;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+.markdown-body h3 {
+    font-size: 18px;
+}
+.markdown-body h4 {
+    font-size: 16px;
+}
+.markdown-body h5 {
+    font-size: 14px;
+}
+.markdown-body h6 {
+    color: #777777;
+    font-size: 14px;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
+}
+.markdown-body hr {
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body > h2:first-child, .markdown-body > h1:first-child, .markdown-body > h1:first-child + h2, .markdown-body > h3:first-child, .markdown-body > h4:first-child, .markdown-body > h5:first-child, .markdown-body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body a:first-child h1, .markdown-body a:first-child h2, .markdown-body a:first-child h3, .markdown-body a:first-child h4, .markdown-body a:first-child h5, .markdown-body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
+}
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+		</style>
+	</head>
+	<body>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="nav"></div>
+      
+    </div>
+  	<div class="markdown-body"><h1>7.6 字符串处理</h1>
+
+<p>字符串在我们平常的Web开发中经常用到，包括用户的输入，数据库读取的数据等，我们经常需要对字符串进行分割、连接、转换等操作，本小节讲通过Go标准库中的strings和strconv两个包中的函数来讲解如何进行有效快速的操作。</p>
+
+<h2>字符串操作</h2>
+
+<p>下面这些函数来自于strings包，这里介绍一些我平常经常用到的函数，更详细的请参考官方的文档。</p>
+
+<ul>
+<li><p>func Contains(s, substr string) bool</p>
+
+<p>字符串s中是否包含substr，返回bool值</p>
+
+<pre><code>fmt.Println(strings.Contains(&#34;seafood&#34;, &#34;foo&#34;))
+fmt.Println(strings.Contains(&#34;seafood&#34;, &#34;bar&#34;))
+fmt.Println(strings.Contains(&#34;seafood&#34;, &#34;&#34;))
+fmt.Println(strings.Contains(&#34;&#34;, &#34;&#34;))
+//Output:
+//true
+//false
+//true
+//true
+</code></pre></li>
+
+<li><p>func Join(a []string, sep string) string</p>
+
+<p>字符串链接，把slice a通过sep链接起来</p>
+
+<pre><code>s := []string{&#34;foo&#34;, &#34;bar&#34;, &#34;baz&#34;}
+fmt.Println(strings.Join(s, &#34;, &#34;))
+//Output:foo, bar, baz      
+</code></pre></li>
+
+<li><p>func Index(s, sep string) int</p>
+
+<p>在字符串s中查找sep所在的位置，返回位置值，找不到返回-1</p>
+
+<pre><code>fmt.Println(strings.Index(&#34;chicken&#34;, &#34;ken&#34;))
+fmt.Println(strings.Index(&#34;chicken&#34;, &#34;dmr&#34;))
+//Output:4
+//-1
+</code></pre></li>
+
+<li><p>func Repeat(s string, count int) string</p>
+
+<p>重复s字符串count次，最后返回重复的字符串</p>
+
+<pre><code>fmt.Println(&#34;ba&#34; + strings.Repeat(&#34;na&#34;, 2))
+//Output:banana
+</code></pre></li>
+
+<li><p>func Replace(s, old, new string, n int) string</p>
+
+<p>在s字符串中，把old字符串替换为new字符串，n表示替换的次数，小于0表示全部替换</p>
+
+<pre><code>fmt.Println(strings.Replace(&#34;oink oink oink&#34;, &#34;k&#34;, &#34;ky&#34;, 2))
+fmt.Println(strings.Replace(&#34;oink oink oink&#34;, &#34;oink&#34;, &#34;moo&#34;, -1))
+//Output:oinky oinky oink
+//moo moo moo
+</code></pre></li>
+
+<li><p>func Split(s, sep string) []string</p>
+
+<p>把s字符串按照sep分割，返回slice</p>
+
+<pre><code>fmt.Printf(&#34;%q\n&#34;, strings.Split(&#34;a,b,c&#34;, &#34;,&#34;))
+fmt.Printf(&#34;%q\n&#34;, strings.Split(&#34;a man a plan a canal panama&#34;, &#34;a &#34;))
+fmt.Printf(&#34;%q\n&#34;, strings.Split(&#34; xyz &#34;, &#34;&#34;))
+fmt.Printf(&#34;%q\n&#34;, strings.Split(&#34;&#34;, &#34;Bernardo O&#39;Higgins&#34;))
+//Output:[&#34;a&#34; &#34;b&#34; &#34;c&#34;]
+//[&#34;&#34; &#34;man &#34; &#34;plan &#34; &#34;canal panama&#34;]
+//[&#34; &#34; &#34;x&#34; &#34;y&#34; &#34;z&#34; &#34; &#34;]
+//[&#34;&#34;]
+</code></pre></li>
+
+<li><p>func Trim(s string, cutset string) string</p>
+
+<p>在s字符串中去除cutset指定的字符串</p>
+
+<pre><code>fmt.Printf(&#34;[%q]&#34;, strings.Trim(&#34; !!! Achtung !!! &#34;, &#34;! &#34;))
+Output:[&#34;Achtung&#34;]
+</code></pre></li>
+
+<li><p>func Fields(s string) []string</p>
+
+<p>去除s字符串的空格符，并且按照空格分割返回slice</p>
+
+<pre><code>fmt.Printf(&#34;Fields are: %q&#34;, strings.Fields(&#34;  foo bar  baz   &#34;))
+//Output:Fields are: [&#34;foo&#34; &#34;bar&#34; &#34;baz&#34;]
+</code></pre></li>
+</ul>
+
+<h2>字符串转换</h2>
+
+<p>字符串转化的函数在strconv中，如下也只是列表一些常用的：</p>
+
+<ul>
+<li><p>Append 系列函数将整数等转换为字符串后，添加到现有的字节数组中。</p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+
+func main() {
+    str := make([]byte, 0, 100)
+    str = strconv.AppendInt(str, 4567, 10)
+    str = strconv.AppendBool(str, false)
+    str = strconv.AppendQuote(str, &#34;abcdefg&#34;)
+    str = strconv.AppendQuoteRune(str, &#39;单&#39;)
+    fmt.Println(string(str))
+}
+</code></pre></li>
+
+<li><p>Format 系列函数把其他类型的转换为字符串</p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+
+func main() {
+    a := strconv.FormatBool(false)
+    b := strconv.FormatFloat(123.23, &#39;g&#39;, 12, 64)
+    c := strconv.FormatInt(1234, 10)
+    d := strconv.FormatUint(12345, 10)
+    e := strconv.Itoa(1023)
+    fmt.Println(a, b, c, d, e)
+}
+</code></pre></li>
+
+<li><p>Parse 系列函数把字符串转换为其他类型</p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+
+func main() {
+    a, err := strconv.ParseBool(&#34;false&#34;)
+    if err != nil {
+        fmt.Println(err)
+    }
+    b, err := strconv.ParseFloat(&#34;123.23&#34;, 64)
+    if err != nil {
+        fmt.Println(err)
+    }
+    c, err := strconv.ParseInt(&#34;1234&#34;, 10, 64)
+    if err != nil {
+        fmt.Println(err)
+    }
+    d, err := strconv.ParseUint(&#34;12345&#34;, 10, 64)
+    if err != nil {
+        fmt.Println(err)
+    }
+    e, err := strconv.Itoa(&#34;1023&#34;)
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(a, b, c, d, e)
+}
+</code></pre></li>
+</ul>
+
+<h2>links</h2>
+
+<ul>
+<li><a href="preface.html">目录</a></li>
+<li>上一节: <a href="07.5.html">文件操作</a></li>
+<li>下一节: <a href="07.7.html">小结</a></li>
+</ul>
+<div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
+  <div>
+	</body>
+</html>

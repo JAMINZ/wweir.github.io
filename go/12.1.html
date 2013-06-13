@@ -1,0 +1,554 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
+.container {
+		margin: 0 auto;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    
+}
+.nav {
+		display: block;
+		float: left;
+		position: fixed;
+		padding: 3px;
+		border-radius: 2px;
+		margin: 40px 0 0 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    background: #ffffff; overflow: hidden;
+}
+.nav ul {
+		background: #fafafb;
+		border-radius: 2px;
+		border: 1px solid #d8d8d8;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+}
+.nav ul li {
+		display: list-item;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #eee;
+}
+.nav ul li a {
+		display: block;
+		padding: 8px 10px 8px 8px;
+		text-shadow: 0 1px 0 #fff;
+		border-left: 2px solid #fafafb;
+		color: #4183c4;
+		text-decoration: none;
+}
+.nav ul li a:-webkit-any-link {
+		cursor: auto;
+}
+.markdown-body {
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		display: block;
+		width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+.markdown-body a.absent {
+    color: #CC0000;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    padding: 0;
+    position: relative;
+}
+.markdown-body h1 .mini-icon-link, .markdown-body h2 .mini-icon-link, .markdown-body h3 .mini-icon-link, .markdown-body h4 .mini-icon-link, .markdown-body h5 .mini-icon-link, .markdown-body h6 .mini-icon-link {
+    color: #000000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .mini-icon-link, .markdown-body h2:hover a.anchor .mini-icon-link, .markdown-body h3:hover a.anchor .mini-icon-link, .markdown-body h4:hover a.anchor .mini-icon-link, .markdown-body h5:hover a.anchor .mini-icon-link, .markdown-body h6:hover a.anchor .mini-icon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    color: #000000;
+    font-size: 28px;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+.markdown-body h3 {
+    font-size: 18px;
+}
+.markdown-body h4 {
+    font-size: 16px;
+}
+.markdown-body h5 {
+    font-size: 14px;
+}
+.markdown-body h6 {
+    color: #777777;
+    font-size: 14px;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
+}
+.markdown-body hr {
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body > h2:first-child, .markdown-body > h1:first-child, .markdown-body > h1:first-child + h2, .markdown-body > h3:first-child, .markdown-body > h4:first-child, .markdown-body > h5:first-child, .markdown-body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body a:first-child h1, .markdown-body a:first-child h2, .markdown-body a:first-child h3, .markdown-body a:first-child h4, .markdown-body a:first-child h5, .markdown-body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
+}
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+		</style>
+	</head>
+	<body>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="nav"></div>
+      
+    </div>
+  	<div class="markdown-body"><h1>12.1 应用日志</h1>
+
+<p>我们期望开发的Web应用程序能够把整个程序运行过程中出现的各种事件一一记录下来，Go语言中提供了一个简易的log包，我们使用该包可以方便的实现日志记录的功能，这些日志都是基于fmt包的打印再结合panic之类的函数来进行一般的打印、抛出错误处理。Go目前标准包只是包含了简单的功能，如果我们想把我们的应用日志保存到文件，然后又能够结合日志实现很多复杂的功能（编写过Java或者C++的读者应该都使用过log4j和log4cpp之类的日志工具），可以使用第三方开发的一个日志系统，<code>https://github.com/cihub/seelog</code>，它实现了很强大的日志功能。接下来我们介绍如何通过该日志系统来实现我们应用的日志功能。</p>
+
+<h2>seelog介绍</h2>
+
+<p>seelog是用Go语言实现的一个日志系统，它提供了一些简单的函数来实现复杂的日志分配、过滤和格式化。主要有如下特性：</p>
+
+<ul>
+<li>XML的动态配置，可以不用重新编译程序而动态的加载配置信息</li>
+<li>支持热更新，能够动态改变配置而不需要重启应用</li>
+<li>支持多输出流，能够同时把日志输出到多种流中、例如文件流、网络流等</li>
+
+<li><p>支持不同的日志输出</p>
+
+<ul>
+<li>命令行输出</li>
+<li>文件输出</li>
+<li>缓存输出</li>
+<li>支持log rotate</li>
+<li>SMTP邮件</li>
+</ul></li>
+</ul>
+
+<p>上面只列举了部分特性，seelog是一个特别强大的日志处理系统，详细的内容请参看官方wiki。接下来我将简要介绍一下如何在项目中使用它：</p>
+
+<p>首先安装seelog</p>
+
+<pre><code>go get -u github.com/cihub/seelog
+</code></pre>
+
+<p>然后我们来看一个简单的例子：</p>
+
+<pre><code>package main
+
+import log &#34;github.com/cihub/seelog&#34;
+
+func main() {
+    defer log.Flush()
+    log.Info(&#34;Hello from Seelog!&#34;)
+}
+</code></pre>
+
+<p>编译后运行如果出现了<code>Hello from seelog</code>，说明seelog日志系统已经成功安装并且可以正常运行了。</p>
+
+<h2>基于seelog的自定义日志处理</h2>
+
+<p>seelog支持自定义日志处理，下面是我基于它自定义的日志处理包的部分内容：</p>
+
+<pre><code>package logs
+
+import (
+    &#34;errors&#34;
+    &#34;fmt&#34;
+    seelog &#34;github.com/cihub/seelog&#34;
+    &#34;io&#34;
+)
+
+var Logger seelog.LoggerInterface
+
+func loadAppConfig() {
+    appConfig := `
+&lt;seelog minlevel=&#34;warn&#34;&gt;
+    &lt;outputs formatid=&#34;common&#34;&gt;
+        &lt;rollingfile type=&#34;size&#34; filename=&#34;/data/logs/roll.log&#34; maxsize=&#34;100000&#34; maxrolls=&#34;5&#34;/&gt;
+        &lt;filter levels=&#34;critical&#34;&gt;
+            &lt;file path=&#34;/data/logs/critical.log&#34; formatid=&#34;critical&#34;/&gt;
+            &lt;smtp formatid=&#34;criticalemail&#34; senderaddress=&#34;astaxie@gmail.com&#34; sendername=&#34;ShortUrl API&#34; hostname=&#34;smtp.gmail.com&#34; hostport=&#34;587&#34; username=&#34;mailusername&#34; password=&#34;mailpassword&#34;&gt;
+                &lt;recipient address=&#34;xiemengjun@gmail.com&#34;/&gt;
+            &lt;/smtp&gt;
+        &lt;/filter&gt;
+    &lt;/outputs&gt;
+    &lt;formats&gt;
+        &lt;format id=&#34;common&#34; format=&#34;%Date/%Time [%LEV] %Msg%n&#34; /&gt;
+        &lt;format id=&#34;critical&#34; format=&#34;%File %FullPath %Func %Msg%n&#34; /&gt;
+        &lt;format id=&#34;criticalemail&#34; format=&#34;Critical error on our server!\n    %Time %Date %RelFile %Func %Msg \nSent by Seelog&#34;/&gt;
+    &lt;/formats&gt;
+&lt;/seelog&gt;
+`
+    logger, err := seelog.LoggerFromConfigAsBytes([]byte(appConfig))
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    UseLogger(logger)
+}
+
+func init() {
+    DisableLog()
+    loadAppConfig()
+}
+
+// DisableLog disables all library log output
+func DisableLog() {
+    Logger = seelog.Disabled
+}
+
+// UseLogger uses a specified seelog.LoggerInterface to output library log.
+// Use this func if you are using Seelog logging system in your app.
+func UseLogger(newLogger seelog.LoggerInterface) {
+    Logger = newLogger
+}
+</code></pre>
+
+<p>上面主要实现了三个函数，</p>
+
+<ul>
+<li><p><code>DisableLog</code></p>
+
+<p>初始化全局变量Logger为seelog的禁用状态，主要为了防止Logger被多次初始化</p></li>
+
+<li><p><code>loadAppConfig</code></p>
+
+<p>根据配置文件初始化seelog的配置信息，这里我们把配置文件通过字符串读取设置好了，当然也可以通过读取XML文件。里面的配置说明如下：</p>
+
+<ul>
+<li><p>seelog</p>
+
+<p>minlevel参数可选，如果被配置,高于或等于此级别的日志会被记录，同理maxlevel。</p></li>
+
+<li><p>outputs</p>
+
+<p>输出信息的目的地，这里分成了两份数据，一份记录到log rotate文件里面。另一份设置了filter，如果这个错误级别是critical，那么将发送报警邮件。</p></li>
+
+<li><p>formats</p>
+
+<p>定义了各种日志的格式</p></li>
+</ul></li>
+
+<li><p><code>UseLogger</code></p>
+
+<p>设置当前的日志器为相应的日志处理</p></li>
+</ul>
+
+<p>上面我们定义了一个自定义的日志处理包，下面就是使用示例：</p>
+
+<pre><code>package main
+
+import (
+    &#34;net/http&#34;
+    &#34;project/logs&#34;
+    &#34;project/configs&#34;
+    &#34;project/routes&#34;
+)
+
+func main() {
+    addr, _ := configs.MainConfig.String(&#34;server&#34;, &#34;addr&#34;)
+    logs.Logger.Info(&#34;Start server at:%v&#34;, addr)
+    err := http.ListenAndServe(addr, routes.NewMux())
+    logs.Logger.Critical(&#34;Server err:%v&#34;, err)
+}
+</code></pre>
+
+<h2>发生错误发送邮件</h2>
+
+<p>上面的例子解释了如何设置发送邮件，我们通过如下的smtp配置用来发送邮件：</p>
+
+<pre><code>&lt;smtp formatid=&#34;criticalemail&#34; senderaddress=&#34;astaxie@gmail.com&#34; sendername=&#34;ShortUrl API&#34; hostname=&#34;smtp.gmail.com&#34; hostport=&#34;587&#34; username=&#34;mailusername&#34; password=&#34;mailpassword&#34;&gt;
+    &lt;recipient address=&#34;xiemengjun@gmail.com&#34;/&gt;
+&lt;/smtp&gt;
+</code></pre>
+
+<p>邮件的格式通过criticalemail配置，然后通过其他的配置发送邮件服务器的配置，通过recipient配置接收邮件的用户，如果有多个用户可以再添加一行。</p>
+
+<p>要测试这个代码是否正常工作，可以在代码中增加类似下面的一个假消息。不过记住过后要把它删除，否则上线之后就会收到很多垃圾邮件。</p>
+
+<pre><code>logs.Logger.Critical(&#34;test Critical message&#34;)
+</code></pre>
+
+<p>现在，只要我们的应用在线上记录一个Critical的信息，你的邮箱就会收到一个Email，这样一旦线上的系统出现问题，你就能立马通过邮件获知，就能及时的进行处理。</p>
+
+<h2>使用应用日志</h2>
+
+<p>对于应用日志，每个人的应用场景可能会各不相同，有些人利用应用日志来做数据分析，有些人利用应用日志来做性能分析，有些人来做用户行为分析，还有些就是纯粹的记录，以方便应用出现问题的时候辅助查找问题。</p>
+
+<p>举一个例子，我们需要跟踪用户尝试登陆系统的操作。这里会把成功与不成功的尝试都记录下来。记录成功的使用&#34;Info&#34;日志级别，而不成功的使用&#34;warn&#34;级别。如果想查找所有不成功的登陆，我们可以利用linux的grep之类的命令工具，如下：</p>
+
+<pre><code># cat /data/logs/roll.log | grep &#34;failed login&#34;
+2012-12-11 11:12:00 WARN : failed login attempt from 11.22.33.44 username password
+</code></pre>
+
+<p>通过这种方式我们就可以很方便的查找相应的信息，这样有利于我们针对应用日志做一些统计和分析。另外我们还需要考虑日志的大小，对于一个高流量的Web应用来说，日志的增长是相当可怕的，所以我们在seelog的配置文件里面设置了logrotate，这样就能保证日志文件不会因为不断变大而导致我们的磁盘空间不够引起问题。</p>
+
+<h2>小结</h2>
+
+<p>通过上面对seelog系统及如何基于它进行自定义日志系统的学习，现在我们可以很轻松的随需构建一个合适的功能强大的日志处理系统了。日志处理系统为数据分析提供了可靠的数据源，比如通过对日志的分析，我们可以进一步优化系统，或者应用出现问题时方便查找定位问题，另外seelog也提供了日志分级功能，通过对minlevel的配置，我们可以很方便的设置测试或发布版本的输出消息级别。</p>
+
+<h2>links</h2>
+
+<ul>
+<li><a href="preface.html">目录</a></li>
+<li>上一章: <a href="12.0.html">部署与维护</a></li>
+<li>下一节: <a href="12.2.html">网站错误处理</a></li>
+</ul>
+<div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
+  <div>
+	</body>
+</html>

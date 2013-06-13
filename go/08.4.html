@@ -1,0 +1,773 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
+.container {
+		margin: 0 auto;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    
+}
+.nav {
+		display: block;
+		float: left;
+		position: fixed;
+		padding: 3px;
+		border-radius: 2px;
+		margin: 40px 0 0 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    background: #ffffff; overflow: hidden;
+}
+.nav ul {
+		background: #fafafb;
+		border-radius: 2px;
+		border: 1px solid #d8d8d8;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+}
+.nav ul li {
+		display: list-item;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #eee;
+}
+.nav ul li a {
+		display: block;
+		padding: 8px 10px 8px 8px;
+		text-shadow: 0 1px 0 #fff;
+		border-left: 2px solid #fafafb;
+		color: #4183c4;
+		text-decoration: none;
+}
+.nav ul li a:-webkit-any-link {
+		cursor: auto;
+}
+.markdown-body {
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		display: block;
+		width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+.markdown-body a.absent {
+    color: #CC0000;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    padding: 0;
+    position: relative;
+}
+.markdown-body h1 .mini-icon-link, .markdown-body h2 .mini-icon-link, .markdown-body h3 .mini-icon-link, .markdown-body h4 .mini-icon-link, .markdown-body h5 .mini-icon-link, .markdown-body h6 .mini-icon-link {
+    color: #000000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .mini-icon-link, .markdown-body h2:hover a.anchor .mini-icon-link, .markdown-body h3:hover a.anchor .mini-icon-link, .markdown-body h4:hover a.anchor .mini-icon-link, .markdown-body h5:hover a.anchor .mini-icon-link, .markdown-body h6:hover a.anchor .mini-icon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    color: #000000;
+    font-size: 28px;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+.markdown-body h3 {
+    font-size: 18px;
+}
+.markdown-body h4 {
+    font-size: 16px;
+}
+.markdown-body h5 {
+    font-size: 14px;
+}
+.markdown-body h6 {
+    color: #777777;
+    font-size: 14px;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
+}
+.markdown-body hr {
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body > h2:first-child, .markdown-body > h1:first-child, .markdown-body > h1:first-child + h2, .markdown-body > h3:first-child, .markdown-body > h4:first-child, .markdown-body > h5:first-child, .markdown-body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body a:first-child h1, .markdown-body a:first-child h2, .markdown-body a:first-child h3, .markdown-body a:first-child h4, .markdown-body a:first-child h5, .markdown-body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
+}
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+		</style>
+	</head>
+	<body>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="nav"></div>
+      
+    </div>
+  	<div class="markdown-body"><h1>8.4 RPC</h1>
+
+<p>前面几个小节我们介绍了如何基于Socket和HTTP来编写网络应用，通过学习我们了解了Socket和HTTP采用的是类似&#34;信息交换&#34;模式，即客户端发送一条信息到服务端，然后(一般来说)服务器端都会返回一定的信息以表示响应。客户端和服务端之间约定了交互信息的格式，以便双方都能够解析交互所产生的信息。但是很多独立的应用并没有采用这种模式，而是采用类似常规的函数调用的方式来完成想要的功能。</p>
+
+<p>RPC就是想实现函数调用模式的网络化。客户端就像调用本地函数一样，然后客户端把这些参数打包之后通过网络传递到服务端，服务端解包到处理过程中执行，然后执行的结果反馈给客户端。</p>
+
+<p>RPC（Remote Procedure Call Protocol）——远程过程调用协议，是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。它假定某些传输协议的存在，如TCP或UDP，以便为通信程序之间携带信息数据。通过它可以使函数调用模式网络化。在OSI网络通信模型中，RPC跨越了传输层和应用层。RPC使得开发包括网络分布式多程序在内的应用程序更加容易。</p>
+
+<h2>RPC工作原理</h2>
+
+<p><img src="images/8.4.rpc.png?raw=true" alt=""></img>
+</p>
+
+<p>图8.8 RPC工作流程图</p>
+
+<p>运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：</p>
+
+<ul>
+<li>1.调用客户端句柄；执行传送参数</li>
+<li>2.调用本地系统内核发送网络消息</li>
+<li>3.消息传送到远程主机</li>
+<li>4.服务器句柄得到消息并取得参数</li>
+<li>5.执行远程过程</li>
+<li>6.执行的过程将结果返回服务器句柄</li>
+<li>7.服务器句柄返回结果，调用远程系统内核</li>
+<li>8.消息传回本地主机</li>
+<li>9.客户句柄由内核接收消息</li>
+<li>10.客户接收句柄返回的数据</li>
+</ul>
+
+<h2>Go RPC</h2>
+
+<p>Go标准包中已经提供了对RPC的支持，而且支持三个级别的RPC：TCP、HTTP、JSONRPC。但Go的RPC包是独一无二的RPC，它和传统的RPC系统不同，它只支持Go开发的服务器与客户端之间的交互，因为在内部，它们采用了Gob来编码。</p>
+
+<p>Go RPC的函数只有符合下面的条件才能被远程访问，不然会被忽略，详细的要求如下：</p>
+
+<ul>
+<li>函数必须是导出的(首字母大写)</li>
+<li>必须有两个导出类型的参数，</li>
+<li>第一个参数是接收的参数，第二个参数是返回给客户端的参数，第二个参数必须是指针类型的</li>
+<li>函数还要有一个返回值error</li>
+</ul>
+
+<p>举个例子，正确的RPC函数格式如下：</p>
+
+<pre><code>func (t *T) MethodName(argType T1, replyType *T2) error
+</code></pre>
+
+<p>T、T1和T2类型必须能被<code>encoding/gob</code>包编解码。</p>
+
+<p>任何的RPC都需要通过网络来传递数据，Go RPC可以利用HTTP和TCP来传递数据，利用HTTP的好处是可以直接复用<code>net/http</code>里面的一些函数。详细的例子请看下面的实现</p>
+
+<h3>HTTP RPC</h3>
+
+<p>http的服务端代码实现如下：</p>
+
+<pre><code>package main
+
+import (
+    &#34;errors&#34;
+    &#34;fmt&#34;
+    &#34;net/http&#34;
+    &#34;net/rpc&#34;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+type Arith int
+
+func (t *Arith) Multiply(args *Args, reply *int) error {
+    *reply = args.A * args.B
+    return nil
+}
+
+func (t *Arith) Divide(args *Args, quo *Quotient) error {
+    if args.B == 0 {
+        return errors.New(&#34;divide by zero&#34;)
+    }
+    quo.Quo = args.A / args.B
+    quo.Rem = args.A % args.B
+    return nil
+}
+
+func main() {
+
+    arith := new(Arith)
+    rpc.Register(arith)
+    rpc.HandleHTTP()
+
+    err := http.ListenAndServe(&#34;:1234&#34;, nil)
+    if err != nil {
+        fmt.Println(err.Error())
+    }
+}
+</code></pre>
+
+<p>通过上面的例子可以看到，我们注册了一个Arith的RPC服务，然后通过<code>rpc.HandleHTTP</code>函数把该服务注册到了HTTP协议上，然后我们就可以利用http的方式来传递数据了。</p>
+
+<p>请看下面的客户端代码：</p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;log&#34;
+    &#34;net/rpc&#34;
+    &#34;os&#34;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+func main() {
+    if len(os.Args) != 2 {
+        fmt.Println(&#34;Usage: &#34;, os.Args[0], &#34;server&#34;)
+        os.Exit(1)
+    }
+    serverAddress := os.Args[1]
+
+    client, err := rpc.DialHTTP(&#34;tcp&#34;, serverAddress+&#34;:1234&#34;)
+    if err != nil {
+        log.Fatal(&#34;dialing:&#34;, err)
+    }
+    // Synchronous call
+    args := Args{17, 8}
+    var reply int
+    err = client.Call(&#34;Arith.Multiply&#34;, args, &amp;reply)
+    if err != nil {
+        log.Fatal(&#34;arith error:&#34;, err)
+    }
+    fmt.Printf(&#34;Arith: %d*%d=%d\n&#34;, args.A, args.B, reply)
+
+    var quot Quotient
+    err = client.Call(&#34;Arith.Divide&#34;, args, &amp;quot)
+    if err != nil {
+        log.Fatal(&#34;arith error:&#34;, err)
+    }
+    fmt.Printf(&#34;Arith: %d/%d=%d remainder %d\n&#34;, args.A, args.B, quot.Quo, quot.Rem)
+
+}
+</code></pre>
+
+<p>我们把上面的服务端和客户端的代码分别编译，然后先把服务端开启，然后开启客户端，输入代码，就会输出如下信息：</p>
+
+<pre><code>$ ./http_c localhost
+Arith: 17*8=136
+Arith: 17/8=2 remainder 1
+</code></pre>
+
+<p>通过上面的调用可以看到参数和返回值是我们定义的struct类型，在服务端我们把它们当做调用函数的参数的类型，在客户端作为<code>client.Call</code>的第2，3两个参数的类型。客户端最重要的就是这个Call函数，它有3个参数，第1个要调用的函数的名字，第2个是要传递的参数，第3个要返回的参数(注意是指针类型)，通过上面的代码例子我们可以发现，使用Go的RPC实现相当的简单，方便。</p>
+
+<h3>TCP RPC</h3>
+
+<p>上面我们实现了基于HTTP协议的RPC，接下来我们要实现基于TCP协议的RPC，服务端的实现代码如下所示：</p>
+
+<pre><code>package main
+
+import (
+    &#34;errors&#34;
+    &#34;fmt&#34;
+    &#34;net&#34;
+    &#34;net/rpc&#34;
+    &#34;os&#34;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+type Arith int
+
+func (t *Arith) Multiply(args *Args, reply *int) error {
+    *reply = args.A * args.B
+    return nil
+}
+
+func (t *Arith) Divide(args *Args, quo *Quotient) error {
+    if args.B == 0 {
+        return errors.New(&#34;divide by zero&#34;)
+    }
+    quo.Quo = args.A / args.B
+    quo.Rem = args.A % args.B
+    return nil
+}
+
+func main() {
+
+    arith := new(Arith)
+    rpc.Register(arith)
+
+    tcpAddr, err := net.ResolveTCPAddr(&#34;tcp&#34;, &#34;:1234&#34;)
+    checkError(err)
+
+    listener, err := net.ListenTCP(&#34;tcp&#34;, tcpAddr)
+    checkError(err)
+
+    for {
+        conn, err := listener.Accept()
+        if err != nil {
+            continue
+        }
+        rpc.ServeConn(conn)
+    }
+
+}
+
+func checkError(err error) {
+    if err != nil {
+        fmt.Println(&#34;Fatal error &#34;, err.Error())
+        os.Exit(1)
+    }
+}
+</code></pre>
+
+<p>上面这个代码和http的服务器相比，不同在于:在此处我们采用了TCP协议，然后需要自己控制连接，当有客户端连接上来后，我们需要把这个连接交给rpc来处理。</p>
+
+<p>如果你留心了，你会发现这它是一个阻塞型的单用户的程序，如果想要实现多并发，那么可以使用goroutine来实现，我们前面在socket小节的时候已经介绍过如何处理goroutine。
+下面展现了TCP实现的RPC客户端：</p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;log&#34;
+    &#34;net/rpc&#34;
+    &#34;os&#34;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+func main() {
+    if len(os.Args) != 2 {
+        fmt.Println(&#34;Usage: &#34;, os.Args[0], &#34;server:port&#34;)
+        os.Exit(1)
+    }
+    service := os.Args[1]
+
+    client, err := rpc.Dial(&#34;tcp&#34;, service)
+    if err != nil {
+        log.Fatal(&#34;dialing:&#34;, err)
+    }
+    // Synchronous call
+    args := Args{17, 8}
+    var reply int
+    err = client.Call(&#34;Arith.Multiply&#34;, args, &amp;reply)
+    if err != nil {
+        log.Fatal(&#34;arith error:&#34;, err)
+    }
+    fmt.Printf(&#34;Arith: %d*%d=%d\n&#34;, args.A, args.B, reply)
+
+    var quot Quotient
+    err = client.Call(&#34;Arith.Divide&#34;, args, &amp;quot)
+    if err != nil {
+        log.Fatal(&#34;arith error:&#34;, err)
+    }
+    fmt.Printf(&#34;Arith: %d/%d=%d remainder %d\n&#34;, args.A, args.B, quot.Quo, quot.Rem)
+
+}
+</code></pre>
+
+<p>这个客户端代码和http的客户端代码对比，唯一的区别一个是DialHTTP，一个是Dial(tcp)，其他处理一模一样。</p>
+
+<h3>JSON RPC</h3>
+
+<p>JSON RPC是数据编码采用了JSON，而不是gob编码，其他和上面介绍的RPC概念一模一样，下面我们来演示一下，如何使用Go提供的json-rpc标准包，请看服务端代码的实现：</p>
+
+<pre><code>package main
+
+import (
+    &#34;errors&#34;
+    &#34;fmt&#34;
+    &#34;net&#34;
+    &#34;net/rpc&#34;
+    &#34;net/rpc/jsonrpc&#34;
+    &#34;os&#34;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+type Arith int
+
+func (t *Arith) Multiply(args *Args, reply *int) error {
+    *reply = args.A * args.B
+    return nil
+}
+
+func (t *Arith) Divide(args *Args, quo *Quotient) error {
+    if args.B == 0 {
+        return errors.New(&#34;divide by zero&#34;)
+    }
+    quo.Quo = args.A / args.B
+    quo.Rem = args.A % args.B
+    return nil
+}
+
+func main() {
+
+    arith := new(Arith)
+    rpc.Register(arith)
+
+    tcpAddr, err := net.ResolveTCPAddr(&#34;tcp&#34;, &#34;:1234&#34;)
+    checkError(err)
+
+    listener, err := net.ListenTCP(&#34;tcp&#34;, tcpAddr)
+    checkError(err)
+
+    for {
+        conn, err := listener.Accept()
+        if err != nil {
+            continue
+        }
+        jsonrpc.ServeConn(conn)
+    }
+
+}
+
+func checkError(err error) {
+    if err != nil {
+        fmt.Println(&#34;Fatal error &#34;, err.Error())
+        os.Exit(1)
+    }
+}
+</code></pre>
+
+<p>通过示例我们可以看出 json-rpc是基于TCP协议实现的，目前它还不支持HTTP方式。</p>
+
+<p>请看客户端的实现代码：</p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;log&#34;
+    &#34;net/rpc/jsonrpc&#34;
+    &#34;os&#34;
+)
+
+type Args struct {
+    A, B int
+}
+
+type Quotient struct {
+    Quo, Rem int
+}
+
+func main() {
+    if len(os.Args) != 2 {
+        fmt.Println(&#34;Usage: &#34;, os.Args[0], &#34;server:port&#34;)
+        log.Fatal(1)
+    }
+    service := os.Args[1]
+
+    client, err := jsonrpc.Dial(&#34;tcp&#34;, service)
+    if err != nil {
+        log.Fatal(&#34;dialing:&#34;, err)
+    }
+    // Synchronous call
+    args := Args{17, 8}
+    var reply int
+    err = client.Call(&#34;Arith.Multiply&#34;, args, &amp;reply)
+    if err != nil {
+        log.Fatal(&#34;arith error:&#34;, err)
+    }
+    fmt.Printf(&#34;Arith: %d*%d=%d\n&#34;, args.A, args.B, reply)
+
+    var quot Quotient
+    err = client.Call(&#34;Arith.Divide&#34;, args, &amp;quot)
+    if err != nil {
+        log.Fatal(&#34;arith error:&#34;, err)
+    }
+    fmt.Printf(&#34;Arith: %d/%d=%d remainder %d\n&#34;, args.A, args.B, quot.Quo, quot.Rem)
+
+}
+</code></pre>
+
+<h2>总结</h2>
+
+<p>Go已经提供了对RPC的良好支持，通过上面HTTP、TCP、JSON RPC的实现,我们就可以很方便的开发很多分布式的Web应用，我想作为读者的你已经领会到这一点。但遗憾的是目前Go尚未提供对SOAP RPC的支持，欣慰的是现在已经有第三方的开源实现了。</p>
+
+<h2>links</h2>
+
+<ul>
+<li><a href="preface.html">目录</a></li>
+<li>上一节: <a href="08.3.html">REST</a></li>
+<li>下一节: <a href="08.5.html">小结</a></li>
+</ul>
+<div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
+  <div>
+	</body>
+</html>

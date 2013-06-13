@@ -1,0 +1,614 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
+.container {
+		margin: 0 auto;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    
+}
+.nav {
+		display: block;
+		float: left;
+		position: fixed;
+		padding: 3px;
+		border-radius: 2px;
+		margin: 40px 0 0 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    background: #ffffff; overflow: hidden;
+}
+.nav ul {
+		background: #fafafb;
+		border-radius: 2px;
+		border: 1px solid #d8d8d8;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+}
+.nav ul li {
+		display: list-item;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #eee;
+}
+.nav ul li a {
+		display: block;
+		padding: 8px 10px 8px 8px;
+		text-shadow: 0 1px 0 #fff;
+		border-left: 2px solid #fafafb;
+		color: #4183c4;
+		text-decoration: none;
+}
+.nav ul li a:-webkit-any-link {
+		cursor: auto;
+}
+.markdown-body {
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		display: block;
+		width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+.markdown-body a.absent {
+    color: #CC0000;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    padding: 0;
+    position: relative;
+}
+.markdown-body h1 .mini-icon-link, .markdown-body h2 .mini-icon-link, .markdown-body h3 .mini-icon-link, .markdown-body h4 .mini-icon-link, .markdown-body h5 .mini-icon-link, .markdown-body h6 .mini-icon-link {
+    color: #000000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .mini-icon-link, .markdown-body h2:hover a.anchor .mini-icon-link, .markdown-body h3:hover a.anchor .mini-icon-link, .markdown-body h4:hover a.anchor .mini-icon-link, .markdown-body h5:hover a.anchor .mini-icon-link, .markdown-body h6:hover a.anchor .mini-icon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    color: #000000;
+    font-size: 28px;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+.markdown-body h3 {
+    font-size: 18px;
+}
+.markdown-body h4 {
+    font-size: 16px;
+}
+.markdown-body h5 {
+    font-size: 14px;
+}
+.markdown-body h6 {
+    color: #777777;
+    font-size: 14px;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
+}
+.markdown-body hr {
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body > h2:first-child, .markdown-body > h1:first-child, .markdown-body > h1:first-child + h2, .markdown-body > h3:first-child, .markdown-body > h4:first-child, .markdown-body > h5:first-child, .markdown-body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body a:first-child h1, .markdown-body a:first-child h2, .markdown-body a:first-child h3, .markdown-body a:first-child h4, .markdown-body a:first-child h5, .markdown-body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
+}
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+		</style>
+	</head>
+	<body>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="nav"></div>
+      
+    </div>
+  	<div class="markdown-body"><h1>7.3 正则处理</h1>
+
+<p>正则表达式是一种进行模式匹配和文本操纵的复杂而又强大的工具。虽然正则表达式比纯粹的文本匹配效率低，但是它却更灵活。按照它的语法规则，随需构造出的匹配模式就能够从原始文本中筛选出几乎任何想你要得到的字符组合。如果你在Web开发中需要从一些文本数据源中获取数据,那么你只需要按照它的语法规则，随需构造出正确的模式字符串就能够从原数据源提取出有意义的文本信息。</p>
+
+<p>Go语言通过<code>regexp</code>标准包为正则表达式提供了官方支持，如果你已经使用过其他编程语言提供的正则相关功能，那么你应该对Go语言版本的不会太陌生，但是它们之间也有一些小的差异，因为Go实现的是RE2标准，除了\C，详细的语法描述参考：<code>http://code.google.com/p/re2/wiki/Syntax</code></p>
+
+<p>其实字符串处理我们可以使用<code>strings</code>包来进行搜索(Contains、Index)、替换(Replace)和解析(Split、Join)等操作，但是这些都是简单的字符串操作，他们的搜索都是大小写敏感，而且固定的字符串，如果我们需要匹配可变的那种就没办法实现了，当然如果<code>strings</code>包能解决你的问题，那么就尽量使用它来解决。因为他们足够简单、而且性能和可读性都会比正则好。</p>
+
+<p>如果你还记得，在前面表单验证的小节里，我们已经接触过正则处理，在那里我们利用了它来验证输入的信息是否满足某些预设的条件。在使用中需要注意的一点就是：所有的字符都是UTF-8编码的。接下来让我们更加深入的来学习Go语言的<code>regexp</code>包相关知识吧。</p>
+
+<h2>通过正则判断是否匹配</h2>
+
+<p><code>regexp</code>包中含有三个函数用来判断是否匹配，如果匹配返回true，否则返回false</p>
+
+<pre><code>func Match(pattern string, b []byte) (matched bool, error error)
+func MatchReader(pattern string, r io.RuneReader) (matched bool, error error)
+func MatchString(pattern string, s string) (matched bool, error error)
+</code></pre>
+
+<p>上面的三个函数实现了同一个功能，就是判断<code>pattern</code>是否和输入源匹配，匹配的话就返回true，如果解析正则出错则返回error。三个函数的输入源分别是byte slice、RuneReader和string。</p>
+
+<p>如果要验证一个输入是不是IP地址，那么如何来判断呢？请看如下实现</p>
+
+<pre><code>func IsIP(ip string) (b bool) {
+    if m, _ := regexp.MatchString(&#34;^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$&#34;, ip); !m {
+        return false
+    }
+    return true
+}
+</code></pre>
+
+<p>可以看到，<code>regexp</code>的pattern和我们平常使用的正则一模一样。再来看一个例子：当用户输入一个字符串，我们想知道是不是一次合法的输入：</p>
+
+<pre><code>func main() {
+    if len(os.Args) == 1 {
+        fmt.Println(&#34;Usage: regexp [string]&#34;)
+        os.Exit(1)
+    } else if m, _ := regexp.MatchString(&#34;^[0-9]+$&#34;, os.Args[1]); m {
+        fmt.Println(&#34;数字&#34;)
+    } else {
+        fmt.Println(&#34;不是数字&#34;)
+    }
+}
+</code></pre>
+
+<p>在上面的两个小例子中，我们采用了Match(Reader|String)来判断一些字符串是否符合我们的描述需求，它们使用起来非常方便。</p>
+
+<h2>通过正则获取内容</h2>
+
+<p>Match模式只能用来对字符串的判断，而无法截取字符串的一部分、过滤字符串、或者提取出符合条件的一批字符串。如果想要满足这些需求，那就需要使用正则表达式的复杂模式。</p>
+
+<p>我们经常需要一些爬虫程序，下面就以爬虫为例来说明如何使用正则来过滤或截取抓取到的数据：</p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;io/ioutil&#34;
+    &#34;net/http&#34;
+    &#34;regexp&#34;
+    &#34;strings&#34;
+)
+
+func main() {
+    resp, err := http.Get(&#34;http://www.baidu.com&#34;)
+    if err != nil {
+        fmt.Println(&#34;http get error.&#34;)
+    }
+    defer resp.Body.Close()
+    body, err := ioutil.ReadAll(resp.Body)
+    if err != nil {
+        fmt.Println(&#34;http read error&#34;)
+        return
+    }
+
+    src := string(body)
+
+    //将HTML标签全转换成小写
+    re, _ := regexp.Compile(&#34;\\&lt;[\\S\\s]+?\\&gt;&#34;)
+    src = re.ReplaceAllStringFunc(src, strings.ToLower)
+
+    //去除STYLE
+    re, _ = regexp.Compile(&#34;\\&lt;style[\\S\\s]+?\\&lt;/style\\&gt;&#34;)
+    src = re.ReplaceAllString(src, &#34;&#34;)
+
+    //去除SCRIPT
+    re, _ = regexp.Compile(&#34;\\&lt;script[\\S\\s]+?\\&lt;/script\\&gt;&#34;)
+    src = re.ReplaceAllString(src, &#34;&#34;)
+
+    //去除所有尖括号内的HTML代码，并换成换行符
+    re, _ = regexp.Compile(&#34;\\&lt;[\\S\\s]+?\\&gt;&#34;)
+    src = re.ReplaceAllString(src, &#34;\n&#34;)
+
+    //去除连续的换行符
+    re, _ = regexp.Compile(&#34;\\s{2,}&#34;)
+    src = re.ReplaceAllString(src, &#34;\n&#34;)
+
+    fmt.Println(strings.TrimSpace(src))
+}
+</code></pre>
+
+<p>从这个示例可以看出，使用复杂的正则首先是Compile，它会解析正则表达式是否合法，如果正确，那么就会返回一个Regexp，然后就可以利用返回的Regexp在任意的字符串上面执行需要的操作。</p>
+
+<p>解析正则表达式的有如下几个方法：</p>
+
+<pre><code>func Compile(expr string) (*Regexp, error)
+func CompilePOSIX(expr string) (*Regexp, error)
+func MustCompile(str string) *Regexp
+func MustCompilePOSIX(str string) *Regexp
+</code></pre>
+
+<p>CompilePOSIX和Compile的不同点在于POSIX必须使用POSIX语法，它使用最左最长方式搜索，而Compile是采用的则只采用最左方式搜索(例如[a-z]{2,4}这样一个正则表达式，应用于&#34;aa09aaa88aaaa&#34;这个文本串时，CompilePOSIX返回了aaaa，而Compile的返回的是aa)。前缀有Must的函数表示，在解析正则语法的时候，如果匹配模式串不满足正确的语法则直接panic，而不加Must的则只是返回错误。</p>
+
+<p>在了解了如何新建一个Regexp之后，我们再来看一下这个struct提供了哪些方法来辅助我们操作字符串，首先我们来看下面这些用来搜索的函数：</p>
+
+<pre><code>func (re *Regexp) Find(b []byte) []byte
+func (re *Regexp) FindAll(b []byte, n int) [][]byte
+func (re *Regexp) FindAllIndex(b []byte, n int) [][]int
+func (re *Regexp) FindAllString(s string, n int) []string
+func (re *Regexp) FindAllStringIndex(s string, n int) [][]int
+func (re *Regexp) FindAllStringSubmatch(s string, n int) [][]string
+func (re *Regexp) FindAllStringSubmatchIndex(s string, n int) [][]int
+func (re *Regexp) FindAllSubmatch(b []byte, n int) [][][]byte
+func (re *Regexp) FindAllSubmatchIndex(b []byte, n int) [][]int
+func (re *Regexp) FindIndex(b []byte) (loc []int)
+func (re *Regexp) FindReaderIndex(r io.RuneReader) (loc []int)
+func (re *Regexp) FindReaderSubmatchIndex(r io.RuneReader) []int
+func (re *Regexp) FindString(s string) string
+func (re *Regexp) FindStringIndex(s string) (loc []int)
+func (re *Regexp) FindStringSubmatch(s string) []string
+func (re *Regexp) FindStringSubmatchIndex(s string) []int
+func (re *Regexp) FindSubmatch(b []byte) [][]byte
+func (re *Regexp) FindSubmatchIndex(b []byte) []int
+</code></pre>
+
+<p>上面这18个函数我们根据输入源(byte slice、string和io.RuneReader)不同还可以继续简化成如下几个，其他的只是输入源不一样，其他功能基本是一样的：</p>
+
+<pre><code>func (re *Regexp) Find(b []byte) []byte
+func (re *Regexp) FindAll(b []byte, n int) [][]byte
+func (re *Regexp) FindAllIndex(b []byte, n int) [][]int
+func (re *Regexp) FindAllSubmatch(b []byte, n int) [][][]byte
+func (re *Regexp) FindAllSubmatchIndex(b []byte, n int) [][]int
+func (re *Regexp) FindIndex(b []byte) (loc []int)
+func (re *Regexp) FindSubmatch(b []byte) [][]byte
+func (re *Regexp) FindSubmatchIndex(b []byte) []int
+</code></pre>
+
+<p>对于这些函数的使用我们来看下面这个例子</p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;regexp&#34;
+)
+
+func main() {
+    a := &#34;I am learning Go language&#34;
+
+    re, _ := regexp.Compile(&#34;[a-z]{2,4}&#34;)
+
+    //查找符合正则的第一个
+    one := re.Find([]byte(a))
+    fmt.Println(&#34;Find:&#34;, string(one))
+
+    //查找符合正则的所有slice,n小于0表示返回全部符合的字符串，不然就是返回指定的长度
+    all := re.FindAll([]byte(a), -1)
+    fmt.Println(&#34;FindAll&#34;, all)
+
+    //查找符合条件的index位置,开始位置和结束位置
+    index := re.FindIndex([]byte(a))
+    fmt.Println(&#34;FindIndex&#34;, index)
+
+    //查找符合条件的所有的index位置，n同上
+    allindex := re.FindAllIndex([]byte(a), -1)
+    fmt.Println(&#34;FindAllIndex&#34;, allindex)
+
+    re2, _ := regexp.Compile(&#34;am(.*)lang(.*)&#34;)
+
+    //查找Submatch,返回数组，第一个元素是匹配的全部元素，第二个元素是第一个()里面的，第三个是第二个()里面的
+    //下面的输出第一个元素是&#34;am learning Go language&#34;
+    //第二个元素是&#34; learning Go &#34;，注意包含空格的输出
+    //第三个元素是&#34;uage&#34;
+    submatch := re2.FindSubmatch([]byte(a))
+    fmt.Println(&#34;FindSubmatch&#34;, submatch)
+    for _, v := range submatch {
+        fmt.Println(string(v))
+    }
+
+    //定义和上面的FindIndex一样
+    submatchindex := re2.FindSubmatchIndex([]byte(a))
+    fmt.Println(submatchindex)
+
+    //FindAllSubmatch,查找所有符合条件的子匹配
+    submatchall := re2.FindAllSubmatch([]byte(a), -1)
+    fmt.Println(submatchall)
+
+    //FindAllSubmatchIndex,查找所有字匹配的index
+    submatchallindex := re2.FindAllSubmatchIndex([]byte(a), -1)
+    fmt.Println(submatchallindex)
+}
+</code></pre>
+
+<p>前面介绍过匹配函数，Regexp也定义了三个函数，它们和同名的外部函数功能一模一样，其实外部函数就是调用了这Regexp的三个函数来实现的：</p>
+
+<pre><code>func (re *Regexp) Match(b []byte) bool
+func (re *Regexp) MatchReader(r io.RuneReader) bool
+func (re *Regexp) MatchString(s string) bool
+</code></pre>
+
+<p>接下里让我们来了解替换函数是怎么操作的？</p>
+
+<pre><code>func (re *Regexp) ReplaceAll(src, repl []byte) []byte
+func (re *Regexp) ReplaceAllFunc(src []byte, repl func([]byte) []byte) []byte
+func (re *Regexp) ReplaceAllLiteral(src, repl []byte) []byte
+func (re *Regexp) ReplaceAllLiteralString(src, repl string) string
+func (re *Regexp) ReplaceAllString(src, repl string) string
+func (re *Regexp) ReplaceAllStringFunc(src string, repl func(string) string) string
+</code></pre>
+
+<p>这些替换函数我们在上面的抓网页的例子有详细应用示例，</p>
+
+<p>接下来我们看一下Expand的解释：</p>
+
+<pre><code>func (re *Regexp) Expand(dst []byte, template []byte, src []byte, match []int) []byte
+func (re *Regexp) ExpandString(dst []byte, template string, src string, match []int) []byte
+</code></pre>
+
+<p>那么这个Expand到底用来干嘛的呢？请看下面的例子：</p>
+
+<pre><code>func main() {
+    src := []byte(`
+        call hello alice
+        hello bob
+        call hello eve
+    `)
+    pat := regexp.MustCompile(`(?m)(call)\s+(?P&lt;cmd&gt;\w+)\s+(?P&lt;arg&gt;.+)\s*$`)
+    res := []byte{}
+    for _, s := range pat.FindAllSubmatchIndex(src, -1) {
+        res = pat.Expand(res, []byte(&#34;$cmd(&#39;$arg&#39;)\n&#34;), src, s)
+    }
+    fmt.Println(string(res))
+}
+</code></pre>
+
+<p>至此我们已经全部介绍完Go语言的<code>regexp</code>包，通过对它的主要函数介绍及演示，相信大家应该能够通过Go语言的正则包进行一些基本的正则的操作了。</p>
+
+<h2>links</h2>
+
+<ul>
+<li><a href="preface.html">目录</a></li>
+<li>上一节: <a href="07.2.html">Json处理</a></li>
+<li>下一节: <a href="07.4.html">模板处理</a></li>
+</ul>
+<div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
+  <div>
+	</body>
+</html>
