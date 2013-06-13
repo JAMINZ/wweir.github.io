@@ -26,7 +26,7 @@ tt,  kbd, samp {
 
 code {
     padding: 2px 4px;
-    color: #cae3b6;
+    color: green;
     font-family: 'Lucida Console', 'Courier New', Courier, monospace;
 }
 
@@ -276,7 +276,7 @@ i[class^="icon-"] {
 
 blockquote:hover, pre:hover {
     color: #eee;
-    background: rgba(255,30,120,0.25);
+    background: grey;
 }
 
 .article p code,
