@@ -20,8 +20,14 @@ legend, caption, aside, details, figcaption, figure, footer,header, hgroup, menu
 	vertical-align: baseline;
 }
 
-tt, code, kbd, samp {
+tt,  kbd, samp {
     font-family: 'Courier New', 'Courier', 'Lucida Console', Monaco;
+}
+
+code {
+    padding: 2px 4px;
+    color: #cae3b6;
+    font-family: 'Lucida Console', 'Courier New', Courier, monospace;
 }
 
 input {
@@ -266,6 +272,11 @@ i[class^="icon-"] {
     border: 1px solid #ccc;
     background: #f3f3f3;
     border-radius: 3px;
+}
+
+blockquote:hover, pre:hover {
+    color: #eee;
+    background: rgba(255,30,120,0.25);
 }
 
 .article p code,
