@@ -8,12 +8,16 @@
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="../styles.css">
 <link rel="stylesheet" type="text/css" href="../font-awesome.css">
+<script src="../google-code-prettify/run_prettify.js"></script>
+<link href="../google-code-prettify/prettify.css" type="text/css" rel="stylesheet"/>
+<link href="https://github.com/wweir/wweir.github.com/commits/master.atom" rel="alternate" title="Kdmud Wiki 的最新更改" type="application/atom+xml" /> 
 <meta name="author" content="wweir">
 <meta name="application-name" content="Arch安装小结">
 <!--[if IE 7]>
 <script src="../html5.js"></script>
 <link rel="stylesheet" type="text/css" href="../font-awesome-ie7.css" />
 <![endif]-->
+<script src="../run_prettify.js"></script>
 <style type="text/css"></style></head>
 <body class="bg">
 <header>
@@ -31,7 +35,7 @@
 下载iso文件
 
 <li>
-<code>dd if=arch*.iso of=/dev/sd[a,b,c,d]</code>
+<code class="prettyprint">dd if=arch*.iso of=/dev/sd[a,b,c,d]</code>
 
 <li>
 usb启动
@@ -40,112 +44,112 @@ usb启动
 <a href="测试Arch安装环境网络.html">测试Arch安装环境网络</a>
 
 <li>
-<code>cfdisk</code>
+<code class="prettyprint">cfdisk</code>
 
 <li>
-<code>mkfs.ext4 /dev/sda[1,2,3,4,]</code>
+<code class="prettyprint">mkfs.ext4 /dev/sda[1,2,3,4,]</code>
 
 <li>
-<code>mkswap /dev/sda*</code>
+<code class="prettyprint">mkswap /dev/sda*</code>
 
 <li>
-<code>swapon /dev/sda*</code>
+<code class="prettyprint">swapon /dev/sda*</code>
 
 <li>
-<code>mount /dev/sda* /mnt/{,home/,……}</code>
+<code class="prettyprint">mount /dev/sda* /mnt/{,home/,……}</code>
 
 <li>
-<code>vi /etc/pacman.d/mirrors</code>
+<code class="prettyprint">vi /etc/pacman.d/mirrors</code>
 
 <li>
-<code>pacstrap /mnt base base-devel vim syslinux net-tools wpa_supplicant netcfg dialog</code>
+<code class="prettyprint">pacstrap /mnt base base-devel vim syslinux net-tools wpa_supplicant netcfg dialog</code>
 
 <li>
-<code>genfstab -p /mnt &gt;&gt; /mnt/etc/fstab</code>
+<code class="prettyprint">genfstab -p /mnt &gt;&gt; /mnt/etc/fstab</code>
 
 <li>
-<code>arch-chroot /mnt</code>
+<code class="prettyprint">arch-chroot /mnt</code>
 
 <li>
-<code>vim /etc/fstab</code> 加入参数<code>noauto,x-systemd.automount</code>
+<code class="prettyprint">vim /etc/fstab</code> 加入参数<code class="prettyprint">noauto,x-systemd.automount</code>
 
 <li>
-<code>vim /boot/syslinux/syslinux.conf</code>
+<code class="prettyprint">vim /boot/syslinux/syslinux.conf</code>
 
 <li>
-<code>syslinux-install_update -iam</code>
+<code class="prettyprint">syslinux-install_update -iam</code>
 
 <li>
-<code>pacman -S wqy-microhei</code>
+<code class="prettyprint">pacman -S wqy-microhei</code>
 
 <li>
-<code>[vi, nano] /etc/locale.gen</code>
+<code class="prettyprint">[vi, nano] /etc/locale.gen</code>
 
 <li>
-<code>locale-gen</code>
+<code class="prettyprint">locale-gen</code>
 
 <li>
-<code>hwclock --systohc --utc</code>
+<code class="prettyprint">hwclock --systohc --utc</code>
 
 <li>
-<code>mkinitcpio -p linux</code>
+<code class="prettyprint">mkinitcpio -p linux</code>
 
 <li>
-<code>passwd</code>
+<code class="prettyprint">passwd</code>
 
 <li>
-<code>useradd -m -g users -s /bin/bash (username)</code>
+<code class="prettyprint">useradd -m -g users -s /bin/bash (username)</code>
 
 <li>
-<code>passwd (username)</code>
+<code class="prettyprint">passwd (username)</code>
 
 <li>
-<code>pacman -S sudo</code>
+<code class="prettyprint">pacman -S sudo</code>
 
 <li>
-<code>visudo</code>
+<code class="prettyprint">visudo</code>
 
 <li>
-<code>&lt;C-D&gt;</code>
+<code class="prettyprint">&lt;C-D&gt;</code>
 
 <li>
-<code>umount /mnt/{,home/,mnt/}</code>
+<code class="prettyprint">umount /mnt/{,home/,mnt/}</code>
 
 <li>
-<code>reboot</code>
+<code class="prettyprint">reboot</code>
 
 <li>
-<code>hostnamectl set-hostname Archlinux</code>
+<code class="prettyprint">hostnamectl set-hostname Archlinux</code>
 
 <li>
-<code>timedatectl set-timezone Asia/Shanghai</code>
+<code class="prettyprint">timedatectl set-timezone Asia/Shanghai</code>
 
 <li>
-<code>localectl set-locale LANG="zh_CN.UTF-8"</code>
+<code class="prettyprint">localectl set-locale LANG="zh_CN.UTF-8"</code>
 
 <li>
-<code>timedatectl set-local-rtc false</code>
+<code class="prettyprint">timedatectl set-local-rtc false</code>
 
 <li>
-开启DHCP自动开启<code>systemctl enable dhcpcd@[wlan0,eth0].service</code>
+开启DHCP自动开启<code class="prettyprint">systemctl enable dhcpcd@[wlan0,eth0].service</code>
 
 <li>
-<code>reboot</code>
+<code class="prettyprint">reboot</code>
 
 </ol>
 <hr />
 <ol>
 <li>
-<code>pacman -S xorg-sever xorg-xinit xorg-utils xorg-server-utils alsa-utils</code>
+<code class="prettyprint">pacman -S xorg-sever xorg-xinit xorg-utils xorg-server-utils alsa-utils</code>
 
 <li>
-<code>pacman -S mesa xf86-video-[intel,ati]/nvidia xf86-input-synaptics</code>
+<code class="prettyprint">pacman -S mesa xf86-video-[intel,ati]/nvidia xf86-input-synaptics</code>
 
 <li>
-<code>startx</code>
+<code class="prettyprint">startx</code>
 
 <li>
-<code>grep EE /var/log/Xorg.0.log</code>
+<code class="prettyprint">grep EE /var/log/Xorg.0.log</code>
 
 <li>
 安装上一步缺的东西
@@ -161,27 +165,27 @@ usb启动
 </p>
 <ol>
 <li>
-<code>vim /etc/pacman.d/mirrors</code>
+<code class="prettyprint">vim /etc/pacman.d/mirrors</code>
 
 <li>
 加入
-<pre>
+<pre class="prettyprint">
 [archlinuxfr]
 SigLevel = Optional TrustAll
  Server = http://repo.archlinux.fr/$arch
 </pre>
 
 <li>
-<code>pacman -S yajl</code>
+<code class="prettyprint">pacman -S yajl</code>
 
 <li>
-<code>pacman -S yaourt</code>
+<code class="prettyprint">pacman -S yaourt</code>
 
 <li>
-<code>yaourt -Syua</code>
+<code class="prettyprint">yaourt -Syua</code>
 
 <li>
-<code>pacman -S yaourt</code>
+<code class="prettyprint">pacman -S yaourt</code>
 
 </ol>
 

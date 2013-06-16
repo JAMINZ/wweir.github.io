@@ -8,12 +8,16 @@
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="../styles.css">
 <link rel="stylesheet" type="text/css" href="../font-awesome.css">
+<script src="../google-code-prettify/run_prettify.js"></script>
+<link href="../google-code-prettify/prettify.css" type="text/css" rel="stylesheet"/>
+<link href="https://github.com/wweir/wweir.github.com/commits/master.atom" rel="alternate" title="Kdmud Wiki 的最新更改" type="application/atom+xml" /> 
 <meta name="author" content="wweir">
 <meta name="application-name" content="vimwiki 2.0.1.stu">
 <!--[if IE 7]>
 <script src="../html5.js"></script>
 <link rel="stylesheet" type="text/css" href="../font-awesome-ie7.css" />
 <![endif]-->
+<script src="../run_prettify.js"></script>
 <style type="text/css"></style></head>
 <body class="bg">
 <header>
@@ -41,7 +45,7 @@
 </p>
 
 <p>
-<a href="http:../file/vimwiki.txt">这里</a>有份不错的资料，原本记录在googlecode，国内使用总是有些不便的，可以的话建议到 <a href="http://vim-script-cn.googlecode.com/svn/trunk/doc/vimwiki.cnx">http://vim-script-cn.googlecode.com/svn/trunk/doc/vimwiki.cnx</a> 去读最新的版本。当然想真正学好vimwiki，还是得看<code>:h vimwiki</code>的！
+<a href="http:../file/vimwiki.txt">这里</a>有份不错的资料，原本记录在googlecode，国内使用总是有些不便的，可以的话建议到 <a href="http://vim-script-cn.googlecode.com/svn/trunk/doc/vimwiki.cnx">http://vim-script-cn.googlecode.com/svn/trunk/doc/vimwiki.cnx</a> 去读最新的版本。当然想真正学好vimwiki，还是得看<code class="prettyprint">:h vimwiki</code>的！
 <hr />
 </p>
 <h3 id="toc_0.0.1">安装</h3>
@@ -50,11 +54,11 @@
 安装vim
 
 <li>
-从<a href="http://www.vim.org/scripts/script.php?script_id=2226">这里</a>或者<a href="https://code.google.com/p/vimwiki/downloads/list">这里</a>下载最新的vimwiki的安装文件，并<code>:so %</code>安装之
+从<a href="http://www.vim.org/scripts/script.php?script_id=2226">这里</a>或者<a href="https://code.google.com/p/vimwiki/downloads/list">这里</a>下载最新的vimwiki的安装文件，并<code class="prettyprint">:so %</code>安装之
 
 <li>
 配置.vimrc,保证里面至少有以下内容
-<pre>
+<pre class="prettyprint">
 	filetype indent on
 	filetype plugin indent on
 	filetype plugin on
@@ -199,7 +203,7 @@
 <strong>粗体</strong>
 </th>
 <th>
-<code>*粗体*</code>
+<code class="prettyprint">*粗体*</code>
 </th>
 </tr>
 <tr>
@@ -207,7 +211,7 @@
 <em>斜体</em>
 </th>
 <th>
-<code>_斜体_</code>
+<code class="prettyprint">_斜体_</code>
 </th>
 </tr>
 <tr>
@@ -215,7 +219,7 @@
 <del>删除线</del>
 </th>
 <th>
-<code>~~删除线~~</code>
+<code class="prettyprint">~~删除线~~</code>
 </th>
 </tr>
 <tr>
@@ -223,7 +227,7 @@
 <a href="http://weiki.tk">http://weiki.tk</a>
 </th>
 <th>
-<code>http://weiki.tk</code>
+<code class="prettyprint">http://weiki.tk</code>
 </th>
 </tr>
 <tr>
@@ -231,7 +235,7 @@
 <a href="http://weiki.tk">weiki</a>
 </th>
 <th>
-<code>[[http://weiki.tk|weiki]]</code>
+<code class="prettyprint">[[http://weiki.tk|weiki]]</code>
 </th>
 </tr>
 <tr>
@@ -239,7 +243,7 @@
 <a href="http:../mdj.ogg">牡丹江.ogg</a>
 </th>
 <th>
-<code>[[http:../mdj.ogg|牡丹江.ogg]]</code>
+<code class="prettyprint">[[http:../mdj.ogg|牡丹江.ogg]]</code>
 </th>
 </tr>
 <tr>
@@ -247,7 +251,7 @@
 <img src="../favicon.ico" />
 </th>
 <th>
-<code>{{../favicon.ico}}</code>
+<code class="prettyprint">{{../favicon.ico}}</code>
 </th>
 </tr>
 <tr>
@@ -255,7 +259,7 @@
 <a href="http://weiki.tk"><img src="../favicon.ico" /></a>
 </th>
 <th>
-<code>[[http://weiki.tk|{{../favicon.ico}}]]</code>
+<code class="prettyprint">[[http://weiki.tk|{{../favicon.ico}}]]</code>
 </th>
 </tr>
 </table>
@@ -265,11 +269,11 @@
 说明一下，还有两个很实用的语法就是
 </p>
 
-<pre>
+<pre class="prettyprint">
   `  `
 </pre>
 <p>
-和<code>{{{  }}}</code>
+和<code class="prettyprint">{{{  }}}</code>
 </p>
 
 <p>

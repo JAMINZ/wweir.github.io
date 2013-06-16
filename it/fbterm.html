@@ -8,12 +8,16 @@
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="../styles.css">
 <link rel="stylesheet" type="text/css" href="../font-awesome.css">
+<script src="../google-code-prettify/run_prettify.js"></script>
+<link href="../google-code-prettify/prettify.css" type="text/css" rel="stylesheet"/>
+<link href="https://github.com/wweir/wweir.github.com/commits/master.atom" rel="alternate" title="Kdmud Wiki 的最新更改" type="application/atom+xml" /> 
 <meta name="author" content="wweir">
 <meta name="application-name" content="fbterm">
 <!--[if IE 7]>
 <script src="../html5.js"></script>
 <link rel="stylesheet" type="text/css" href="../font-awesome-ie7.css" />
 <![endif]-->
+<script src="../run_prettify.js"></script>
 <style type="text/css"></style></head>
 <body class="bg">
 <header>
@@ -32,14 +36,14 @@
 </p>
 <ol>
 <li>
-<code>sudo apt-get install fbterm</code>
+<code class="prettyprint">sudo apt-get install fbterm</code>
 
 <li>
-将自己加入video组 <code>sudo adduser username video</code>
+将自己加入video组 <code class="prettyprint">sudo adduser username video</code>
 
 <li>
-<code>vim .fbtermrc</code>,贴入以下内容(<strong>默认使用yong输入法</strong>)
-<pre>
+<code class="prettyprint">vim .fbtermrc</code>,贴入以下内容(<strong>默认使用yong输入法</strong>)
+<pre class="prettyprint">
   
 # Configuration for FbTerm
 
@@ -92,11 +96,11 @@ input-method=yong
 下载<a href="http:../file/fbterm_install.sh">这个</a>文件，并sudo安装
 
 <li>
-解决因快捷键权限导致的输入法快捷键问题 <code>sudo chmod u+s /usr/bin/fbterm</code>
+解决因快捷键权限导致的输入法快捷键问题 <code class="prettyprint">sudo chmod u+s /usr/bin/fbterm</code>
 
 <li>
-<code>vim .bashrc</code>
-<pre>
+<code class="prettyprint">vim .bashrc</code>
+<pre class="prettyprint">
 alias fbterm='LANG=zh_CN.UTF-8 fbterm'
 if [ "$TERM" = "linux" ]; then
     fbterm
@@ -105,11 +109,11 @@ fi
 </pre>
 
 <li>
-启用鼠标 <code>sudo apt get install gpm</code>
+启用鼠标 <code class="prettyprint">sudo apt get install gpm</code>
 
 <li>
-# 添加开机启动项 <code>sudo vim /boot/grub/custom.cfg</code>
-<pre>
+# 添加开机启动项 <code class="prettyprint">sudo vim /boot/grub/custom.cfg</code>
+<pre class="prettyprint">
 
 menuentry 'Ubuntu，Linux 3.2.0-33-generic' --class ubuntu --class gnu-linux --class gnu --class os {
 	recordfail
@@ -125,7 +129,7 @@ menuentry 'Ubuntu，Linux 3.2.0-33-generic' --class ubuntu --class gnu-linux --c
 </pre>
 
 <li>
-重启，尽享快感！<code>sudo reboot</code>
+重启，尽享快感！<code class="prettyprint">sudo reboot</code>
 
 </ol>
  

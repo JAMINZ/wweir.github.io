@@ -8,12 +8,16 @@
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="../styles.css">
 <link rel="stylesheet" type="text/css" href="../font-awesome.css">
+<script src="../google-code-prettify/run_prettify.js"></script>
+<link href="../google-code-prettify/prettify.css" type="text/css" rel="stylesheet"/>
+<link href="https://github.com/wweir/wweir.github.com/commits/master.atom" rel="alternate" title="Kdmud Wiki 的最新更改" type="application/atom+xml" /> 
 <meta name="author" content="wweir">
 <meta name="application-name" content="vim脚本学习">
 <!--[if IE 7]>
 <script src="../html5.js"></script>
 <link rel="stylesheet" type="text/css" href="../font-awesome-ie7.css" />
 <![endif]-->
+<script src="../run_prettify.js"></script>
 <style type="text/css"></style></head>
 <body class="bg">
 <header>
@@ -33,7 +37,7 @@
 <h4 id="toc_0.0.0.1">几个常用例子</h4>
 <p>
 获取当前buffer编号、行数、列数、并将光标前移一格
-<code>setpos('.',[bufnr('.'), getline('.'), col('.') - 1, 0])</code>
+<code class="prettyprint">setpos('.',[bufnr('.'), getline('.'), col('.') - 1, 0])</code>
 </p>
 
 
