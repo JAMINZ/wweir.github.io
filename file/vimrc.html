@@ -72,7 +72,7 @@ body { font-family: monospace; color: #ffffff; background-color: #000000; }
 <span class="statement">set</span> <span class="preproc">incsearch</span>
 <span class="statement">set</span> <span class="preproc">hlsearch</span>
 <span class="Comment">&quot;&quot;关机前编辑文件恢复</span>
-<span class="statement">set</span> <span class="preproc">undodir</span>=/tmp/Vim_undo
+<span class="statement">set</span> <span class="preproc">undodir</span>=/tmp/
 <span class="statement">set</span> <span class="preproc">undofile</span>
 <span class="Comment">&quot;&quot;折行</span>
 <span class="statement">set</span> <span class="preproc">foldmethod</span>=indent
@@ -103,8 +103,8 @@ body { font-family: monospace; color: #ffffff; background-color: #000000; }
 <span class="statement">set</span> <span class="preproc">softtabstop</span>=4
 
 <span class="Comment">&quot;预防手误的杀招&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="statement">nnoremap</span> <span class="special">&lt;</span><span class="special">M-w</span><span class="special">&gt;</span>  :wq<span class="special">&lt;</span><span class="special">CR</span><span class="special">&gt;</span>
-<span class="statement">inoremap</span> <span class="special">&lt;</span><span class="special">M-w</span><span class="special">&gt;</span>  <span class="special">&lt;</span><span class="special">Esc</span><span class="special">&gt;&lt;</span><span class="special">Esc</span><span class="special">&gt;</span>:wq<span class="special">&lt;</span><span class="special">CR</span><span class="special">&gt;</span>
+<span class="statement">nnoremap</span> <span class="special">&lt;</span><span class="special">M-w</span><span class="special">&gt;</span>  :x<span class="special">&lt;</span><span class="special">CR</span><span class="special">&gt;</span>
+<span class="statement">inoremap</span> <span class="special">&lt;</span><span class="special">M-w</span><span class="special">&gt;</span>  <span class="special">&lt;</span><span class="special">Esc</span><span class="special">&gt;&lt;</span><span class="special">Esc</span><span class="special">&gt;</span>:x<span class="special">&lt;</span><span class="special">CR</span><span class="special">&gt;</span>
 <span class="statement">inoremap</span> <span class="special">&lt;</span><span class="special">M-W</span><span class="special">&gt;</span>  <span class="special">&lt;</span><span class="special">Esc</span><span class="special">&gt;&lt;</span><span class="special">Esc</span><span class="special">&gt;</span>:w !sudo tee %
 <span class="statement">nnoremap</span> <span class="special">&lt;</span><span class="special">M-W</span><span class="special">&gt;</span>  :w !sudo tee %
 <span class="statement">nnoremap</span> <span class="special">&lt;</span><span class="special">M-q</span><span class="special">&gt;</span>  :q
@@ -130,8 +130,10 @@ body { font-family: monospace; color: #ffffff; background-color: #000000; }
 <span class="Comment">&quot;let use_xhtml = 1</span>
 <span class="statement">nnoremap</span> <span class="special">&lt;</span><span class="special">M-T</span><span class="special">&gt;</span>  :TOhtml<span class="special">&lt;</span><span class="special">CR</span><span class="special">&gt;</span>
 <span class="statement">inoremap</span> <span class="special">&lt;</span><span class="special">M-T</span><span class="special">&gt;</span>  <span class="special">&lt;</span><span class="special">Esc</span><span class="special">&gt;</span>:TOhtml<span class="special">&lt;</span><span class="special">CR</span><span class="special">&gt;</span>
+<span class="statement">nnoremap</span> <span class="special">&lt;</span><span class="special">M-c</span><span class="special">&gt;</span>  :Calendar<span class="special">&lt;</span><span class="special">CR</span><span class="special">&gt;</span>
+<span class="statement">inoremap</span> <span class="special">&lt;</span><span class="special">M-c</span><span class="special">&gt;</span>  <span class="special">&lt;</span><span class="special">Esc</span><span class="special">&gt;</span>:Calendar<span class="special">&lt;</span><span class="special">CR</span><span class="special">&gt;</span>
 <span class="Comment">&quot;在terminal中启用Alt快捷键</span>
-<span class="statement">set</span> <span class="preproc">ttimeoutlen</span>=10
+<span class="statement">set</span> <span class="preproc">ttimeoutlen</span>=1
 <span class="statement">for</span> UseAlt <span class="statement">in</span> <span class="identifier">range</span><span class="special">(</span><span class="constant">65</span>, <span class="constant">90</span><span class="special">)</span>+<span class="identifier">range</span><span class="special">(</span><span class="constant">97</span>, <span class="constant">122</span><span class="special">)</span>
     <span class="statement">exe</span> <span class="constant">&quot;set &lt;M-&quot;</span>.<span class="identifier">nr2char</span><span class="special">(</span>UseAlt<span class="special">)</span>.<span class="constant">&quot;&gt;=\&lt;esc&gt;&quot;</span>.<span class="identifier">nr2char</span><span class="special">(</span>UseAlt<span class="special">)</span>
 <span class="statement">endfor</span>
@@ -183,13 +185,13 @@ body { font-family: monospace; color: #ffffff; background-color: #000000; }
 <span class="statement">func</span>! g:compileByFileType<span class="special">()</span>
     <span class="statement">if</span> &amp;<span class="statement">filetype</span>    == <span class="constant">&quot;c&quot;</span>
         <span class="statement">call</span> Make<span class="special">()</span>
-<span class="Comment">&quot;&quot;      inoremap &lt;expr&gt;;    getline('.')[col('.')]==$ ? </span><span class="constant">&quot;;&lt;CR&gt;&quot;</span><span class="Comment"> : </span><span class="constant">&quot;;&quot;</span>
+<span class="Comment">        &quot;&quot;      inoremap &lt;expr&gt;;    getline('.')[col('.')]==$ ? </span><span class="constant">&quot;;&lt;CR&gt;&quot;</span><span class="Comment"> : </span><span class="constant">&quot;;&quot;</span>
     <span class="statement">elseif</span> &amp;<span class="statement">filetype</span> == <span class="constant">&quot;cpp&quot;</span>
         <span class="statement">call</span> Make<span class="special">()</span>
     <span class="statement">elseif</span> &amp;<span class="statement">filetype</span> == <span class="constant">&quot;go&quot;</span>
         <span class="statement">call</span> Make<span class="special">()</span>
-<span class="Comment">&quot;&quot;      set dictionary+=/home/wweir/.vim/go.dict</span>
-<span class="Comment">&quot;&quot;      set tags+=/home/wweir/.vim/go.tags</span>
+<span class="Comment">        &quot;&quot;      set dictionary+=/home/wweir/.vim/go.dict</span>
+<span class="Comment">        &quot;&quot;      set tags+=/home/wweir/.vim/go.tags</span>
         <span class="statement">inoremap</span> <span class="special">&lt;</span><span class="special">expr</span><span class="special">&gt;</span>.    getline('.')[col('.')-2]=='[' &amp;&amp; getline('.')[col('.')-1] == ']' ? &quot;\.\.\.<span class="special">\&lt;</span><span class="special">right</span><span class="special">&gt;</span>&quot; : &quot;\.&quot;
     <span class="statement">elseif</span> &amp;<span class="statement">filetype</span> == <span class="constant">&quot;python&quot;</span>
         <span class="statement">call</span> Make<span class="special">()</span>
@@ -226,7 +228,7 @@ body { font-family: monospace; color: #ffffff; background-color: #000000; }
     <span class="statement">elseif</span> &amp;<span class="statement">filetype</span> == <span class="constant">&quot;cpp&quot;</span>
         <span class="statement">set</span> <span class="preproc">makeprg</span>=g++\ %\ -Wall\ -g\ -o\ %<span class="preproc">&lt;</span>
     <span class="statement">elseif</span> &amp;<span class="statement">filetype</span> == <span class="constant">&quot;go&quot;</span>
-<span class="Comment">&quot;       set makeprg=gccgo\ %\ -Wall\ -g\ -o\ %&lt;</span>
+<span class="Comment">        &quot;       set makeprg=gccgo\ %\ -Wall\ -g\ -o\ %&lt;</span>
         <span class="statement">set</span> <span class="preproc">makeprg</span>=go\ build\ %
     <span class="statement">elseif</span> &amp;<span class="statement">filetype</span> == <span class="constant">&quot;python&quot;</span>
         <span class="statement">set</span> <span class="preproc">makeprg</span>=python\ %
@@ -243,11 +245,19 @@ body { font-family: monospace; color: #ffffff; background-color: #000000; }
         <span class="statement">call</span> <span class="identifier">setline</span><span class="special">(</span><span class="constant">1</span>, <span class="constant">&quot;\#!/usr/bin/python&quot;</span><span class="special">)</span>
         <span class="statement">call</span> <span class="identifier">append</span><span class="special">(</span><span class="identifier">line</span><span class="special">(</span><span class="constant">&quot;.&quot;</span><span class="special">)</span>, <span class="constant">&quot;\#-\*- coding:utf-8 -\*-&quot;</span><span class="special">)</span>
         <span class="statement">call</span> <span class="identifier">append</span><span class="special">(</span><span class="identifier">line</span><span class="special">(</span><span class="constant">&quot;.&quot;</span><span class="special">)</span>+<span class="constant">1</span>, <span class="constant">&quot;\#\ &quot;</span>.<span class="identifier">expand</span><span class="special">(</span><span class="constant">&quot;%&quot;</span><span class="special">))</span>
-    <span class="statement">elseif</span> &amp;<span class="statement">filetype</span> == <span class="constant">'Vimwiki'</span>
-        <span class="statement">call</span> <span class="identifier">setline</span><span class="special">(</span><span class="constant">1</span>, <span class="constant">&quot;==&quot;</span>.<span class="identifier">expand</span><span class="special">(</span><span class="constant">&quot;%&lt;&quot;</span><span class="special">)</span>.<span class="constant">&quot;==&quot;</span><span class="special">)</span>
     <span class="statement">else</span>
     <span class="statement">endif</span>
     <span class="statement">normal</span> G$
+<span class="statement">endf</span>
+
+<span class="Comment">&quot;&quot;文件保存时动作</span>
+<span class="statement">autocmd</span> <span class="type">BufWrite</span> * <span class="statement">call</span> Time<span class="special">()</span>
+<span class="statement">fun</span> Time<span class="special">()</span>
+    <span class="statement">normal</span> G
+    <span class="statement">if</span> &amp;<span class="statement">filetype</span> == <span class="constant">'Vimwiki'</span> &amp;&amp; <span class="identifier">expand</span><span class="special">(</span><span class="constant">&quot;%&lt;&quot;</span><span class="special">)</span> != <span class="constant">&quot;index&quot;</span>
+        <span class="statement">call</span> <span class="identifier">setline</span><span class="special">(</span><span class="identifier">line</span><span class="special">(</span><span class="constant">&quot;.&quot;</span><span class="special">)</span>+<span class="constant">1</span>, <span class="constant">'&lt;p class=&quot;metas&quot;&gt;'</span>.<span class="identifier">strftime</span><span class="special">(</span><span class="constant">&quot;%c&quot;</span><span class="special">)</span>.<span class="constant">'&lt;/p&gt;'</span><span class="special">)</span>
+    <span class="statement">endif</span>
+    <span class="statement">normal</span> jddggP
 <span class="statement">endf</span>
 
 <span class="Comment">&quot;&quot;行号设置快速切换，方便复制</span>
@@ -299,9 +309,11 @@ body { font-family: monospace; color: #ffffff; background-color: #000000; }
 <span class="Comment">&quot;&quot;let g:neocomplcache_omni_patterns.go = '\h\w*\.'</span>
 
 <span class="Comment">&quot;&quot;Vimwiki的一些设置&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="statement">let</span> <span class="identifier">g:vimwiki_valid_html_tags</span>=<span class="constant">'p,b,i,s,u,sub,sup,kdb,del,br,hr,div,code,h1'</span>
 <span class="statement">let</span> <span class="identifier">g:vimwiki_use_mouse</span> = <span class="constant">1</span>
 <span class="statement">let</span> <span class="identifier">g:vimwiki_list</span> = [<span class="special">{</span>
 <span class="special">            \</span> <span class="constant">'path'</span>: <span class="constant">'/home/wweir/.vimwiki/'</span>,
+<span class="special">            \</span> <span class="constant">'path_html'</span>: <span class="constant">'/home/wweir/.blog'</span>,
 <span class="special">            \</span> <span class="constant">'syntax'</span>: <span class="constant">'default'</span>,
 <span class="special">            \</span> <span class="constant">'auto_export'</span>: <span class="constant">1</span>,
 <span class="special">            \</span> <span class="constant">'template_path'</span>: <span class="constant">'/home/wweir/.vimwiki/'</span>,
@@ -324,7 +336,7 @@ body { font-family: monospace; color: #ffffff; background-color: #000000; }
     <span class="statement">let</span> <span class="identifier">s:char</span>    = <span class="constant">''</span>
     <span class="statement">let</span> <span class="identifier">s:prechar</span> =<span class="constant">' '</span>
     <span class="statement">let</span> <span class="identifier">s:lastchar</span>=<span class="constant">''</span>
-<span class="Comment">&quot;&quot;  for key in range(-8, 6)</span>
+<span class="Comment">    &quot;&quot;  for key in range(-8, 6)</span>
     <span class="statement">for</span> key <span class="statement">in</span> <span class="identifier">range</span><span class="special">(</span><span class="constant">6</span>, <span class="constant">6</span><span class="special">)</span>
         <span class="statement">let</span> <span class="identifier">s:char</span> = s:char.getline<span class="special">(</span><span class="identifier">line</span><span class="special">(</span><span class="constant">'.'</span><span class="special">)</span>-<span class="constant">1</span><span class="special">)</span>[<span class="identifier">col</span><span class="special">(</span><span class="constant">'.'</span><span class="special">)</span> + key]
     <span class="statement">endfor</span>
