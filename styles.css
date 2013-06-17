@@ -20,14 +20,47 @@ legend, caption, aside, details, figcaption, figure, footer,header, hgroup, menu
 	vertical-align: baseline;
 }
 
-tt,  kbd, samp {
-    font-family: 'Courier New', 'Courier', 'Lucida Console', Monaco;
+
+
+
+code, tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.prettyprint pre, pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+pre code, pre tt {
+    background-color: transparent;
+    border: medium none;
 }
 
-code {
-    padding: 2px 4px;
-    color: green;
-    font-family: 'Lucida Console', 'Courier New', Courier, monospace;
+blockquote:hover, pre:hover {
+    color: #eee;
+    background: grey;
+}
+
+tt,  kbd, samp {
+    font-family: 'Courier New', 'Courier', 'Lucida Console', Monaco;
 }
 
 input {
@@ -256,33 +289,6 @@ i[class^="icon-"] {
     max-width: 85%;
 }
 
-.article pre,
-.article code {
-    font-size: .9em;
-    padding: .5em;
-    margin: 0em 2em;
-}
-
-.article li pre, .article li code,
-.article p pre, .article p code {
-    margin: 0;
-}
-
-.article > pre {
-    border: 1px solid #ccc;
-    background: #f3f3f3;
-    border-radius: 3px;
-}
-
-blockquote:hover, pre:hover {
-    color: #eee;
-    background: grey;
-}
-
-.article p code,
-.article pre code {
-    margin: 0;
-    padding: 0;
 }
 
 .article ul,
