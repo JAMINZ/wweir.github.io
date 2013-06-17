@@ -4,13 +4,13 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <meta http-equiv="X-UA-Compatible" content="IE=7">
 <title>vimwiki 2.0.1.stu-wweir's blog</title>
-<meta name="description" content="">
 <link rel="icon" href="../favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="../styles.css">
 <link rel="stylesheet" type="text/css" href="../font-awesome.css">
-<script src="../google-code-prettify/run_prettify.js"></script>
+<script type="text/javascript" src="../google-code-prettify/prettify.js"></script>
+
 <link href="../google-code-prettify/prettify.css" type="text/css" rel="stylesheet"/>
-<link href="https://github.com/wweir/wweir.github.com/commits/master.atom" rel="alternate" title="Kdmud Wiki 的最新更改" type="application/atom+xml" /> 
+<link href="https://github.com/wweir/wweir.github.com/commits/master.atom" rel="alternate" title="wweir's blog的最新更改" type="application/atom+xml"/> 
 <meta name="author" content="wweir">
 <meta name="application-name" content="vimwiki 2.0.1.stu">
 <!--[if IE 7]>
@@ -19,7 +19,7 @@
 <![endif]-->
 <script src="../run_prettify.js"></script>
 <style type="text/css"></style></head>
-<body class="bg">
+<body class="bg" onload="prettyPrint()">
 <header>
 <h1 id="logo"><a href="http://wweir.github.io/">wweir's blog</a></h1>
 </header>
@@ -58,7 +58,7 @@
 
 <li>
 配置.vimrc,保证里面至少有以下内容
-<pre class="prettyprint">
+<pre class="prettyprint linenums">
 	filetype indent on
 	filetype plugin indent on
 	filetype plugin on
@@ -269,7 +269,7 @@
 说明一下，还有两个很实用的语法就是
 </p>
 
-<pre class="prettyprint">
+<pre class="prettyprint linenums">
   `  `
 </pre>
 <p>

@@ -55,8 +55,7 @@ pre code, pre tt {
 }
 
 blockquote:hover, pre:hover {
-    color: #eee;
-    background: grey;
+    background: rgb(153,153,153);
 }
 
 tt,  kbd, samp {
