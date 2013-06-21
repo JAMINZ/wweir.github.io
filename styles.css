@@ -20,7 +20,10 @@ legend, caption, aside, details, figcaption, figure, footer,header, hgroup, menu
 	vertical-align: baseline;
 }
 
-
+pre {
+white-space: pre-wrap;
+word-wrap: break-word;
+}
 
 
 code, tt {
