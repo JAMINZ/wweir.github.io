@@ -1,0 +1,88 @@
+其实很想转去使用firefox,倒不是因为狐狸有多好，而是因为chrome实在是越来越占内存了，这也是我使用[[为chromium添加pepper的flashplayer及更换解码器包|chromium]]的原因。
+
+好吧，狐狸里有个东西很牛的插件叫做vimperator(当然更喜欢用[[Pentadactyl]]),能够使狐狸Vim化，非常好用，让浏览器界面非常简洁漂亮。当然chrome环境下也有一个勉强能用的替代品，就是这个了Vimium。
+
+Vimium不象[[Pentadactyl]]那么强大，不过它也有它的好处，就是对浏览器自身的改变较少，方便其它使用我的电脑的人。还有一个好处就不单单是Vimium的好处了，就是可以使用pepperflashplayer,大大方便我等linux用户。
+
+好吧，废话半天还没说Vimium的技巧、设置呢。
+
+=== 部分常用快捷键 ===
+{{{
+x	关闭当前页
+j	向下滚动
+k	向上滚动
+o	打开一个从历史、书签中快捷打开网址的输入条
+O	同上，只不过是从新标签页打开
+/	快捷搜索，个人感觉纯数鸡肋，没有F3好用，不过照顾到了Vim用户的习惯
+n	在上面进入搜索的条件下，跳到下一个符合项
+f	快捷导航（为链接标号，方便打开）
+yy	复制当前页的网址
+p	打开剪切板的内容，不是网址则调用设置的搜索打开
+i	进入光标模式，方便下一步
+v	可视模式，可方便提制内容
+gt	上一标签
+gT	下一标签
+[[	自动翻页中的上一页
+]]	自动翻页中的下一页
+  }}}
+
+好吧，上面这些仅仅是常用的快捷键，全部的可以参考这里`chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/options/options.html`
+
+
+当然仅仅是使用默认的快捷键不是远远不够的，谁让咱们喜欢折腾呢？
+好吧，下面这些才是真正属于本文的重点
+
+=== 升级技巧 ===
+ ==== 键位调整 ==== 
+在Custom key mappings 中填入以下内容以自定义一些快捷键
+ 
+  {{{
+map d removeTab
+"l下一标签
+map l nextTab
+"h实现上一标签
+map h previousTab
+"t键实现B的功能
+map t Vomnibar.activateBookmarksInNewTab
+"h的另外一种选择，不过我不喜欢
+"map h goBack
+"u重新打开刚才关闭的网页
+map u restoreTab
+"映射-(_)为后退、=(+)为前进，在linux环境下作用较大，win下可取消
+map - goBack
+map = goForward
+映射,为上一页
+map , goPrevious
+映射.为下一页
+map . goNext
+"映射g为与f类似的功能，不过是在在新标签页打开，并不是太好用
+"map g LinkHints.activateModeToOpeninNewTab
+"映射f为新标签页打开，不建议使用，下面两条建议同时使用
+"map f LinkHints.activateModeToOpeninNewTab
+"map F LinkHints.activateMode
+   }}}
+ ==== 加强翻页功能 ====
+
+如果你平时喜欢使用一些自动翻页的扩展来看一些小说、漫画、长篇文章，并且不是因为网速太慢才被迫用的，那么这个技巧对你来说将非常有用。
+
+首先我们看到Vimium已经自带了这个功能，只是需要两次按键才能使用，并且功能太弱（主要是没有针对国情设置）
+
+我们看到，前面我们已经将`,(<)`，`.(>)`分别映射为原本为`[[`，`]]`的自动翻页键，然后将以下内容分别添入对应设置框中
+  * Previous Patterns
+{{{
+prev,previous,Previous,back,<,←,«,≪,<<,上一页,上一頁,上1页,上1頁,上页,上頁,翻上頁,翻上页,上一张,上一張,上一幅,上一章,上一节,上一節,上一篇,前一页,前一頁,后退,後退,上篇,previous Page,前へ
+  }}}
+  * Next Patterns
+{{{
+next,NEXT,Next,more,>,→,≫,下一页,下一頁,下1页,下1頁,下页,下頁,翻页,翻頁,翻下頁,翻下页,下一张,下一張,下一幅,下一章,下一节,下一節,下一篇,后一页,後一頁,前进,下篇,后页,往后,Next,Next Page,次へ
+  }}}
+
+
+ ==== 加强搜索功能 ====
+在Search中填入与默认搜索不一样的搜索引擎,这样可以在正常使用中更加方便地在不改变默认搜索的情况下调用另外一个搜索引擎
+ * http://www.baidu.com/s?wd=
+ * https://www.google.com.hk/search?q=
+ * https://duckduckgo.com/?q=
+  
+  
+  2012-12-05 15:43:12

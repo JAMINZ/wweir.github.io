@@ -1,0 +1,3 @@
+# about:config
+# browser.bacespace_action
+# 修改2为0

@@ -1,0 +1,24 @@
+=== 一般连网思考方向 ===
+* 启用接口
+`ip link set wlan0(eth0) up`
+* 启用dhcp
+`dhcpcd wlan0(eth0)`
+* 更改DNS (更改前先`ping -c 3 8.8.8.8` )
+`echo nameserver >> /etc/resolv.conf`
+* 加密的无线
+`wifi-menu`
+==== 宽带播号 ====
+# `pppoe-setup`
+# name:()
+# eth0:[eth0,wlan0,……k]
+# valua:no
+# server:server
+# passwd:
+# repasswd:
+# firewall:[0,1,2]
+# y/n:y
+
+=== 安装如上的可用环境 ===
+* `wpa_supplicant`
+* `net-tools`
+* `rp-pppoe`

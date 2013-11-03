@@ -1,0 +1,82 @@
+一直想体验下纯cli下的生活，可惜tty下不支持中文的显示，没办法，最多也只是把X下的terminal全屏且当成tty来用吧。
+今天终于狠下心来，装了个fbterm，总算是了了一个心思。好吧，不多言下面就来说说这fbterm是怎么装的。
+# `sudo apt-get install fbterm`
+# 将自己加入video组 `sudo adduser username video`
+# `vim .fbtermrc`,贴入以下内容(*默认使用yong输入法*)
+{{{
+  
+# Configuration for FbTerm
+
+# Lines starting with '#' are ignored.
+# Note that end-of-line comments are NOT supported, comments must be on a line of their own.
+
+
+# font family names/pixelsize used by fbterm, multiple font family names must be seperated by ','
+# and using a fixed width font as the first is strongly recommended
+font-names=DejaVu Sans YuanTi Mono
+font-size=16
+
+# force font width (and/or height), usually for non-fixed width fonts
+# legal value format: n (fw_new = n), +n (fw_new = fw_old + n), -n (fw_new = fw_old - n)
+#font-width=
+#font-height=
+
+# default color of foreground/background text
+# available colors: 0 = black, 1 = red, 2 = green, 3 = brown, 4 = blue, 5 = magenta, 6 = cyan, 7 = white
+color-foreground=7
+color-background=0
+
+# max scroll-back history lines of every window, value must be [0 - 65535], 0 means disable it
+history-lines=1000
+
+# up to 5 additional text encodings, multiple encodings must be seperated by ','
+# run 'iconv --list' to get available encodings.
+text-encodings=utf8
+
+# cursor shape: 0 = underline, 1 = block
+# cursor flash interval in milliseconds, 0 means disable flashing
+cursor-shape=0
+cursor-interval=500
+
+# additional ascii chars considered as part of a word while auto-selecting text, except ' ', 0-9, a-z, A-Z
+word-chars=._-
+
+# change the clockwise orientation angle of screen display
+# available values: 0 = 0 degree, 1 = 90 degrees, 2 = 180 degrees, 3 = 270 degrees
+screen-rotate=0
+
+# specify the favorite input method program to run
+input-method=yong
+
+# treat ambiguous width characters as wide
+#ambiguous-wide=yes
+  }}}
+# 下载[[http:../file/fbterm_install.sh|这个]]文件，并sudo安装
+# 解决因快捷键权限导致的输入法快捷键问题 `sudo chmod u+s /usr/bin/fbterm`
+# `vim .bashrc`
+{{{
+alias fbterm='LANG=zh_CN.UTF-8 fbterm'
+if [ "$TERM" = "linux" ]; then
+    fbterm
+    echo -ne "\e]p7ffffff"
+fi
+  }}}
+# 启用鼠标 `sudo apt get install gpm`
+# # 添加开机启动项 `sudo vim /boot/grub/custom.cfg`
+{{{
+
+menuentry 'Ubuntu，Linux 3.2.0-33-generic' --class ubuntu --class gnu-linux --class gnu --class os {
+	recordfail
+	gfxmode $linux_gfx_mode
+	insmod gzio
+	insmod part_msdos
+	insmod ext2
+	set root='(hd0,msdos1)'
+	search --no-floppy --fs-uuid --set=root 3ff8bcfd-ab89-4e74-8821-301037b1f5ae
+	linux	/boot/vmlinuz-3.2.0-33-generic root=UUID=3ff8bcfd-ab89-4e74-8821-301037b1f5ae ro fbterm  text nomodeset video=uvesafb:mode_option=1280x800-24,mtrr=3,scroll=ywrap $vt_handoff
+	initrd	/boot/initrd.img-3.2.0-33-generic
+}
+}}}
+# 重启，尽享快感！`sudo reboot`
+ 
+2012-11-26 16:55:55

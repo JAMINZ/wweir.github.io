@@ -1,0 +1,7 @@
+见[[http://forum.ubuntu.org.cn/viewtopic.php?f=73&t=382754|ubuntu中文论坛]]
+安装
+{{{ 
+# sudo add-apt-repository ppa:lainme/pidgin-lwqq
+# sudo apt-get update
+# sudo apt-get install libpurple0 pidgin-lwqq
+  }}}

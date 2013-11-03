@@ -1,0 +1,13 @@
+# 我只要第一个就够了，全部的如下：
+{{{
+# sudo apt-get install apache2 #服务器
+# sudo apt-get install php5 libapache2-mod-php5 #超文本
+# sudo apt-get install mysql-server #数据库
+# sudo apt-get install phpmyadmin #图形管理数据库
+  }}}
+  
+
+# [[打开apache2的.htaccess支持]]
+# [[更改.htaccess]]
+ 
+ 2012-12-10

@@ -1,0 +1,8 @@
+<p class="metas">2013/06/17 22:39</p>
+* [[lubuntu必装软件]]
+* [[ubuntu下，恢复firefox的backspace后退功能]]
+* [[为chromium添加pepper的flashplayer及更换解码器包]]
+* [[fbterm]]
+* [[Arch安装小结]]
+* [[lamp本地建站]]
+* [[只读权限]]

@@ -1,0 +1,8 @@
+# 安装对应驱动
+  * `sudo apt-get install i965-va-driver`
+  * `sudo apt-get install xvba-va-driver`
+# 安装支持vaapi的mplayer
+  * `sudo add-apt-repository ppa:sander-vangrieken/vaapi`
+  * `sudo apt-get update`
+  * `sudo apt-get install mplayer-vaapi`
+

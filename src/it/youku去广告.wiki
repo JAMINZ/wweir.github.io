@@ -1,0 +1,2 @@
+# 安装adblock、adblock plus、admucher、ADsafe等去广告扩展，若有好用规则请一并安装
+# 清空"/home/wweir/.config/chromium/Default/Pepper\ Data/Shockwave\ Flash/WritableRoot/#SharedObjects/QNM3RTEX/static.youku.com/YOUKU_FSO_PROXY.sol"并加以[[只读权限]]

@@ -1,0 +1,4 @@
+{{{
+DirectoryIndex Welcome%20to%20wweir%60s%20blog!.html
+Options -Indexes
+  }}}

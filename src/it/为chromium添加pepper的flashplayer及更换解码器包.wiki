@@ -1,0 +1,6 @@
+==== 添加libpepflashplayer.so ====
+# vim /etc/chromium-browser/default
+# 添加 --ppapi-flash-path=/……/libpepflashplayer.so
+
+==== 更换闭源解码 ====
+# sudo apt-get install chromium-codecs-ffmpeg-extra

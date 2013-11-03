@@ -1,0 +1,56 @@
+# 下载iso文件
+# `dd if=arch*.iso of=/dev/sd[a,b,c,d]`
+# usb启动
+# [[测试Arch安装环境网络]]
+# `cfdisk`
+# `mkfs.ext4 /dev/sda[1,2,3,4,]`
+# `mkswap /dev/sda*`
+# `swapon /dev/sda*`
+# `mount /dev/sda* /mnt/{,home/,……}`
+# `vi /etc/pacman.d/mirrors`
+# `pacstrap /mnt base base-devel vim syslinux net-tools wpa_supplicant netcfg dialog`
+# `genfstab -p /mnt >> /mnt/etc/fstab`
+# `arch-chroot /mnt`
+# `vim /etc/fstab` 加入参数`noauto,x-systemd.automount`
+# `vim /boot/syslinux/syslinux.conf`
+# `syslinux-install_update -iam`
+# `pacman -S wqy-microhei`
+# `[vi, nano] /etc/locale.gen`
+# `locale-gen`
+# `hwclock --systohc --utc`
+# `mkinitcpio -p linux`
+# `passwd`
+# `useradd -m -g users -s /bin/bash (username)`
+# `passwd (username)`
+# `pacman -S sudo`
+# `visudo`
+# `<C-D>`
+# `umount /mnt/{,home/,mnt/}`
+# `reboot`
+# `hostnamectl set-hostname Archlinux`
+# `timedatectl set-timezone Asia/Shanghai`
+# `localectl set-locale LANG="zh_CN.UTF-8"`
+# `timedatectl set-local-rtc false`
+# 开启DHCP自动开启`systemctl enable dhcpcd@[wlan0,eth0].service`
+# `reboot`
+----
+# `pacman -S xorg-sever xorg-xinit xorg-utils xorg-server-utils alsa-utils`
+# `pacman -S mesa xf86-video-[intel,ati]/nvidia xf86-input-synaptics`
+# `startx`
+# `grep EE /var/log/Xorg.0.log`
+# 安装上一步缺的东西
+# 安装桌面环境
+----
+==== 安装yaourt ====
+*yaourt使用中无需root权限*
+# `vim /etc/pacman.d/mirrors`
+# 加入
+{{{
+[archlinuxfr]
+SigLevel = Optional TrustAll
+ Server = http://repo.archlinux.fr/$arch
+  }}}
+# `pacman -S yajl`
+# `pacman -S yaourt`
+# `yaourt -Syua`
+# `pacman -S yaourt`

@@ -1,0 +1,24 @@
+<p class="metas">2013/07/08 21:51</p>
+好久没有写博客了，算了一下，大约半年了吧。
+
+
+当然，不是我这半年什么都没学，也不是我学的太多而没时间写。实在是我这半年所学的内容比较整，而且也是很多前辈早就有过很完备、系统的总结，我这非专业的小辈再写就有点班门弄斧的感觉。
+
+
+这半年也不是什么都没记，既然有很多较为系统的总结，我也就偷偷懒，直接记在[[http://note.youdao.com/web|有道云笔记]]里了。
+
+
+好吧，已临放假，再不写点东西恐假期就难有这样好的网络环境了，也就不会写多少博客了，这就把这半年的东西做个总结。
+
+# 过年期间学了一点python2, 折腾了一点vim
+ * 学了[[http:../file/简明Python教程.pdf|《简明Python教程》]]
+ * 大略看了python2自带的教程
+ * 在[[http://www.czug.org/python/pyqt4|这里]]看了一些PyQt4的一个简单小教程
+ * 期间了解了一些C++、bash、Golang、css的相关内容
+# 开学初期约一个月兼职较多、同时vim在假期配置出了点问题所以学习较少
+# 三月开始学习倾心已久的go
+ * 开始看的是经典的[[http:../file/学习 Go 语言.pdf|《学习 Go 语言》]]
+ * 三四月主要学习[[https://github.com/astaxie/build-web-application-with-golang|Go Web 编程]]， [[http://./Go_Web_Program/preface|这里]]有一份我编译好的，方便学习。当然开始的基础部分学习较慢，后期有点像工具书的性质，所以看得较快
+ * 四月游了一趟涂州，同时兼职同样较多，进度不快
+ * 五月收了前面看的书的底，一直想看Go标准库，找不到地方下手。后觉自己写个小工具，在写的过程中学习，准备写个[[http://pan.baidu.com/disk/home|baidu网盘]]的cli客户端，但一直感觉socket基础的书，so看了一本质量不是很高的网络基础的书
+ * 月底，正式开始写网盘的工具，至今。但感觉我没有直接调用[[http://developer.baidu.com/wiki/index.php?title=docs/pcs/rest/file_data_apis_list|API]]的权利，总是出错，不过标准库确实看了不少。

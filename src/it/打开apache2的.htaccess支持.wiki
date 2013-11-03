@@ -1,0 +1,20 @@
+# vim /etc/apache2/sites-available/default
+# 更改
+{{{
+
+	<Directory /var/www/>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+  }}}
+为
+{{{
+
+	<Directory /var/www/>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride all
+		Order allow,deny
+		allow from all
+  }}}
+
