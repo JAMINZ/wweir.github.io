@@ -21,8 +21,8 @@
 <div id="nav">
      <ul>
        <li><a href="%root_path%" >网站首页</a></li>
-        <li><a href="%root_path%news/" target="_blank" title="慢生活">慢生活</a></li>
-       <li><a href="/e/tool/gbook/?bid=1" target="_blank" title="留言版">留言版</a></li>
+        <!--<li><a href="%root_path%news/" target="_blank" title="慢生活">慢生活</a></li>
+       <li><a href="/e/tool/gbook/?bid=1" target="_blank" title="留言版">留言版</a></li>-->
      </ul>
      <script src="%root_path%tpl/yangqq/silder.js"></script><!--获取当前页导航 高亮显示标题-->
 </div>
