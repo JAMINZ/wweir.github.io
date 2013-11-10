@@ -1,3 +1,4 @@
 # about:config
 # browser.bacespace_action
 # 修改2为0
+<p class="dateview">2013年11月09日 星期六 22时29分19秒</p>

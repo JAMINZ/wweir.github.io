@@ -1,14 +1,16 @@
 好吧，最近折腾[[lamp本地建站]]比较多，再加上我基本上还算是个linux新手，重装了系统好几次。为了下次安装方便，也为了分享下常用软件就把我每次重装lubuntu后必装的几个软件作下记录。
-# Vim
-# [[pidgin-lwqq]]
-# deepin-screenshot
-# osd-lyrics
-# wps4linux
-# [[为chromium添加pepper的flashplayer及更换解码器包]]
-# gimp
-# 小小输入法
-# [[fbterm]]
-# [[启用vaapi]]
-# wget https://smarthosts.googlecode.com/svn/trunk/hosts && sed -e '1,3d' hosts >> /etc/ hosts 
-# [[youku去广告]]
-# `sudo echo vm.swappiness=10 >> /etc/sysctl.conf`
+{{{
+Vim
+[[pidgin-lwqq]]
+deepin-screenshot
+osd-lyrics
+wps4linux
+[[为chromium添加pepper的flashplayer及更换解码器包]]
+gimp
+小小输入法
+[[fbterm]]
+[[启用vaapi]]
+wget https://smarthosts.googlecode.com/svn/trunk/hosts && sed -e '1,3d' hosts >> /etc/ hosts 
+`sudo echo vm.swappiness=10 >> /etc/sysctl.conf`
+}}}
+<p class="dateview">2013年11月09日 星期六 22时28分33秒</p>
