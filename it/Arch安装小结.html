@@ -35,134 +35,50 @@
     <ul>
     <h1><a href="">Arch安装小结</a></h1>
     
-<ol>
-<li>
+<pre>
 下载iso文件
-
-<li>
-<code>dd if=arch*.iso of=/dev/sd[a,b,c,d]</code>
-
-<li>
+dd if=arch*.iso of=/dev/sd[a,b,c,d]
 usb启动
-
-<li>
-<a href="测试Arch安装环境网络.html">测试Arch安装环境网络</a>
-
-<li>
-<code>cfdisk</code>
-
-<li>
-<code>mkfs.ext4 /dev/sda[1,2,3,4,]</code>
-
-<li>
-<code>mkswap /dev/sda*</code>
-
-<li>
-<code>swapon /dev/sda*</code>
-
-<li>
-<code>mount /dev/sda* /mnt/{,home/,……}</code>
-
-<li>
-<code>vi /etc/pacman.d/mirrors</code>
-
-<li>
-<code>pacstrap /mnt base base-devel vim syslinux net-tools wpa_supplicant netcfg dialog</code>
-
-<li>
-<code>genfstab -p /mnt &gt;&gt; /mnt/etc/fstab</code>
-
-<li>
-<code>arch-chroot /mnt</code>
-
-<li>
-<code>vim /etc/fstab</code> 加入参数<code>noauto,x-systemd.automount</code>
-
-<li>
-<code>vim /boot/syslinux/syslinux.conf</code>
-
-<li>
-<code>syslinux-install_update -iam</code>
-
-<li>
-<code>pacman -S wqy-microhei</code>
-
-<li>
-<code>[vi, nano] /etc/locale.gen</code>
-
-<li>
-<code>locale-gen</code>
-
-<li>
-<code>hwclock --systohc --utc</code>
-
-<li>
-<code>mkinitcpio -p linux</code>
-
-<li>
-<code>passwd</code>
-
-<li>
-<code>useradd -m -g users -s /bin/bash (username)</code>
-
-<li>
-<code>passwd (username)</code>
-
-<li>
-<code>pacman -S sudo</code>
-
-<li>
-<code>visudo</code>
-
-<li>
-<code>&lt;C-D&gt;</code>
-
-<li>
-<code>umount /mnt/{,home/,mnt/}</code>
-
-<li>
-<code>reboot</code>
-
-<li>
-<code>hostnamectl set-hostname Archlinux</code>
-
-<li>
-<code>timedatectl set-timezone Asia/Shanghai</code>
-
-<li>
-<code>localectl set-locale LANG="zh_CN.UTF-8"</code>
-
-<li>
-<code>timedatectl set-local-rtc false</code>
-
-<li>
-开启DHCP自动开启<code>systemctl enable dhcpcd@[wlan0,eth0].service</code>
-
-<li>
-<code>reboot</code>
-
-</ol>
-<hr />
-<ol>
-<li>
-<code>pacman -S xorg-sever xorg-xinit xorg-utils xorg-server-utils alsa-utils</code>
-
-<li>
-<code>pacman -S mesa xf86-video-[intel,ati]/nvidia xf86-input-synaptics</code>
-
-<li>
-<code>startx</code>
-
-<li>
-<code>grep EE /var/log/Xorg.0.log</code>
-
-<li>
+[[测试Arch安装环境网络]]
+cfdisk
+mkfs.ext4 /dev/sda[1,2,3,4,]
+mkswap /dev/sda*
+swapon /dev/sda*
+mount /dev/sda* /mnt/{,home/,……}
+vi /etc/pacman.d/mirrors
+pacstrap /mnt base base-devel vim syslinux net-tools wpa_supplicant netcfg dialog
+genfstab -p /mnt &gt;&gt; /mnt/etc/fstab
+arch-chroot /mnt
+vim /etc/fstab 加入参数 noauto,x-systemd.automount
+vim /boot/syslinux/syslinux.conf
+syslinux-install_update -iam
+pacman -S wqy-microhei
+[vi, nano] /etc/locale.gen
+locale-gen
+hwclock --systohc --utc
+mkinitcpio -p linux
+passwd
+useradd -m -g users -s /bin/bash (username)
+passwd (username)
+pacman -S sudo
+visudo
+&lt;C-D&gt;
+umount /mnt/{,home/,mnt/}
+reboot
+hostnamectl set-hostname Archlinux
+timedatectl set-timezone Asia/Shanghai
+localectl set-locale LANG="zh_CN.UTF-8"
+timedatectl set-local-rtc false
+开启DHCP自动开启  systemctl enable dhcpcd@[wlan0,eth0].service
+reboot
+--
+`pacman -S xorg-sever xorg-xinit xorg-utils xorg-server-utils alsa-utils`
+`pacman -S mesa xf86-video-[intel,ati]/nvidia xf86-input-synaptics`
+`startx`
+`grep EE /var/log/Xorg.0.log`
 安装上一步缺的东西
-
-<li>
 安装桌面环境
-
-</ol>
+</pre>
 <hr />
 <h4 id="toc_0.0.0.1">安装yaourt</h4>
 <p>
@@ -193,6 +109,16 @@ SigLevel = Optional TrustAll
 <code>pacman -S yaourt</code>
 
 </ol>
+<hr />
+<p>
+解决亮度无法保存
+</p>
+
+<p>
+<code>echo 3 &gt;  /sys/class/backlight/acpi_video0/brightness</code> 
+<p class="dateview">2013年11月11日 星期一 17时11分01秒</p>
+<p class="dateview">2013年11月11日 星期一 17时11分40秒</p>
+</p>
 
     </ul>
   <!--article end-->

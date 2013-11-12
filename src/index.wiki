@@ -2,9 +2,9 @@
 * [[it/linux折腾|linux折腾]]
 * [[it/windows学习|windows学习]]
 * [[it/Vim&浏览器|Vim&浏览器]]
-* [[code/程式体|程式体]]
 * [[it/IT杂想|IT杂想]]
-=== [[Golang学习资料]] ===
+* [[it/Golang学习资料|Golang学习资料]]
 == 汽车学习 ==
-* [[模块化课程]]
-=== [[杂记]] ===
+* [[automobile/模块化课程|模块化课程]]
+* [[automobile/两年多学习小结|两年多学习小结]]
+=== [[others/杂记|杂记]] ===
