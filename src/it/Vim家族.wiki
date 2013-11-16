@@ -3,4 +3,4 @@
 * [[Pentadactyl]]
 * [[Vimium]]
 * [[本博客模板（Vimwiki）]] 
-<p class="dateview">2013年11月16日 星期六 13时56分56秒</p>
+<p class="dateview">2013年11月16日 星期六 18时04分37秒</p>
