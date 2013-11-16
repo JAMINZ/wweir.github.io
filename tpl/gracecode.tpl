@@ -5,14 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7">
 <title>%title%-wweir's blog</title>
 <link rel="icon" href="%root_path%favicon.ico" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="%root_path%styles.css">
-<link rel="stylesheet" type="text/css" href="%root_path%font-awesome.css">
+<link rel="stylesheet" type="text/css" href="%root_path%tpl/gracecode/styles.css">
+<link rel="stylesheet" type="text/css" href="%root_path%tpl/gracecode/font-awesome.css">
 <link href="https://github.com/wweir/wweir.github.com/commits/master.atom" rel="alternate" title="wweir's blog的最新更改" type="application/atom+xml"/> 
 <meta name="author" content="wweir">
 <meta name="application-name" content="%title%">
 <!--[if IE 7]>
-<script src="%root_path%html5.js" defer='defer'></script>
-<link rel="stylesheet" type="text/css" href="%root_path%font-awesome-ie7.css" />
+<script src="%root_path%tpl/gracecode/html5.js" defer='defer'></script>
+<link rel="stylesheet" type="text/css" href="%root_path%tpl/gracecode/font-awesome-ie7.css" />
 <![endif]-->
 <style type="text/css"></style></head>
 <body class="bg">

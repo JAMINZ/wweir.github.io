@@ -1,0 +1,39 @@
+Vimwiki无限好，只是Vim学习曲线太陡峭。当然如果你选择使用Vimwiki搭建自己的博客，还意味着你得自己搞定模板这一块前端工作。
+
+当然，工作困难只是没有多少前人去做，并不代表这件事到底有多难，所以博主的博客模板也是经历了几回痛苦的更换历程，甚至为此学习了一些前端基础。下面就给大家介绍一下博主以前那些朴素（其实是丑）的页面。
+
+我的第一个模板也是刚开始学习用Vimwiki时的模板，所以很自然的用了[[http://www.ruchee.com/code/linux/vim/2011-05-18.html|ruchee]]提供的。当然, 虽说是模板，自己想用的话还是要自己修改很多内容的，再加上当时自己对前端知识那是一窍不通，所以效果很差，甚至连改改颜色都没能成功做到，也就不可能像[[http://wiki.ktmud.com/tips/vim/vimwiki-guide.html|丘迟]]这样虽然朴素但功能较强。当然正如[[../other/关于本博客.html|我的这篇博客]]说的，既然我是为了做平时学习代码的一些笔记，也就少不了加入代码高亮了。在众多代码高亮插件中我选择了[[http://google-code-prettify.googlecode.com/svn/trunk/README.html|google-code-prettify]],原因也很简单，因为我比较懒，不喜欢每次写代码的时候都要加入一些特殊前缀。所谓懒人自有懒人的办法，[[http://google-code-prettify.googlecode.com/svn/trunk/README.html|google-code-prettify]]就是很符合我要求的一个，因为它可以自动识别代码所用的语言。可能看官要说了：不对啊，google-code-prettify虽然不用在<pre>里写代码种类了，可它还是要写入`class="prettyprint"`的。嘿嘿，作为一个懒人怎么会被这点困难吓倒。是的，你没有猜错，我是直接去修改了vimwiki的源码。说起来还真是对得起开源社区流行的那句“”哪个软件用的不爽可以自己去修改源码“”（其实我真想爆揍说这话的人），这代码说起来不多也有近20个文件呢。当然现在我有了更好的解决办法，下面会介绍。
+
+下面说说博主的第二个模板，其实我真心不觉得我的第二个模板丑，反而有种简约大方的感觉。不过它缺了我一直想要的侧栏功能，并且代码有些混乱，所以被忍痛割爱了。其实，第二个模板是我从[[http://www.gracecode.com/posts/3022.html|明城]]的博客上硬生生扣下来的，这也是这个博客模板代码一直比较混乱的原因。其实在遇到这个模板之前，我一直想自己写个模板，所以也就稍稍学了一点前端的有关知识，不过不系统、不深入，所以一直没能完成这个心愿。当我看到[[http://www.gracecode.com/posts/3022.html|明城]]的博客的时候，我感觉到我的机会来了。首先，这是一个静态博客；然后，这个博客很简洁，相对扣出模板的难度会小一点；最后，当然也是最重要的一点，这个模板真心很美观大方。好吧，操作过程中困难是有的，但拦不住我这个懒人对美的追求，具体怎么操作的，我也就就不说了。值得一说的是在这个版本加入了[[http://duoshuo.com/|多说社会化评论系统]]，并且将[[http://google-code-prettify.googlecode.com/svn/trunk/README.html|google-code-prettify]]进行本地化操作，减少对google的访问。不过不知为何[[http://google-code-prettify.googlecode.com/svn/trunk/README.html|google-code-prettify]]非要调用run_prettify.js才能正常使用，而它里面包含有对google的访问才能正常使用，一开始访问google老是以失败而告终不是太影响速度。后来老是访问很长时间，直接导致博客访问体验差了很多，这也是导致我换下一个模板的直接原因。
+
+好吧，终于说到我现在这个模板了，首先要感谢[[http://www.yangqq.com|杨青]]网友提供的模板，是的，没有她的模板就没有我这个博客现在漂亮我页面。她在自己的博客上放了不少她写的模板，而我就用了其中一个“花香袭人是酒香”的模板。经过前面对模板的摸索，这次仅用了一天时间完成了模板的修改，还顺便进行了一些文章结构的修改。当然，也改进了[[http://google-code-prettify.googlecode.com/svn/trunk/README.html|google-code-prettify]]和多说的加载。下面就具体说说这个是怎么完成的
+
+=== [[http://google-code-prettify.googlecode.com/svn/trunk/README.html|google-code-prettify]] ===
+我对run_prettify源码进行了修改将对google的访问变成了对本地的访问。源码在[[https://github.com/wweir/wweir.github.com/tree/master/loader|这里]]。之后只要在模板中加入如下代码就可以了
+{{{
+<script type="text/javascript">
+!function(){
+	  var pres =  document.getElementsByTagName("pre"); 
+	    for (var i=0;  i<pres.length;  i++) {
+			pres[i].className =  "prettyprint linenums"; 
+		}; 
+	  var codes =  document.getElementsByTagName("code"); 
+	    for (var i=0;  i<codes.length;  i++) {
+			codes[i].className =  "prettyprint"; 
+		};  
+}(); 
+var root_path = "%root_path%"
+</script>
+<script src="%root_path%/loader/run_prettify.js"></script>
+	}}}
+	
+=== 多说 ===
+其实对多说没什么修改，只是把它加入模板的代码简化为如下两句，当然这两句一定要加在文章最后。
+{{{
+<script type="text/javascript">var duoshuoQuery = {short_name:"wweir"};</script>
+<script type="text/javascript"src=http://static.duoshuo.com/embed.js></script>
+	}}}
+
+=== 模板 ===
+我的所有模板在[[https://github.com/wweir/wweir.github.com/blob/master/tpl|这里]]都可以下载，不过想要符合自己心意地使用必须要自己费点心思了。同时也请同好们在使用的时候遵守相关的许可协议
+<p class="dateview">2013年11月16日 星期六 17时59分47秒</p>

@@ -1,6 +1,0 @@
-* [[../file/vimrc|我的vimrc文件]]
-* [[vimwiki 2.0.1.stu]]
-* [[Pentadactyl]]
-* [[Vimium]]
-* [[youku去广告]] 
-<p class="dateview">2013年11月09日 星期六 22时37分41秒</p>

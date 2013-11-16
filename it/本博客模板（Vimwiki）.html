@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>wweir's blog</title>
+<meta name="Keywords" content="本博客模板（Vimwiki）" >
+<meta name="Description" content=" 温习江湖的个人博客" >
+<link href="../tpl/yangqq/index.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="../tpl/yangqq/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+  <h1><a href="../">wweir's blog</a></h1>
+  <p>这夏天里流动的风情，是停不住的舞步和唱不完的情歌，当玫瑰花瓣飘飞的那一刻，风会带走所有的想念.......</p>
+</header>
+<div class="navswf">
+<object id="customMenu" data="../tpl/yangqq/images/nav.swf" width="528" height="70" type="application/x-shockwave-flash"><param name="allowScriptAccess" value="always"><param name="allownetworking" value="all"><param name="allowFullScreen" value="true"><param name="wmode" value="transparent"><param name="menu" value="false"><param name="scale" value="noScale"><param name="salign" value="1">
+</object>
+<div id="nav">
+     <ul>
+       <li><a href="../" >网站首页</a></li>
+        <!--<li><a href="../news/" target="_blank" title="慢生活">慢生活</a></li>
+       <li><a href="/e/tool/gbook/?bid=1" target="_blank" title="留言版">留言版</a></li>-->
+     </ul>
+     <script src="../tpl/yangqq/silder.js"></script><!--获取当前页导航 高亮显示标题-->
+</div>
+</div>
+<div class="blank"></div>
+<article>
+<div class="content"> 
+    <div class="bloglist">
+  <!--article begin-->
+    <ul>
+    <h1><a href="">本博客模板（Vimwiki）</a></h1>
+    
+<p>
+Vimwiki无限好，只是Vim学习曲线太陡峭。当然如果你选择使用Vimwiki搭建自己的博客，还意味着你得自己搞定模板这一块前端工作。
+</p>
+
+<p>
+当然，工作困难只是没有多少前人去做，并不代表这件事到底有多难，所以博主的博客模板也是经历了几回痛苦的更换历程，甚至为此学习了一些前端基础。下面就给大家介绍一下博主以前那些朴素（其实是丑）的页面。
+</p>
+
+<p>
+我的第一个模板也是刚开始学习用Vimwiki时的模板，所以很自然的用了<a href="http://www.ruchee.com/code/linux/vim/2011-05-18.html">ruchee</a>提供的。当然, 虽说是模板，自己想用的话还是要自己修改很多内容的，再加上当时自己对前端知识那是一窍不通，所以效果很差，甚至连改改颜色都没能成功做到，也就不可能像<a href="http://wiki.ktmud.com/tips/vim/vimwiki-guide.html">丘迟</a>这样虽然朴素但功能较强。当然正如<a href="../other/关于本博客.html.html">我的这篇博客</a>说的，既然我是为了做平时学习代码的一些笔记，也就少不了加入代码高亮了。在众多代码高亮插件中我选择了<a href="http://google-code-prettify.googlecode.com/svn/trunk/README.html">google-code-prettify</a>,原因也很简单，因为我比较懒，不喜欢每次写代码的时候都要加入一些特殊前缀。所谓懒人自有懒人的办法，<a href="http://google-code-prettify.googlecode.com/svn/trunk/README.html">google-code-prettify</a>就是很符合我要求的一个，因为它可以自动识别代码所用的语言。可能看官要说了：不对啊，google-code-prettify虽然不用在&lt;pre&gt;里写代码种类了，可它还是要写入<code>class="prettyprint"</code>的。嘿嘿，作为一个懒人怎么会被这点困难吓倒。是的，你没有猜错，我是直接去修改了vimwiki的源码。说起来还真是对得起开源社区流行的那句“”哪个软件用的不爽可以自己去修改源码“”（其实我真想爆揍说这话的人），这代码说起来不多也有近20个文件呢。当然现在我有了更好的解决办法，下面会介绍。
+</p>
+
+<p>
+下面说说博主的第二个模板，其实我真心不觉得我的第二个模板丑，反而有种简约大方的感觉。不过它缺了我一直想要的侧栏功能，并且代码有些混乱，所以被忍痛割爱了。其实，第二个模板是我从<a href="http://www.gracecode.com/posts/3022.html">明城</a>的博客上硬生生扣下来的，这也是这个博客模板代码一直比较混乱的原因。其实在遇到这个模板之前，我一直想自己写个模板，所以也就稍稍学了一点前端的有关知识，不过不系统、不深入，所以一直没能完成这个心愿。当我看到<a href="http://www.gracecode.com/posts/3022.html">明城</a>的博客的时候，我感觉到我的机会来了。首先，这是一个静态博客；然后，这个博客很简洁，相对扣出模板的难度会小一点；最后，当然也是最重要的一点，这个模板真心很美观大方。好吧，操作过程中困难是有的，但拦不住我这个懒人对美的追求，具体怎么操作的，我也就就不说了。值得一说的是在这个版本加入了<a href="http://duoshuo.com/">多说社会化评论系统</a>，并且将<a href="http://google-code-prettify.googlecode.com/svn/trunk/README.html">google-code-prettify</a>进行本地化操作，减少对google的访问。不过不知为何<a href="http://google-code-prettify.googlecode.com/svn/trunk/README.html">google-code-prettify</a>非要调用run_prettify.js才能正常使用，而它里面包含有对google的访问才能正常使用，一开始访问google老是以失败而告终不是太影响速度。后来老是访问很长时间，直接导致博客访问体验差了很多，这也是导致我换下一个模板的直接原因。
+</p>
+
+<p>
+好吧，终于说到我现在这个模板了，首先要感谢<a href="http://www.yangqq.com">杨青</a>网友提供的模板，是的，没有她的模板就没有我这个博客现在漂亮我页面。她在自己的博客上放了不少她写的模板，而我就用了其中一个“花香袭人是酒香”的模板。经过前面对模板的摸索，这次仅用了一天时间完成了模板的修改，还顺便进行了一些文章结构的修改。当然，也改进了<a href="http://google-code-prettify.googlecode.com/svn/trunk/README.html">google-code-prettify</a>和多说的加载。下面就具体说说这个是怎么完成的
+</p>
+
+<h3 id="toc_0.0.1"><a href="http://google-code-prettify.googlecode.com/svn/trunk/README.html">google-code-prettify</a></h3>
+<p>
+我对run_prettify源码进行了修改将对google的访问变成了对本地的访问。源码在<a href="https://github.com/wweir/wweir.github.com/tree/master/loader">这里</a>。之后只要在模板中加入如下代码就可以了
+</p>
+<pre>
+&lt;script type="text/javascript"&gt;
+!function(){
+	  var pres =  document.getElementsByTagName("pre"); 
+	    for (var i=0;  i&lt;pres.length;  i++) {
+			pres[i].className =  "prettyprint linenums"; 
+		}; 
+	  var codes =  document.getElementsByTagName("code"); 
+	    for (var i=0;  i&lt;codes.length;  i++) {
+			codes[i].className =  "prettyprint"; 
+		};  
+}(); 
+var root_path = "%root_path%"
+&lt;/script&gt;
+&lt;script src="%root_path%/loader/run_prettify.js"&gt;&lt;/script&gt;
+</pre>
+	
+<h3 id="toc_0.0.2">多说</h3>
+<p>
+其实对多说没什么修改，只是把它加入模板的代码简化为如下两句，当然这两句一定要加在文章最后。
+</p>
+<pre>
+&lt;script type="text/javascript"&gt;var duoshuoQuery = {short_name:"wweir"};&lt;/script&gt;
+&lt;script type="text/javascript"src=http://static.duoshuo.com/embed.js&gt;&lt;/script&gt;
+</pre>
+
+<h3 id="toc_0.0.3">模板</h3>
+<p>
+我的所有模板在<a href="https://github.com/wweir/wweir.github.com/blob/master/tpl">这里</a>都可以下载，不过想要符合自己心意地使用必须要自己费点心思了。同时也请同好们在使用的时候遵守相关的许可协议
+<p class="dateview">2013年11月16日 星期六 17时59分47秒</p>
+</p>
+
+    </ul>
+  <!--article end-->
+    </div> 
+    <!--<p class="dateview">%strtime%</p>-->
+  <div class="ds-thread" data-form-positon=top></div>
+</div>  
+<aside class="navsidebar">
+    <h2><p>个人档案</p></h2>
+   <div class="vcard">
+      <p class="nickname">网名：wweir | 温习江湖</p>
+      <p class="url">主页：<a href="http://wweir.org" target="_blank">wweir.org</a></p>
+      <p class="address">现居：南京 江宁区</p>
+      <p class="role">职业：学生</p>
+    </div>   
+   <!--<h2><p>博客分类</p></h2>
+<ul class="news">
+  <li><a href="../">慢生活(3)</a></li>
+</ul>
+<h2><p>近期文章</p></h2>
+<ul class="news">
+  <li><a href="../">女孩都有浪漫的小情怀</a></li>
+</ul>
+<h2><p>文章归档</p></h2>
+<ul class="news">
+  <li><a href="../">2008 年三月</a></li>
+
+</ul>
+<h2><p>友情链接</p></h2>
+<ul class="news">
+  <li><a href="http://www.yangqq.com">杨青个人博客</a></li>
+</ul>-->
+</aside>
+
+<script type="text/javascript">var duoshuoQuery = {short_name:"wweir"};</script>
+<script type="text/javascript" src=http://static.duoshuo.com/embed.js></script>
+<script type="text/javascript">
+!function(){
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i<pres.length; i++) {
+      pres[i].className = "prettyprint linenums";
+  };
+  var codes = document.getElementsByTagName("code");
+  for (var i=0; i<codes.length; i++) {
+      codes[i].className = "prettyprint";
+  }; 
+}();
+var root_path = "../"
+</script>
+<script src="..//loader/run_prettify.js"></script>
+
+</article>
+<div id="copright"><p>
+<a rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img
+alt="知识共享许可协议" style="border-width:0" src="../88x31.png" /></a>本<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" rel="dct:type">作品</span>由<a xmlns:cc="http://creativecommons.org/ns#" href="http://weiki.tk/" property="cc:attributionName" rel="cc:attributionURL">温习江湖</a>创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a>进行许可。</p>
+<p>Powered by <a href="http://github.com">github</a> && <a href="https://code.google.com/p/vimwiki/">Vimwiki</a></p>
+</div>
+</body>
+</html>
