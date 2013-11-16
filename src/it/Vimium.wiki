@@ -35,31 +35,32 @@ gT	下一标签
 === 升级技巧 ===
  ==== 键位调整 ==== 
 在Custom key mappings 中填入以下内容以自定义一些快捷键
- 
   {{{
-map d removeTab
-"l下一标签
-map l nextTab
-"h实现上一标签
-map h previousTab
-"t键实现B的功能
-map t Vomnibar.activateBookmarksInNewTab
-"h的另外一种选择，不过我不喜欢
-"map h goBack
-"u重新打开刚才关闭的网页
-map u restoreTab
-"映射-(_)为后退、=(+)为前进，在linux环境下作用较大，win下可取消
-map - goBack
-map = goForward
-映射,为上一页
-map , goPrevious
-映射.为下一页
-map . goNext
-"映射g为与f类似的功能，不过是在在新标签页打开，并不是太好用
-"map g LinkHints.activateModeToOpeninNewTab
-"映射f为新标签页打开，不建议使用，下面两条建议同时使用
-"map f LinkHints.activateModeToOpeninNewTab
-"map F LinkHints.activateMode
+ map d removeTab
+ "l下一标签
+ map l nextTab
+ "h实现上一标签
+ map h previousTab
+ "t键实现B的功能
+ map t Vomnibar.activateBookmarksInNewTab
+ "h的另外一种选择，不过我不喜欢
+ "map h goBack
+ "u重新打开刚才关闭的网页
+ map u restoreTab
+ "映射为后退、为前进，在linux环境下作用较大，win下可取消
+ map [ goBack
+ map ] goForward
+ 映射[为上一页
+ map ,  goPrevious
+ map <  goPrevious
+ 映射]为下一页
+ map . goNext
+ map >  goNext
+ "映射g为与f类似的功能，不过是在在新标签页打开，并不是太好用
+ "map g LinkHints.activateModeToOpeninNewTab
+ "映射f为新标签页打开，不建议使用，下面两条建议同时使用
+ "map f LinkHints.activateModeToOpeninNewTab
+ "map F LinkHints.activateMode
    }}}
  ==== 加强翻页功能 ====
 
@@ -70,11 +71,11 @@ map . goNext
 我们看到，前面我们已经将`,(<)`，`.(>)`分别映射为原本为`[[`，`]]`的自动翻页键，然后将以下内容分别添入对应设置框中
   * Previous Patterns
 {{{
-prev,previous,Previous,back,<,←,«,≪,<<,上一页,上一頁,上1页,上1頁,上页,上頁,翻上頁,翻上页,上一张,上一張,上一幅,上一章,上一节,上一節,上一篇,前一页,前一頁,后退,後退,上篇,previous Page,前へ
+上一页,上一頁,上1页,上1頁,上页,上頁,翻上頁,翻上页,上一张,上一張,上一幅,上一章,上一节,上一節,上一篇,前一页,前一頁,后退,後退,上篇,前へ,previous Page,prev,previous,Previous,back,<,←,«,≪,<<
   }}}
   * Next Patterns
 {{{
-next,NEXT,Next,more,>,→,≫,下一页,下一頁,下1页,下1頁,下页,下頁,翻页,翻頁,翻下頁,翻下页,下一张,下一張,下一幅,下一章,下一节,下一節,下一篇,后一页,後一頁,前进,下篇,后页,往后,Next,Next Page,次へ
+下一页,下一頁,下1页,下1頁,下页,下頁,翻页,翻頁,翻下頁,翻下页,下一张,下一張,下一幅,下一章,下一节,下一節,下一篇,后一页,後一頁,前进,下篇,后页,往后,次へ,Next,Next Page,next,NEXT,Next,more,>,→,≫
   }}}
 
 
@@ -83,4 +84,4 @@ next,NEXT,Next,more,>,→,≫,下一页,下一頁,下1页,下1頁,下页,下頁,
  * http://www.baidu.com/s?wd=
  * https://www.google.com.hk/search?q=
  * https://duckduckgo.com/?q=
-<p class="dateview">2013年11月09日 星期六 22时36分15秒</p>
+<p class="dateview">2013年11月16日 星期六 13时47分23秒</p>
