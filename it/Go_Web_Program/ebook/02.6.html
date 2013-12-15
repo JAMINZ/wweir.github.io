@@ -1,0 +1,803 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
+.container {
+		margin: 0 auto;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    
+}
+.nav {
+		display: block;
+		float: left;
+		position: fixed;
+		padding: 3px;
+		border-radius: 2px;
+		margin: 40px 0 0 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    background: #ffffff; overflow: hidden;
+}
+.nav ul {
+		background: #fafafb;
+		border-radius: 2px;
+		border: 1px solid #d8d8d8;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+}
+.nav ul li {
+		display: list-item;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #eee;
+}
+.nav ul li a {
+		display: block;
+		padding: 8px 10px 8px 8px;
+		text-shadow: 0 1px 0 #fff;
+		border-left: 2px solid #fafafb;
+		color: #4183c4;
+		text-decoration: none;
+}
+.nav ul li a:-webkit-any-link {
+		cursor: auto;
+}
+.markdown-body {
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		display: block;
+		width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+.markdown-body a.absent {
+    color: #CC0000;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    padding: 0;
+    position: relative;
+}
+.markdown-body h1 .mini-icon-link, .markdown-body h2 .mini-icon-link, .markdown-body h3 .mini-icon-link, .markdown-body h4 .mini-icon-link, .markdown-body h5 .mini-icon-link, .markdown-body h6 .mini-icon-link {
+    color: #000000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .mini-icon-link, .markdown-body h2:hover a.anchor .mini-icon-link, .markdown-body h3:hover a.anchor .mini-icon-link, .markdown-body h4:hover a.anchor .mini-icon-link, .markdown-body h5:hover a.anchor .mini-icon-link, .markdown-body h6:hover a.anchor .mini-icon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    color: #000000;
+    font-size: 28px;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+.markdown-body h3 {
+    font-size: 18px;
+}
+.markdown-body h4 {
+    font-size: 16px;
+}
+.markdown-body h5 {
+    font-size: 14px;
+}
+.markdown-body h6 {
+    color: #777777;
+    font-size: 14px;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
+}
+.markdown-body hr {
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body > h2:first-child, .markdown-body > h1:first-child, .markdown-body > h1:first-child + h2, .markdown-body > h3:first-child, .markdown-body > h4:first-child, .markdown-body > h5:first-child, .markdown-body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body a:first-child h1, .markdown-body a:first-child h2, .markdown-body a:first-child h3, .markdown-body a:first-child h4, .markdown-body a:first-child h5, .markdown-body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
+}
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+		</style>
+	</head>
+	<body>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="nav"></div>
+      
+    </div>
+  	<div class="markdown-body"><h1>2.6 interface</h1>
+
+<h2>interface</h2>
+
+<p>Go语言里面设计最精妙的应该算interface，它让面向对象，内容组织实现非常的方便，当你看完这一章，你就会被interface的巧妙设计所折服。</p>
+
+<h3>什么是interface</h3>
+
+<p>简单的说，interface是一组method的组合，我们通过interface来定义对象的一组行为。</p>
+
+<p>我们前面一章最后一个例子中Student和Employee都能SayHi，虽然他们的内部实现不一样，但是那不重要，重要的是他们都能<code>say hi</code></p>
+
+<p>让我们来继续做更多的扩展，Student和Employee实现另一个方法<code>Sing</code>，然后Student实现方法BorrowMoney而Employee实现SpendSalary。</p>
+
+<p>这样Student实现了三个方法：SayHi、Sing、BorrowMoney；而Employee实现了SayHi、Sing、SpendSalary。</p>
+
+<p>上面这些方法的组合称为interface(被对象Student和Employee实现)。例如Student和Employee都实现了interface：SayHi和Sing，也就是这两个对象是该interface类型。而Employee没有实现这个interface：SayHi、Sing和BorrowMoney，因为Employee没有实现BorrowMoney这个方法。</p>
+
+<h3>interface类型</h3>
+
+<p>interface类型定义了一组方法，如果某个对象实现了某个接口的所有方法，则此对象就实现了此接口。详细的语法参考下面这个例子</p>
+
+<pre><code>type Human struct {
+    name string
+    age int
+    phone string
+}
+
+type Student struct {
+    Human //匿名字段Human
+    school string
+    loan float32
+}
+
+type Employee struct {
+    Human //匿名字段Human
+    company string
+    money float32
+}
+
+//Human对象实现Sayhi方法
+func (h *Human) SayHi() {
+    fmt.Printf(&#34;Hi, I am %s you can call me on %s\n&#34;, h.name, h.phone)
+}
+
+// Human对象实现Sing方法
+func (h *Human) Sing(lyrics string) {
+    fmt.Println(&#34;La la, la la la, la la la la la...&#34;, lyrics)
+}
+
+//Human对象实现Guzzle方法
+func (h *Human) Guzzle(beerStein string) {
+    fmt.Println(&#34;Guzzle Guzzle Guzzle...&#34;, beerStein)
+}
+
+// Employee重载Human的Sayhi方法
+func (e *Employee) SayHi() {
+    fmt.Printf(&#34;Hi, I am %s, I work at %s. Call me on %s\n&#34;, e.name,
+        e.company, e.phone) //此句可以分成多行
+}
+
+//Student实现BorrowMoney方法
+func (s *Student) BorrowMoney(amount float32) {
+    s.loan += amount // (again and again and...)
+}
+
+//Employee实现SpendSalary方法
+func (e *Employee) SpendSalary(amount float32) {
+    e.money -= amount // More vodka please!!! Get me through the day!
+}
+
+// 定义interface
+type Men interface {
+    SayHi()
+    Sing(lyrics string)
+    Guzzle(beerStein string)
+}
+
+type YoungChap interface {
+    SayHi()
+    Sing(song string)
+    BorrowMoney(amount float32)
+}
+
+type ElderlyGent interface {
+    SayHi()
+    Sing(song string)
+    SpendSalary(amount float32)
+}
+</code></pre>
+
+<p>通过上面的代码我们可以知道，interface可以被任意的对象实现。我们看到上面的Men interface被Human、Student和Employee实现。同理，一个对象可以实现任意多个interface，例如上面的Student实现了Men和YoungChap两个interface。</p>
+
+<p>最后，任意的类型都实现了空interface(我们这样定义：interface{})，也就是包含0个method的interface。</p>
+
+<h3>interface值</h3>
+
+<p>那么interface里面到底能存什么值呢？如果我们定义了一个interface的变量，那么这个变量里面可以存实现这个interface的任意类型的对象。例如上面例子中，我们定义了一个Men interface类型的变量m，那么m里面可以存Human、Student或者Employee值。</p>
+
+<p>因为m能够持有这三种类型的对象，所以我们可以定义一个包含Men类型元素的slice，这个slice可以被赋予实现了Men接口的任意结构的对象，这个和我们传统意义上面的slice有所不同。</p>
+
+<p>让我们来看一下下面这个例子:</p>
+
+<pre><code>package main
+import &#34;fmt&#34;
+
+type Human struct {
+    name string
+    age int
+    phone string
+}
+
+type Student struct {
+    Human //匿名字段
+    school string
+    loan float32
+}
+
+type Employee struct {
+    Human //匿名字段
+    company string
+    money float32
+}
+
+//Human实现SayHi方法
+func (h Human) SayHi() {
+    fmt.Printf(&#34;Hi, I am %s you can call me on %s\n&#34;, h.name, h.phone)
+}
+
+//Human实现Sing方法
+func (h Human) Sing(lyrics string) {
+    fmt.Println(&#34;La la la la...&#34;, lyrics)
+}
+
+//Employee重载Human的SayHi方法
+func (e Employee) SayHi() {
+    fmt.Printf(&#34;Hi, I am %s, I work at %s. Call me on %s\n&#34;, e.name,
+        e.company, e.phone)
+    }
+
+// Interface Men被Human,Student和Employee实现
+// 因为这三个类型都实现了这两个方法
+type Men interface {
+    SayHi()
+    Sing(lyrics string)
+}
+
+func main() {
+    mike := Student{Human{&#34;Mike&#34;, 25, &#34;222-222-XXX&#34;}, &#34;MIT&#34;, 0.00}
+    paul := Student{Human{&#34;Paul&#34;, 26, &#34;111-222-XXX&#34;}, &#34;Harvard&#34;, 100}
+    sam := Employee{Human{&#34;Sam&#34;, 36, &#34;444-222-XXX&#34;}, &#34;Golang Inc.&#34;, 1000}
+    Tom := Employee{Human{&#34;Sam&#34;, 36, &#34;444-222-XXX&#34;}, &#34;Things Ltd.&#34;, 5000}
+
+    //定义Men类型的变量i
+    var i Men
+
+    //i能存储Student
+    i = mike
+    fmt.Println(&#34;This is Mike, a Student:&#34;)
+    i.SayHi()
+    i.Sing(&#34;November rain&#34;)
+
+    //i也能存储Employee
+    i = Tom
+    fmt.Println(&#34;This is Tom, an Employee:&#34;)
+    i.SayHi()
+    i.Sing(&#34;Born to be wild&#34;)
+
+    //定义了slice Men
+    fmt.Println(&#34;Let&#39;s use a slice of Men and see what happens&#34;)
+    x := make([]Men, 3)
+    //这三个都是不同类型的元素，但是他们实现了interface同一个接口
+    x[0], x[1], x[2] = paul, sam, mike
+
+    for _, value := range x{
+        value.SayHi()
+    }
+}
+</code></pre>
+
+<p>通过上面的代码，你会发现interface就是一组抽象方法的集合，它必须由其他非interface类型实现，而不能自我实现， Go通过interface实现了duck-typing:即&#34;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子&#34;。</p>
+
+<h3>空interface</h3>
+
+<p>空interface(interface{})不包含任何的method，正因为如此，所有的类型都实现了空interface。空interface对于描述起不到任何的作用(因为它不包含任何的method），但是空interface在我们需要存储任意类型的数值的时候相当有用，因为它可以存储任意类型的数值。它有点类似于C语言的void*类型。</p>
+
+<pre><code>// 定义a为空接口
+var a interface{}
+var i int = 5
+s := &#34;Hello world&#34;
+// a可以存储任意类型的数值
+a = i
+a = s
+</code></pre>
+
+<p>一个函数把interface{}作为参数，那么他可以接受任意类型的值作为参数，如果一个函数返回interface{},那么也就可以返回任意类型的值。是不是很有用啊！</p>
+
+<h3>interface函数参数</h3>
+
+<p>interface的变量可以持有任意实现该interface类型的对象，这给我们编写函数(包括method)提供了一些额外的思考，我们是不是可以通过定义interface参数，让函数接受各种类型的参数。</p>
+
+<p>举个例子：fmt.Println是我们常用的一个函数，但是你是否注意到它可以接受任意类型的数据。打开fmt的源码文件，你会看到这样一个定义:</p>
+
+<pre><code>type Stringer interface {
+     String() string
+}
+</code></pre>
+
+<p>也就是说，任何实现了String方法的类型都能作为参数被fmt.Println调用,让我们来试一试</p>
+
+<pre><code>package main
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+type Human struct {
+    name string
+    age int
+    phone string
+}
+
+// 通过这个方法 Human 实现了 fmt.Stringer
+func (h Human) String() string {
+    return &#34;❰&#34;+h.name+&#34; - &#34;+strconv.Itoa(h.age)+&#34; years -  ✆ &#34; +h.phone+&#34;❱&#34;
+}
+
+func main() {
+    Bob := Human{&#34;Bob&#34;, 39, &#34;000-7777-XXX&#34;}
+    fmt.Println(&#34;This Human is : &#34;, Bob)
+}
+</code></pre>
+
+<p>现在我们再回顾一下前面的Box示例，你会发现Color结构也定义了一个method：String。其实这也是实现了fmt.Stringer这个interface，即如果需要某个类型能被fmt包以特殊的格式输出，你就必须实现Stringer这个接口。如果没有实现这个接口，fmt将以默认的方式输出。</p>
+
+<pre><code>//实现同样的功能
+fmt.Println(&#34;The biggest one is&#34;, boxes.BiggestsColor().String())
+fmt.Println(&#34;The biggest one is&#34;, boxes.BiggestsColor())
+</code></pre>
+
+<p>注：实现了error接口的对象（即实现了Error() string的对象），使用fmt输出时，会调用Error()方法，因此不必再定义String()方法了。</p>
+
+<h3>interface变量存储的类型</h3>
+
+<p>我们知道interface的变量里面可以存储任意类型的数值(该类型实现了interface)。那么我们怎么反向知道这个变量里面实际保存了的是哪个类型的对象呢？目前常用的有两种方法：</p>
+
+<ul>
+<li><p>Comma-ok断言</p>
+
+<p>Go语言里面有一个语法，可以直接判断是否是该类型的变量： value, ok = element.(T)，这里value就是变量的值，ok是一个bool类型，element是interface变量，T是断言的类型。</p>
+
+<p>如果element里面确实存储了T类型的数值，那么ok返回true，否则返回false。</p>
+
+<p>让我们通过一个例子来更加深入的理解。</p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+
+type Element interface{}
+type List [] Element
+
+
+type Person struct {
+    name string
+    age int
+}
+
+
+//定义了String方法，实现了fmt.Stringer
+func (p Person) String() string {
+    return &#34;(name: &#34; + p.name + &#34; - age: &#34;+strconv.Itoa(p.age)+ &#34; years)&#34;
+}
+
+
+func main() {
+    list := make(List, 3)
+    list[0] = 1 // an int
+    list[1] = &#34;Hello&#34; // a string
+    list[2] = Person{&#34;Dennis&#34;, 70}
+
+
+    for index, element := range list {
+        if value, ok := element.(int); ok {
+            fmt.Printf(&#34;list[%d] is an int and its value is %d\n&#34;, index, value)
+        } else if value, ok := element.(string); ok {
+            fmt.Printf(&#34;list[%d] is a string and its value is %s\n&#34;, index, value)
+        } else if value, ok := element.(Person); ok {
+            fmt.Printf(&#34;list[%d] is a Person and its value is %s\n&#34;, index, value)
+        } else {
+            fmt.Println(&#34;list[%d] is of a different type&#34;, index)
+        }
+    }
+}
+</code></pre>
+
+<p>是不是很简单啊，同时你是否注意到了多个if里面，还记得我前面介绍流程时讲过，if里面允许初始化变量。</p>
+
+<p>也许你注意到了，我们断言的类型越多，那么if else也就越多，所以才引出了下面要介绍的switch。</p></li>
+
+<li><p>switch测试</p>
+
+<p>最好的讲解就是代码例子，现在让我们重写上面的这个实现</p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+
+type Element interface{}
+type List [] Element
+
+
+type Person struct {
+    name string
+    age int
+}
+
+
+//打印
+func (p Person) String() string {
+    return &#34;(name: &#34; + p.name + &#34; - age: &#34;+strconv.Itoa(p.age)+ &#34; years)&#34;
+}
+
+
+func main() {
+    list := make(List, 3)
+    list[0] = 1 //an int
+    list[1] = &#34;Hello&#34; //a string
+    list[2] = Person{&#34;Dennis&#34;, 70}
+
+
+    for index, element := range list{
+        switch value := element.(type) {
+            case int:
+                fmt.Printf(&#34;list[%d] is an int and its value is %d\n&#34;, index, value)
+            case string:
+                fmt.Printf(&#34;list[%d] is a string and its value is %s\n&#34;, index, value)
+            case Person:
+                fmt.Printf(&#34;list[%d] is a Person and its value is %s\n&#34;, index, value)
+            default:
+                fmt.Println(&#34;list[%d] is of a different type&#34;, index)
+        }
+    }
+}
+</code></pre>
+
+<p>这里有一点需要强调的是：<code>element.(type)</code>语法不能在switch外的任何逻辑里面使用，如果你要在switch外面判断一个类型就使用<code>comma-ok</code>。</p></li>
+</ul>
+
+<h3>嵌入interface</h3>
+
+<p>Go里面真正吸引人的是它内置的逻辑语法，就像我们在学习Struct时学习的匿名字段，多么的优雅啊，那么相同的逻辑引入到interface里面，那不是更加完美了。如果一个interface1作为interface2的一个嵌入字段，那么interface2隐式的包含了interface1里面的method。</p>
+
+<p>我们可以看到源码包container/heap里面有这样的一个定义</p>
+
+<pre><code>type Interface interface {
+    sort.Interface //嵌入字段sort.Interface
+    Push(x interface{}) //a Push method to push elements into the heap
+    Pop() interface{} //a Pop elements that pops elements from the heap
+}
+</code></pre>
+
+<p>我们看到sort.Interface其实就是嵌入字段，把sort.Interface的所有method给隐式的包含进来了。也就是下面三个方法：</p>
+
+<pre><code>type Interface interface {
+    // Len is the number of elements in the collection.
+    Len() int
+    // Less returns whether the element with index i should sort
+    // before the element with index j.
+    Less(i, j int) bool
+    // Swap swaps the elements with indexes i and j.
+    Swap(i, j int)
+}
+</code></pre>
+
+<p>另一个例子就是io包下面的 io.ReadWriter ，它包含了io包下面的Reader和Writer两个interface：</p>
+
+<pre><code>// io.ReadWriter
+type ReadWriter interface {
+    Reader
+    Writer
+}
+</code></pre>
+
+<h3>反射</h3>
+
+<p>Go语言实现了反射，所谓反射就是动态运行时的状态。我们一般用到的包是reflect包。如何运用reflect包，官方的这篇文章详细的讲解了reflect包的实现原理，<a href="http://golang.org/doc/articles/laws_of_reflection.html">laws of reflection</a></p>
+
+<p>使用reflect一般分成三步，下面简要的讲解一下：要去反射是一个类型的值(这些值都实现了空interface)，首先需要把它转化成reflect对象(reflect.Type或者reflect.Value，根据不同的情况调用不同的函数)。这两种获取方式如下：</p>
+
+<pre><code>t := reflect.TypeOf(i)    //得到类型的元数据,通过t我们能获取类型定义里面的所有元素
+v := reflect.ValueOf(i)   //得到实际的值，通过v我们获取存储在里面的值，还可以去改变值
+</code></pre>
+
+<p>转化为reflect对象之后我们就可以进行一些操作了，也就是将reflect对象转化成相应的值，例如</p>
+
+<pre><code>tag := t.Elem().Field(0).Tag  //获取定义在struct里面的标签
+name := v.Elem().Field(0).String()  //获取存储在第一个字段里面的值
+</code></pre>
+
+<p>获取反射值能返回相应的类型和数值</p>
+
+<pre><code>var x float64 = 3.4
+v := reflect.ValueOf(x)
+fmt.Println(&#34;type:&#34;, v.Type())
+fmt.Println(&#34;kind is float64:&#34;, v.Kind() == reflect.Float64)
+fmt.Println(&#34;value:&#34;, v.Float())
+</code></pre>
+
+<p>最后，反射的话，那么反射的字段必须是可修改的，我们前面学习过传值和传引用，这个里面也是一样的道理。反射的字段必须是可读写的意思是，如果下面这样写，那么会发生错误</p>
+
+<pre><code>var x float64 = 3.4
+v := reflect.ValueOf(x)
+v.SetFloat(7.1)
+</code></pre>
+
+<p>如果要修改相应的值，必须这样写</p>
+
+<pre><code>var x float64 = 3.4
+p := reflect.ValueOf(&amp;x)
+v := p.Elem()
+v.SetFloat(7.1)
+</code></pre>
+
+<p>上面只是对反射的简单介绍，更深入的理解还需要自己在编程中不断的实践。</p>
+
+<h2>links</h2>
+
+<ul>
+<li><a href="preface.html">目录</a></li>
+<li>上一章: <a href="02.5.html">面向对象</a></li>
+<li>下一节: <a href="02.7.html">并发</a></li>
+</ul>
+<div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
+  <div>
+	</body>
+</html>

@@ -354,33 +354,182 @@ body {
       <div class="nav"></div>
       
     </div>
-  	<div class="markdown-body"><h1>《Go语言标准库》The Golang Standard Library by Example</h1>
+  	<div class="markdown-body"><h1>7.6 字符串处理</h1>
 
-<p>Golang标准库。对于程序员而言，标准库与语言本身同样重要，它好比一个百宝箱，能为各种常见的任务提供完美的解决方案。以示例驱动的方式讲解Golang的标准库。</p>
+<p>字符串在我们平常的Web开发中经常用到，包括用户的输入，数据库读取的数据等，我们经常需要对字符串进行分割、连接、转换等操作，本小节讲通过Go标准库中的strings和strconv两个包中的函数来讲解如何进行有效快速的操作。</p>
 
-<h2>交流</h2>
+<h2>字符串操作</h2>
 
-<p>欢迎大家加入QQ群：192706294 《Go语言实现与标准库》交流群</p>
+<p>下面这些函数来自于strings包，这里介绍一些我平常经常用到的函数，更详细的请参考官方的文档。</p>
 
-<p>Go语言构建的 Go中文社区： <a href="http://studygolang.com">http://studygolang.com</a></p>
+<ul>
+<li><p>func Contains(s, substr string) bool</p>
 
-<h2>目录</h2>
+<p>字符串s中是否包含substr，返回bool值</p>
 
-<p><a href="preface.html">开始阅读，从目录开始</a></p>
+<pre><code>fmt.Println(strings.Contains(&#34;seafood&#34;, &#34;foo&#34;))
+fmt.Println(strings.Contains(&#34;seafood&#34;, &#34;bar&#34;))
+fmt.Println(strings.Contains(&#34;seafood&#34;, &#34;&#34;))
+fmt.Println(strings.Contains(&#34;&#34;, &#34;&#34;))
+//Output:
+//true
+//false
+//true
+//true
+</code></pre></li>
 
-<h2>反馈</h2>
+<li><p>func Join(a []string, sep string) string</p>
 
-<p>由于本人能力有限，书中难免有写的不对之处，且目前所写内容没有经过校正。如果阅读过程中有任何疑问或觉得不对之处，欢迎提出，谢谢！</p>
+<p>字符串链接，把slice a通过sep链接起来</p>
 
-<h2>版权声明</h2>
+<pre><code>s := []string{&#34;foo&#34;, &#34;bar&#34;, &#34;baz&#34;}
+fmt.Println(strings.Join(s, &#34;, &#34;))
+//Output:foo, bar, baz      
+</code></pre></li>
 
-<p>本书所有内容遵循 <a href="http://zh.wikipedia.org/wiki/Wikipedia:CC-by-sa-3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC-BY-SA 3.0协议（署名-相同方式共享）</a></p>
+<li><p>func Index(s, sep string) int</p>
 
-<p>1.常见误解
-2.常用手法
-3.如何理解，使用
-4.为什么接口如此组织
-5.和其它语言对比优缺点</p>
+<p>在字符串s中查找sep所在的位置，返回位置值，找不到返回-1</p>
+
+<pre><code>fmt.Println(strings.Index(&#34;chicken&#34;, &#34;ken&#34;))
+fmt.Println(strings.Index(&#34;chicken&#34;, &#34;dmr&#34;))
+//Output:4
+//-1
+</code></pre></li>
+
+<li><p>func Repeat(s string, count int) string</p>
+
+<p>重复s字符串count次，最后返回重复的字符串</p>
+
+<pre><code>fmt.Println(&#34;ba&#34; + strings.Repeat(&#34;na&#34;, 2))
+//Output:banana
+</code></pre></li>
+
+<li><p>func Replace(s, old, new string, n int) string</p>
+
+<p>在s字符串中，把old字符串替换为new字符串，n表示替换的次数，小于0表示全部替换</p>
+
+<pre><code>fmt.Println(strings.Replace(&#34;oink oink oink&#34;, &#34;k&#34;, &#34;ky&#34;, 2))
+fmt.Println(strings.Replace(&#34;oink oink oink&#34;, &#34;oink&#34;, &#34;moo&#34;, -1))
+//Output:oinky oinky oink
+//moo moo moo
+</code></pre></li>
+
+<li><p>func Split(s, sep string) []string</p>
+
+<p>把s字符串按照sep分割，返回slice</p>
+
+<pre><code>fmt.Printf(&#34;%q\n&#34;, strings.Split(&#34;a,b,c&#34;, &#34;,&#34;))
+fmt.Printf(&#34;%q\n&#34;, strings.Split(&#34;a man a plan a canal panama&#34;, &#34;a &#34;))
+fmt.Printf(&#34;%q\n&#34;, strings.Split(&#34; xyz &#34;, &#34;&#34;))
+fmt.Printf(&#34;%q\n&#34;, strings.Split(&#34;&#34;, &#34;Bernardo O&#39;Higgins&#34;))
+//Output:[&#34;a&#34; &#34;b&#34; &#34;c&#34;]
+//[&#34;&#34; &#34;man &#34; &#34;plan &#34; &#34;canal panama&#34;]
+//[&#34; &#34; &#34;x&#34; &#34;y&#34; &#34;z&#34; &#34; &#34;]
+//[&#34;&#34;]
+</code></pre></li>
+
+<li><p>func Trim(s string, cutset string) string</p>
+
+<p>在s字符串中去除cutset指定的字符串</p>
+
+<pre><code>fmt.Printf(&#34;[%q]&#34;, strings.Trim(&#34; !!! Achtung !!! &#34;, &#34;! &#34;))
+//Output:[&#34;Achtung&#34;]
+</code></pre></li>
+
+<li><p>func Fields(s string) []string</p>
+
+<p>去除s字符串的空格符，并且按照空格分割返回slice</p>
+
+<pre><code>fmt.Printf(&#34;Fields are: %q&#34;, strings.Fields(&#34;  foo bar  baz   &#34;))
+//Output:Fields are: [&#34;foo&#34; &#34;bar&#34; &#34;baz&#34;]
+</code></pre></li>
+</ul>
+
+<h2>字符串转换</h2>
+
+<p>字符串转化的函数在strconv中，如下也只是列表一些常用的：</p>
+
+<ul>
+<li><p>Append 系列函数将整数等转换为字符串后，添加到现有的字节数组中。</p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+
+func main() {
+    str := make([]byte, 0, 100)
+    str = strconv.AppendInt(str, 4567, 10)
+    str = strconv.AppendBool(str, false)
+    str = strconv.AppendQuote(str, &#34;abcdefg&#34;)
+    str = strconv.AppendQuoteRune(str, &#39;单&#39;)
+    fmt.Println(string(str))
+}
+</code></pre></li>
+
+<li><p>Format 系列函数把其他类型的转换为字符串</p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+
+func main() {
+    a := strconv.FormatBool(false)
+    b := strconv.FormatFloat(123.23, &#39;g&#39;, 12, 64)
+    c := strconv.FormatInt(1234, 10)
+    d := strconv.FormatUint(12345, 10)
+    e := strconv.Itoa(1023)
+    fmt.Println(a, b, c, d, e)
+}
+</code></pre></li>
+
+<li><p>Parse 系列函数把字符串转换为其他类型</p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+func checkError(e error){
+    if e != nil{
+        fmt.Println(e)
+    }
+}
+func main() {
+    a, err := strconv.ParseBool(&#34;false&#34;)
+    checkError(err)
+    b, err := strconv.ParseFloat(&#34;123.23&#34;, 64)
+    checkError(err)
+    c, err := strconv.ParseInt(&#34;1234&#34;, 10, 64)
+    checkError(err)
+    d, err := strconv.ParseUint(&#34;12345&#34;, 10, 64)
+    checkError(err)
+    e, err := strconv.Atoi(&#34;1023&#34;)
+    checkError(err)
+    fmt.Println(a, b, c, d, e)
+}
+</code></pre></li>
+</ul>
+
+<h2>links</h2>
+
+<ul>
+<li><a href="preface.html">目录</a></li>
+<li>上一节: <a href="07.5.html">文件操作</a></li>
+<li>下一节: <a href="07.7.html">小结</a></li>
+</ul>
 <div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
   <div>
 	</body>

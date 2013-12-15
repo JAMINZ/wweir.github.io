@@ -354,33 +354,283 @@ body {
       <div class="nav"></div>
       
     </div>
-  	<div class="markdown-body"><h1>《Go语言标准库》The Golang Standard Library by Example</h1>
+  	<div class="markdown-body"><h1>13.5 实现博客的增删改</h1>
 
-<p>Golang标准库。对于程序员而言，标准库与语言本身同样重要，它好比一个百宝箱，能为各种常见的任务提供完美的解决方案。以示例驱动的方式讲解Golang的标准库。</p>
+<p>前面介绍了beego框架实现的整体构思以及部分实现的伪代码，这小节介绍通过beego建立一个博客系统，包括博客浏览、添加、修改、删除等操作。</p>
 
-<h2>交流</h2>
+<h2>博客目录</h2>
 
-<p>欢迎大家加入QQ群：192706294 《Go语言实现与标准库》交流群</p>
+<p>博客目录如下所示：</p>
 
-<p>Go语言构建的 Go中文社区： <a href="http://studygolang.com">http://studygolang.com</a></p>
+<pre><code>/main.go
+/views:
+    /view.tpl
+    /new.tpl
+    /layout.tpl
+    /index.tpl
+    /edit.tpl
+/models/model.go
+/controllers:
+    /index.go
+    /view.go
+    /new.go
+    /delete.go
+    /edit.go            
+</code></pre>
 
-<h2>目录</h2>
+<h2>博客路由</h2>
 
-<p><a href="preface.html">开始阅读，从目录开始</a></p>
+<p>博客主要的路由规则如下所示：</p>
 
-<h2>反馈</h2>
+<pre><code>//显示博客首页
+beego.RegisterController(&#34;/&#34;, &amp;controllers.IndexController{})
+//查看博客详细信息
+beego.RegisterController(&#34;/view/:id([0-9]+)&#34;, &amp;controllers.ViewController{})
+//新建博客博文
+beego.RegisterController(&#34;/new&#34;, &amp;controllers.NewController{})
+//删除博文
+beego.RegisterController(&#34;/delete/:id([0-9]+)&#34;, &amp;controllers.DeleteController{})
+//编辑博文
+beego.RegisterController(&#34;/edit/:id([0-9]+)&#34;, &amp;controllers.EditController{})
+</code></pre>
 
-<p>由于本人能力有限，书中难免有写的不对之处，且目前所写内容没有经过校正。如果阅读过程中有任何疑问或觉得不对之处，欢迎提出，谢谢！</p>
+<h2>数据库结构</h2>
 
-<h2>版权声明</h2>
+<p>数据库设计最简单的博客信息</p>
 
-<p>本书所有内容遵循 <a href="http://zh.wikipedia.org/wiki/Wikipedia:CC-by-sa-3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC-BY-SA 3.0协议（署名-相同方式共享）</a></p>
+<pre><code>CREATE TABLE entries (
+    id INT AUTO_INCREMENT,
+    title TEXT,
+    content TEXT,
+    created DATETIME,
+    primary key (id)
+);
+</code></pre>
 
-<p>1.常见误解
-2.常用手法
-3.如何理解，使用
-4.为什么接口如此组织
-5.和其它语言对比优缺点</p>
+<h2>控制器</h2>
+
+<p>IndexController:</p>
+
+<pre><code>type IndexController struct {
+    beego.Controller
+}
+
+func (this *IndexController) Get() {
+    this.Data[&#34;blogs&#34;] = models.GetAll()
+    this.Layout = &#34;layout.tpl&#34;
+    this.TplNames = &#34;index.tpl&#34;
+}
+</code></pre>
+
+<p>ViewController:</p>
+
+<pre><code>type ViewController struct {
+    beego.Controller
+}
+
+func (this *ViewController) Get() {
+    inputs := this.Input()
+    id, _ := strconv.Atoi(this.Ctx.Params[&#34;:id&#34;])
+    this.Data[&#34;Post&#34;] = models.GetBlog(id)
+    this.Layout = &#34;layout.tpl&#34;
+    this.TplNames = &#34;view.tpl&#34;
+}
+</code></pre>
+
+<p>NewController</p>
+
+<pre><code>type NewController struct {
+    beego.Controller
+}
+
+func (this *NewController) Get() {
+    this.Layout = &#34;layout.tpl&#34;
+    this.TplNames = &#34;new.tpl&#34;
+}
+
+func (this *NewController) Post() {
+    inputs := this.Input()
+    var blog models.Blog
+    blog.Title = inputs.Get(&#34;title&#34;)
+    blog.Content = inputs.Get(&#34;content&#34;)
+    blog.Created = time.Now()
+    models.SaveBlog(blog)
+    this.Ctx.Redirect(302, &#34;/&#34;)
+}       
+</code></pre>
+
+<p>EditController</p>
+
+<pre><code>type EditController struct {
+    beego.Controller
+}
+
+func (this *EditController) Get() {
+    inputs := this.Input()
+    id, _ := strconv.Atoi(this.Ctx.Params[&#34;:id&#34;])
+    this.Data[&#34;Post&#34;] = models.GetBlog(id)
+    this.Layout = &#34;layout.tpl&#34;
+    this.TplNames = &#34;new.tpl&#34;
+}
+
+func (this *EditController) Post() {
+    inputs := this.Input()
+    var blog models.Blog
+    blog.Id, _ = strconv.Atoi(inputs.Get(&#34;id&#34;))
+    blog.Title = inputs.Get(&#34;title&#34;)
+    blog.Content = inputs.Get(&#34;content&#34;)
+    blog.Created = time.Now()
+    models.SaveBlog(blog)
+    this.Ctx.Redirect(302, &#34;/&#34;)
+}
+</code></pre>
+
+<p>DeleteController</p>
+
+<pre><code>type DeleteController struct {
+    beego.Controller
+}
+
+func (this *DeleteController) Get() {
+    id, _ := strconv.Atoi(this.Ctx.Params[&#34;:id&#34;])
+    this.Data[&#34;Post&#34;] = models.DelBlog(id)
+    this.Ctx.Redirect(302, &#34;/&#34;)
+}   
+</code></pre>
+
+<h2>model层</h2>
+
+<pre><code>package models
+
+import (
+    &#34;database/sql&#34;
+    &#34;github.com/astaxie/beedb&#34;
+    _ &#34;github.com/ziutek/mymysql/godrv&#34;
+    &#34;time&#34;
+)
+
+type Blog struct {
+    Id      int `PK`
+    Title   string
+    Content string
+    Created time.Time
+}
+
+func GetLink() beedb.Model {
+    db, err := sql.Open(&#34;mymysql&#34;, &#34;blog/astaxie/123456&#34;)
+    if err != nil {
+        panic(err)
+    }
+    orm := beedb.New(db)
+    return orm
+}
+
+func GetAll() (blogs []Blog) {
+    db := GetLink()
+    db.FindAll(&amp;blogs)
+    return
+}
+
+func GetBlog(id int) (blog Blog) {
+    db := GetLink()
+    db.Where(&#34;id=?&#34;, id).Find(&amp;blog)
+    return
+}
+
+func SaveBlog(blog Blog) (bg Blog) {
+    db := GetLink()
+    db.Save(&amp;blog)
+    return bg
+}
+
+func DelBlog(blog Blog) {
+    db := GetLink()
+    db.Delete(&amp;blog)
+    return
+}
+</code></pre>
+
+<h2>view层</h2>
+
+<p>layout.tpl</p>
+
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Blog&lt;/title&gt;
+    &lt;style&gt;
+        #menu {
+            width: 200px;
+            float: right;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ul id=&#34;menu&#34;&gt;
+    &lt;li&gt;&lt;a href=&#34;/&#34;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;/new&#34;&gt;New Post&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+{{.LayoutContent}}
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>index.tpl</p>
+
+<pre><code>&lt;h1&gt;Blog posts&lt;/h1&gt;
+
+&lt;ul&gt;
+{{range .blogs}}
+    &lt;li&gt;
+        &lt;a href=&#34;/view/{{.Id}}&#34;&gt;{{.Title}}&lt;/a&gt; 
+        from {{.Created}}
+        &lt;a href=&#34;/edit/{{.Id}}&#34;&gt;Edit&lt;/a&gt;
+        &lt;a href=&#34;/delete/{{.Id}}&#34;&gt;Delete&lt;/a&gt;
+    &lt;/li&gt;
+{{end}}
+&lt;/ul&gt;
+</code></pre>
+
+<p>view.tpl</p>
+
+<pre><code>&lt;h1&gt;{{.Post.Title}}&lt;/h1&gt;
+{{.Post.Created}}&lt;br/&gt;
+
+{{.Post.Content}}               
+</code></pre>
+
+<p>new.tpl</p>
+
+<pre><code>&lt;h1&gt;New Blog Post&lt;/h1&gt;
+&lt;form action=&#34;&#34; method=&#34;post&#34;&gt;
+标题:&lt;input type=&#34;text&#34; name=&#34;title&#34;&gt;&lt;br&gt;
+内容：&lt;textarea name=&#34;content&#34; colspan=&#34;3&#34; rowspan=&#34;10&#34;&gt;&lt;/textarea&gt;
+&lt;input type=&#34;submit&#34;&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>edit.tpl</p>
+
+<pre><code>&lt;h1&gt;Edit {{.Post.Title}}&lt;/h1&gt;
+
+&lt;h1&gt;New Blog Post&lt;/h1&gt;
+&lt;form action=&#34;&#34; method=&#34;post&#34;&gt;
+标题:&lt;input type=&#34;text&#34; name=&#34;title&#34; value=&#34;{{.Post.Title}}&#34;&gt;&lt;br&gt;
+内容：&lt;textarea name=&#34;content&#34; colspan=&#34;3&#34; rowspan=&#34;10&#34;&gt;{{.Post.Content}}&lt;/textarea&gt;
+&lt;input type=&#34;hidden&#34; name=&#34;id&#34; value=&#34;{{.Post.Id}}&#34;&gt;
+&lt;input type=&#34;submit&#34;&gt;
+&lt;/form&gt;
+</code></pre>
+
+<h2>links</h2>
+
+<ul>
+<li><a href="preface.html">目录</a></li>
+<li>上一章: <a href="13.4.html">日志和配置设计</a></li>
+<li>下一节: <a href="13.6.html">小结</a></li>
+</ul>
 <div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
   <div>
 	</body>

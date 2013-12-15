@@ -543,7 +543,7 @@ func (x X) String() string { return Sprintf(&#34;&lt;%s&gt;&#34;, x) }
 
 <p>在这三组函数中，<code>S/F/Printf</code>函数通过指定的格式输出或格式化内容；<code>S/F/Print</code>函数只是使用默认的格式输出或格式化内容；<code>S/F/Println</code>函数使用默认的格式输出或格式化内容，同时会在最后加上&#34;换行符&#34;。</p>
 
-<p>Print 序列函数的最后一个参数都是 <code>a ...interface{}</code> 这种不定参数。对于<code>S/F/Printf</code>序列，这个不定参数的实参个数应该和<code>formt</code>参数的占位符个数一致，否则会出现格式化错误；而对于其他函数，当不定参数的实参个数为多个时，它们之间会直接（对于<code>S/F/Print</code>）或通过&#34; &#34;（空格）（对于<code>S/F/Println</code>）连接起来。利用这一点，我们可以做如下事情：</p>
+<p>Print 序列函数的最后一个参数都是 <code>a ...interface{}</code> 这种不定参数。对于<code>S/F/Printf</code>序列，这个不定参数的实参个数应该和<code>formt</code>参数的占位符个数一致，否则会出现格式化错误；而对于其他函数，当不定参数的实参个数为多个时，它们之间会直接（对于<code>S/F/Print</code>）或通过&#34; &#34;（空格）（对于<code>S/F/Println</code>）连接起来（注：对于<code>S/F/Print</code>，一个非字符串类型前面一个类型也为非字符串类型时，会自动添加一个空格。感谢guoshanhe1983 反馈）。利用这一点，我们可以做如下事情：</p>
 
 <pre><code>result1 := fmt.Sprintln(&#34;studygolang.com&#34;, 2013)
 result2 := fmt.Sprint(&#34;studygolang.com&#34;, 2013)
