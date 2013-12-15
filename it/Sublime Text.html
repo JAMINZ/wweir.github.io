@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>wweir's blog</title>
-<meta name="Keywords" content="杂记" >
+<meta name="Keywords" content="Sublime Text" >
 <meta name="Description" content=" 温习江湖的个人博客" >
 <link href="../tpl/yangqq/index.css" rel="stylesheet">
 <!--[if lt IE 9]>
@@ -33,21 +33,90 @@
     <div class="bloglist">
   <!--article begin-->
     <ul>
-    <h1><a href="">杂记</a></h1>
+    <h1><a href="">Sublime Text</a></h1>
     
+<p>
+用这个编辑器有一段时间了，不过主要是学习的linux终端下编程，也就没怎么用。不过说起来，Sublime Text可真是前端利器，用起来可真不错。
+</p>
+
+<p>
+不过有用起来有两个问题一直困扰着我，相信也使不少其他用户不爽，就是:
+</p>
 <ul>
 <li>
-<a href="域名更换.html">域名更换</a>
+ 对GBK的支持
 
 <li>
-<a href="再博.html">再博</a>
-
-<li>
-<a href="关于本博客.html">关于本博客</a>
+ linux下输入法问题
 
 </ul>
 <p>
-<p class="dateview">2013年12月15日 星期日 12时51分55秒</p>
+这两个问题绝对是硬性问题，不过也都不是什么困难问题。不过，我很困惑网上的解决方案大多千篇一律，而且方法并不是全面, 对linux下的Sublime用户的支持还不够，这也就是写这篇文章的原因了。下面就是我对这两个问题的解决办法，这方法都是sublime text 2和3两个版本通用的。
+</p>
+
+<p>
+虽然网上已经有很多安装Package Control的方法，不过我还是得在这里提一下：
+</p>
+<ol>
+<li>
+按快捷键&lt;Ctrl+`&gt;
+
+<li>
+在下面出现的输入框中输入以下内容
+
+<li>
+重启Sublime
+
+<li>
+按快捷键&lt;Ctrl+Shift+P&gt;
+
+<li>
+输入<code>install</code>, 在输入框下面的选项中选择<code>Package Control:Install Package</code>
+
+</ol>
+
+<h4 id="toc_0.0.0.1">Sublime Text 2</h4>
+<pre>
+	import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
+</pre>
+<h4 id="toc_0.0.0.2">Sublime Text 3</h4>
+<pre>
+	import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+</pre>
+
+<h2 id="toc_0.1">增加sublime对GBK的支持</h2>
+<p>
+如网上所说安装<code>ConvertToUTF8</code>, 有时安装这个以后，Sublime已经可以很好支持GBK了。如果没有效果，请安装<code>Codecs33</code>,当然Sublime Text 2下请安装<code>Codecs26</code>。这样你就可以好好享受Sublime了。
+</p>
+
+<p>
+这里博主没有选择网上流行的另一个与<code>ConvertToUTF8</code>差不多的<code>GBK Encoding Support</code>是因为以前博主试的时候这个Package对中文标题的支持有问题，而且没有Sublime Text 3 的版本。
+</p>
+
+<h2 id="toc_0.2">解决linux下中文输入问题</h2>
+<p>
+网上盛传一大堆害死新人的方法，比如：
+</p>
+<ul>
+<li>
+ 自己编译libsublime-imfix.so
+
+<li>
+ 安装input helper
+
+</ul>
+<p>
+不能说这些方法没有作用，不过副作用太大或者对新人难度太高
+</p>
+
+<p>
+其实只要在自己的桌面环境中加入相应的环境变量就可以了，下面就是我的变量信息
+<img src="../pics/im_yong.png" />
+我的是在<code>~/.profile</code>文件中加入的
+<img src="../pics/2013-12-15-202203_427x221_scrot.png" />
+这样，你就可以自由使用fcitx(sogou), ibus或者其它任何你喜欢的输入法。当然，这样做也不是没有缺陷, 在Sublime Text 3中仍然无法做到光标跟随，不过这个影响太大。而编译的方法据说可以解决光标跟随问题，不过我在Lubuntu13.10+Sublime
+Text 3下测试没有成功。那个sogou输入法也不是很喜欢，就没有深入研究。
+<p class="dateview">2013年12月15日 星期日 21时16分13秒</p>
 </p>
 
     </ul>

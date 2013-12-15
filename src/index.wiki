@@ -1,7 +1,7 @@
 == IT学习 ==
 * [[it/linux折腾|linux折腾]]
 * [[it/windows学习|windows学习]]
-* [[it/Vim家族|Vim家族]]
+* [[it/Vim家族|Vim编辑器家族]]
 * [[it/IT杂想|IT杂想]]
 * [[it/Golang学习资料|Golang学习资料]]
 == 汽车学习 ==

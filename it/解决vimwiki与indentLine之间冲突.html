@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>wweir's blog</title>
-<meta name="Keywords" content="杂记" >
+<meta name="Keywords" content="解决vimwiki与indentLine之间冲突" >
 <meta name="Description" content=" 温习江湖的个人博客" >
 <link href="../tpl/yangqq/index.css" rel="stylesheet">
 <!--[if lt IE 9]>
@@ -33,21 +33,49 @@
     <div class="bloglist">
   <!--article begin-->
     <ul>
-    <h1><a href="">杂记</a></h1>
+    <h1><a href="">解决vimwiki与indentLine之间冲突</a></h1>
     
-<ul>
-<li>
-<a href="域名更换.html">域名更换</a>
-
-<li>
-<a href="再博.html">再博</a>
-
-<li>
-<a href="关于本博客.html">关于本博客</a>
-
-</ul>
 <p>
-<p class="dateview">2013年12月15日 星期日 12时51分55秒</p>
+用vimwiki有一段时间了，可以说已经离不开了，可是最近却遇到问题了。
+</p>
+
+<p>
+最近实习了，公司的电脑只有windows
+XP系统（暂时不做评价），本来想装VIM用的，可惜配置起来实在麻烦。再加上电脑不是自己的，不能瞎折腾，就用了Sublime
+Text 3。全平台统一一下，terminal下用vim, gui下用<a href="Sublime Text.html">Sublime Text</a>。
+</p>
+
+<p>
+用上Sublime就对它的indentGuides是羡慕不已，当然要在Vim上实现一下，经过一番查找，发现<a href="https://github.com/Yggdroot/indentLine">indentLine</a>这个插件是最符合我的要求的一个。
+</p>
+
+<p>
+一切都配置好了，看似完美，当我打开Vimwiki准备写文章我时候发觉界面不一样了，划到那些链接的时候不会变长了。
+</p>
+
+<p>
+出问题了应得解决，由于前一阵子换了不少插件，没法直接定位出现问题的地方，只好充分利用<a href="https://github.com/gmarik/vundle">Bundle</a>的优势，把插件全部关闭，再一个一个打开。当试到<a href="https://github.com/Yggdroot/indentLine">indentLine</a>的时候问题出现了。之后嘛，就是查看<a href="https://github.com/Yggdroot/indentLine">indentLine</a>的文档，没有发现什么。这种情况就只有深入<a href="https://github.com/Yggdroot/indentLine">indentLine</a>内部了。还好，结构很简单，只有一个文件。经过一番分析、排查、测试，最后发现<code>~/.vim/bundle/indentLine/after/plugin/indentLine.vim</code>里面有这样一段
+</p>
+<pre>
+    if !exists("g:indentLine_noConcealCursor")
+          set concealcursor=inc
+    endif
+</pre>
+<p>
+原来是这样啊，一声不吭把我的默认配置给换了。
+</p>
+
+<p>
+好吧，问题查清楚就好办了，直接在配置文件<code>~/.vimrc</code>中加入
+</p>
+<pre>
+    if &amp;filetype != 'vimwiki'
+        let g:indentLine_noConcealCursor=1
+    endif
+</pre>
+<p>
+就可以了。
+<p class="dateview">2013年12月15日 星期日 22时11分13秒</p>
 </p>
 
     </ul>

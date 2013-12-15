@@ -1,6 +1,8 @@
 * [[../file/vimrc|我的vimrc文件]]
+* [[Sublime Text]]
 * [[vimwiki 2.0.1.stu]]
+* [[解决vimwiki与indentLine之间冲突]]
 * [[Pentadactyl]]
 * [[Vimium]]
 * [[本博客模板（Vimwiki）]] 
-<p class="dateview">2013年11月16日 星期六 18时04分37秒</p>
+<p class="dateview">2013年12月15日 星期日 19时43分27秒</p>
