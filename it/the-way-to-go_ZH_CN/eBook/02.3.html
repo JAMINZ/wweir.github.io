@@ -1,0 +1,535 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
+.container {
+		margin: 0 auto;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    
+}
+.nav {
+		display: block;
+		float: left;
+		position: fixed;
+		padding: 3px;
+		border-radius: 2px;
+		margin: 40px 0 0 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    background: #ffffff; overflow: hidden;
+}
+.nav ul {
+		background: #fafafb;
+		border-radius: 2px;
+		border: 1px solid #d8d8d8;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+}
+.nav ul li {
+		display: list-item;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #eee;
+}
+.nav ul li a {
+		display: block;
+		padding: 8px 10px 8px 8px;
+		text-shadow: 0 1px 0 #fff;
+		border-left: 2px solid #fafafb;
+		color: #4183c4;
+		text-decoration: none;
+}
+.nav ul li a:-webkit-any-link {
+		cursor: auto;
+}
+.markdown-body {
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		display: block;
+		width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+.markdown-body a.absent {
+    color: #CC0000;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    padding: 0;
+    position: relative;
+}
+.markdown-body h1 .mini-icon-link, .markdown-body h2 .mini-icon-link, .markdown-body h3 .mini-icon-link, .markdown-body h4 .mini-icon-link, .markdown-body h5 .mini-icon-link, .markdown-body h6 .mini-icon-link {
+    color: #000000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .mini-icon-link, .markdown-body h2:hover a.anchor .mini-icon-link, .markdown-body h3:hover a.anchor .mini-icon-link, .markdown-body h4:hover a.anchor .mini-icon-link, .markdown-body h5:hover a.anchor .mini-icon-link, .markdown-body h6:hover a.anchor .mini-icon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    color: #000000;
+    font-size: 28px;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+.markdown-body h3 {
+    font-size: 18px;
+}
+.markdown-body h4 {
+    font-size: 16px;
+}
+.markdown-body h5 {
+    font-size: 14px;
+}
+.markdown-body h6 {
+    color: #777777;
+    font-size: 14px;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
+}
+.markdown-body hr {
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body > h2:first-child, .markdown-body > h1:first-child, .markdown-body > h1:first-child + h2, .markdown-body > h3:first-child, .markdown-body > h4:first-child, .markdown-body > h5:first-child, .markdown-body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body a:first-child h1, .markdown-body a:first-child h2, .markdown-body a:first-child h3, .markdown-body a:first-child h4, .markdown-body a:first-child h5, .markdown-body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
+}
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+		</style>
+	</head>
+	<body>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="nav"></div>
+      
+    </div>
+  	<div class="markdown-body"><h1>2.3 在 Linux 上安装 Go</h1>
+
+<p>（ <strong><em>译者注：由于 Go 语言版本更替，本节中的相关内容经原作者同意将被直接替换而不作另外说明</em></strong> ）</p>
+
+<p>如果你能够自己下载并编译 Go 的源代码来说是非常有教育意义的，你可以根据这个页面找到安装指南和下载地址：<a href="http://golang.org/doc/install.html">http://golang.org/doc/install.html</a>。</p>
+
+<p>我们接下来也会带你一步步的完成安装过程。</p>
+
+<ol>
+<li><p>设置 Go 环境变量</p>
+
+<p>我们在 Linux 系统下一般通过文件 <code>$HOME/.bashrc</code> 配置自定义环境变量，根据不同的发行版也可能是文件 <code>$HOME/.profile</code>，然后使用 gedit 或 vi 来编辑文件内容。</p>
+
+<pre><code>export GOROOT=$HOME/go
+export GOBIN=$GOROOT/bin
+export GOARCH=386
+export GOOS=linux
+</code></pre>
+
+<p>（ <strong><em>译者注：目前的 Go 版本一般情况下已不需要设置$GOBIN</em></strong> ）</p>
+
+<p>为了确保相关文件在文件系统的任何地方都能被调用，你还需要添加以下内容：</p>
+
+<pre><code>export PATH=$GOROOT/bin:$PATH
+</code></pre>
+
+<p>在开发 Go 项目时，你还需要一个环境变量来保存你的工作目录。</p>
+
+<pre><code>export GOPATH=$HOME/Applications/Go
+</code></pre>
+
+<p><code>$GOPATH</code> 可以包含多个工作目录，取决于你的个人情况。如果你设置了多个工作目录，那么当你在之后使用 <code>go get</code> （远程包安装命令）时远程包将会被安装在第一个目录下。</p>
+
+<p>在完成这些设置后，你需要在终端输入指令 <code>source .bashrc</code> 以使这些环境变量生效。然后重启终端，输入 <code>go env</code> 和 <code>env</code> 来检查环境变量是否设置正确。</p>
+
+<p><img src="images/2.3.goenv.png?raw=true" alt=""></img>
+</p>
+
+<p>图2.2 在终端输入 <code>go env</code> 后打印的信息</p></li>
+
+<li><p>安装 C 工具</p>
+
+<p>Go 的工具链是用 C 语言编写的，因此在安装 Go 之前你需要先安装相关的 C 工具。如果你使用的是 Ubuntu 的话，你可以在终端输入以下指令（ <strong><em>译者注：由于网络环境的特殊性，你可能需要将每个工具分开安装</em></strong> ）。</p>
+
+<pre><code>sudo apt-get install bison ed gawk gcc libc6-dev make
+</code></pre>
+
+<p>你可以在其它发行版上使用 RPM 之类的工具。</p></li>
+
+<li><p>安装 Mercurial</p>
+
+<p>Go 源代码是通过 Mercurial 来进行版本管理的，因此你必须在你下载 Go 源代码之前安装这款工具。你可以使用指令 <code>hg</code> 来检查你的计算机上是否已经安装该工具，如果没有，请使用以下指令来完成安装：</p>
+
+<pre><code>sudo apt-get install python-setuptools 
+sudo apt-get install python-dev 
+sudo apt-get install build-essential 
+sudo apt-get install mercurial 
+</code></pre></li>
+
+<li><p>获取 Go 源代码</p>
+
+<p>通过以下指令来从服务器获取 Go 源代码到你的计算机上，这里我们直接使用 <code>$GOROOT</code> 的值，在获取源代码之前，你不能手动创建相关目录，否则将导致获取失败。</p>
+
+<pre><code>hg clone -r release https://go.googlecode.com/hg/ $GOROOT
+</code></pre></li>
+
+<li><p>构建 Go</p>
+
+<p>在终端使用以下指令来进行编译工作。</p>
+
+<pre><code>cd $GOROOT/src
+./all.bash
+</code></pre>
+
+<p>在完成编译之后（通常在 1 分钟以内，如果你在 B 型树莓派上编译，一般需要 1 个小时），你会在终端看到如下信息被打印：</p>
+
+<p><img src="images/2.3.allbash.png?raw=true" alt=""></img>
+</p>
+
+<p>图2.3 完成编译后在终端打印的信息</p>
+
+<p><strong>注意事项</strong></p>
+
+<p>如果你在编译过程中发生错误，请尝试使用指令 <code>hg pull -u</code> 来更新源代码，然后进行第 5 步。</p>
+
+<p><strong>注意事项</strong></p>
+
+<p>在测试 <code>net/http</code> 包时有一个测试会尝试连接 <code>google.com</code>，你可能会看到如下所示的一个无厘头的错误报告：</p>
+
+<pre><code>‘make[2]: Leaving directory `/localusr/go/src/pkg/net’
+</code></pre>
+
+<p>如果你正在使用一个带有防火墙的机器，我建议你可以在编译过程中暂时关闭防火墙，以避免不必要的错误。</p>
+
+<p>解决这个问题的另一个办法是通过设置环境变量 <code>$DISABLE_NET_TESTS</code> 来告诉构建工具忽略 <code>net/http</code> 包的相关测试：</p>
+
+<pre><code>export DISABLE_NET_TESTS=1
+</code></pre>
+
+<p>如果这样还是没有办法阻止错误的发生的话，你可以通过添加 <code>net</code> 包到忽略测试列表，这个列表在 <code>$GOROOT/src/pkg</code> 下的 Makefile 中。</p>
+
+<p>如果你完全不想运行包的测试，你可以直接运行 <code>./make.bash</code> 来进行单纯的构建过程。</p></li>
+
+<li><p>测试安装</p>
+
+<p>使用你最喜爱的编辑器来输入以下内容，并保存为文件名 <code>test.go</code>。</p>
+
+<p>Example 2.1 <a href="examples/chapter_2/hello_world1.go">hello_world1.go</a></p>
+
+<pre><code>package main
+func main() {
+    println(“Hello”, “world”)
+}
+</code></pre>
+
+<p>切换相关目录到下，然后执行指令 <code>go run hello_world1.go</code>，将会打印信息：<code>Hello, world</code>。</p></li>
+
+<li><p>验证安装版本</p>
+
+<p>你可以通过在终端输入指令 <code>go version</code> 来打印 Go 的版本信息。</p>
+
+<p>如果你想要通过 Go 代码在运行时检测版本，可以通过以下例子实现。</p>
+
+<p>Example 2.2 <a href="examples/chapter_2/version.go">version.go</a></p>
+
+<pre><code>package main
+
+
+import (
+    &#34;fmt&#34;
+    &#34;runtime&#34;
+)
+
+
+func main() {
+    fmt.Printf(&#34;%s&#34;, runtime.Version())
+}
+</code></pre>
+
+<p>这段代码将会输出 go1.0.3 或 go1.1。</p></li>
+
+<li><p>更新源代码版本</p>
+
+<p>在终端输入以下指令来完成源代码的更新：</p>
+
+<pre><code>cd $GOROOT
+hg pull
+hg update release
+cd src
+sudo ./all.bash
+</code></pre>
+
+<p>你可以在这个页面查看到最新的稳定版：<a href="http://golang.org/doc/devel/release.html">http://golang.org/doc/devel/release.html</a></p>
+
+<p>当前最新的稳定版 Go 1 系列于 2012 年 3 月 28 日发布。</p>
+
+<p>Go 的源代码有以下三个分支：</p>
+
+<pre><code>- Go release：最新稳定版，实际开发最佳选择
+- Go weekly：包含最近更新的版本，一般每周更新一次
+- Go tip：永远保持最新的版本，相当于内测版
+</code></pre>
+
+<p>你可以通过 gofix 这个工具来进行 Go 源代码的版本迁移，将旧版本的代码升级到最新版。</p>
+
+<p>当你在使用不同的版本时，注意官方博客发布的信息，因为你所查阅的文档可能和你正在使用的版本不相符。</p></li>
+</ol>
+
+<h2>链接</h2>
+
+<ul>
+<li><a href="directory.html">目录</a></li>
+<li>上一节：<a href="02.2.html">Go 环境变量</a></li>
+<li>下一节：<a href="02.4.html">在 Mac OS X 上安装 Go</a></li>
+</ul>
+<div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
+  <div>
+	</body>
+</html>

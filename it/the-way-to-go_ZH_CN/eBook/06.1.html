@@ -1,0 +1,466 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
+.container {
+		margin: 0 auto;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    
+}
+.nav {
+		display: block;
+		float: left;
+		position: fixed;
+		padding: 3px;
+		border-radius: 2px;
+		margin: 40px 0 0 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    background: #ffffff; overflow: hidden;
+}
+.nav ul {
+		background: #fafafb;
+		border-radius: 2px;
+		border: 1px solid #d8d8d8;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+}
+.nav ul li {
+		display: list-item;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #eee;
+}
+.nav ul li a {
+		display: block;
+		padding: 8px 10px 8px 8px;
+		text-shadow: 0 1px 0 #fff;
+		border-left: 2px solid #fafafb;
+		color: #4183c4;
+		text-decoration: none;
+}
+.nav ul li a:-webkit-any-link {
+		cursor: auto;
+}
+.markdown-body {
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		display: block;
+		width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+.markdown-body a.absent {
+    color: #CC0000;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    padding: 0;
+    position: relative;
+}
+.markdown-body h1 .mini-icon-link, .markdown-body h2 .mini-icon-link, .markdown-body h3 .mini-icon-link, .markdown-body h4 .mini-icon-link, .markdown-body h5 .mini-icon-link, .markdown-body h6 .mini-icon-link {
+    color: #000000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .mini-icon-link, .markdown-body h2:hover a.anchor .mini-icon-link, .markdown-body h3:hover a.anchor .mini-icon-link, .markdown-body h4:hover a.anchor .mini-icon-link, .markdown-body h5:hover a.anchor .mini-icon-link, .markdown-body h6:hover a.anchor .mini-icon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    color: #000000;
+    font-size: 28px;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+.markdown-body h3 {
+    font-size: 18px;
+}
+.markdown-body h4 {
+    font-size: 16px;
+}
+.markdown-body h5 {
+    font-size: 14px;
+}
+.markdown-body h6 {
+    color: #777777;
+    font-size: 14px;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
+}
+.markdown-body hr {
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body > h2:first-child, .markdown-body > h1:first-child, .markdown-body > h1:first-child + h2, .markdown-body > h3:first-child, .markdown-body > h4:first-child, .markdown-body > h5:first-child, .markdown-body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body a:first-child h1, .markdown-body a:first-child h2, .markdown-body a:first-child h3, .markdown-body a:first-child h4, .markdown-body a:first-child h5, .markdown-body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
+}
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+		</style>
+	</head>
+	<body>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="nav"></div>
+      
+    </div>
+  	<div class="markdown-body"><h1>6.1 函数介绍</h1>
+
+<p>每一个程序都包含很多的函数：函数是基本的代码块。</p>
+
+<p>Go是编译型语言，所以函数编写的顺序是无关紧要的；鉴于可读性的需求，最好把 main() 函数写在文件的前面，其他函数按照一定逻辑顺序进行编写（例如函数被调用的顺序）。</p>
+
+<p>编写多个函数的主要目的是将一个需要很多行代码的复杂问题分解为一系列简单的任务（那就是函数）来解决。而且，同一个任务（函数）可以被调用多次，有助于代码重用。</p>
+
+<p>（事实上，好的程序是非常注意DRY原则的，即不要重复你自己（Don&#39;t Repeat Yourself），意思是执行特定任务的代码只能在程序里面出现一次。）</p>
+
+<p>当函数执行到代码块最后一行（<code>}</code>之前）或者<code>return</code>语句的时候会退出，其中<code>return</code>语句可以带有零个或多个参数；这些参数将作为返回值（参考<a href="06.2.html">6.2节</a>）供调用者使用。简单的<code>return</code>语句也可以用来结束for死循环，或者结束一个协程（goroutine）。</p>
+
+<p>Go里面拥三种类型的函数：</p>
+
+<ul>
+<li>普通的带有名字的函数</li>
+<li>匿名函数或者lambda函数（参考<a href="06.8.html">6.8节</a>）</li>
+<li>方法（Methods，参考<a href="10.6.html">10.6节</a>）</li>
+</ul>
+
+<p>所有类型的函数都可以有参数与返回值。函数参数、返回值以及它们的类型被统称为函数签名。</p>
+
+<p>作为提醒，提前介绍一个语法：</p>
+
+<p>这样是不正确的Go代码：</p>
+
+<pre><code>func g()
+{
+}
+</code></pre>
+
+<p>它必须是这样的：</p>
+
+<pre><code>func g() {
+}
+</code></pre>
+
+<p>函数被调用的基本格式如下：</p>
+
+<pre><code>pack1.Function(arg1, arg2, …, argn)
+</code></pre>
+
+<p>Function是pack1包里面的一个函数，括号里的是被调用函数的<em>实参</em>（argument）：这些值被传递给被调用函数的<em>形参</em>（parameter，参考<a href="06.2.html">6.2节</a>）。函数被调用的时候，这些实参将被复制（简单而言）然后传递给被调用函数。函数一般是在其他函数里面被调用的，这个其他函数被称为调用函数（calling function）。函数能多次调用其他函数，这些被调用函数按顺序（简单而言）执行，理论上，函数调用其他函数的次数是无穷的（直到函数调用栈被耗尽）。</p>
+
+<p>一个简单的函数调用其他函数的例子：</p>
+
+<p>示例 6.1 <a href="examples/chapter_6/greeting.go">greeting.go</a></p>
+
+<pre><code>package main
+
+func main() {
+    println(&#34;In main before calling greeting&#34;)
+    greeting()
+    println(&#34;In main after calling greeting&#34;)
+}
+
+func greeting() {
+    println(&#34;In greeting: Hi!!!!!&#34;)
+}
+</code></pre>
+
+<p>代码输出：</p>
+
+<pre><code>In main before calling greeting
+In greeting: Hi!!!!!
+In main after calling greeting
+</code></pre>
+
+<p>函数可以将其他函数调用作为它的参数，只要这个被调用函数的返回值个数、返回值类型和返回值的顺序与调用函数所需求的实参是一致的，例如：</p>
+
+<p>假设 f1 需要3个参数 <code>f1(a, b, c int)</code>，同时 f2 返回3个参数 <code>f2(a, b int) (int, int, int)</code>，就可以这样调用 f1：<code>f1(f2(a, b))</code></p>
+
+<p>函数重载（function overloading）指的是可以编写多个同名函数，只要它们拥有不同的形参与/或者不同的返回值，在Go里面函数重载是不被允许的。这将导致一个编译错误：</p>
+
+<pre><code>funcName redeclared in this book, previous declaration at lineno
+</code></pre>
+
+<p>Go语言不支持这项特性的主要原因是函数重载需要进行多余的类型匹配影响性能；没有重载意味着只是一个简单的函数调度。所以你需要给不同的函数使用不同的名字，我们通常会根据函数的特征对函数进行命名（参考<a href="11.12.html">11.12.5节</a>）。</p>
+
+<p>如果需要申明一个在外部定义的函数，你只需要给出函数名与函数签名，不需要给出函数体：</p>
+
+<pre><code>func flushICache(begin, end uintptr) // implemented externally
+</code></pre>
+
+<p><strong>函数也可以以申明的方式被使用，作为一个函数类型</strong>，就像：</p>
+
+<pre><code>type binOp func(int, int) int
+</code></pre>
+
+<p>在这里，不需要函数体<code>{}</code>。</p>
+
+<p>函数是一等值（first-class value）：它们可以赋值给变量，就像<code>add := binOp</code>一样。</p>
+
+<p>这个变量知道自己指向的函数的签名，所以给它赋一个具有不同签名的函数值是不可能的。</p>
+
+<p>函数值（functions value）之间可以相互比较：如果它们引用的是相同的函数或者都是nil的话，则认为它们是相同的函数。函数不能在其它函数里面声明（不能嵌套），不过我们可以通过使用匿名函数（参考<a href="06.8.html">6.8节</a>）来破除这个限制。</p>
+
+<p>目前Go没有泛型（generic）的概念，也就是说它不支持那种支持多种类型的函数。不过在大部分情况下可以通过接口（interface），特别是空接口与类型选择（type switch，参考<a href="11.12.html">11.12节</a>）与/或者通过使用反射（reflection，参考<a href="06.8.html">6.8节</a>）来实现相似的功能。使用这些技术将导致代码更为复杂、性能更为地下，所以在非常注意性能的的场合，最好是为每一个类型单独创建一个函数，而且代码可读性更强。</p>
+
+<h2>链接</h2>
+
+<ul>
+<li><a href="directory.html">目录</a></li>
+<li>上一节：<a href="06.0.html">函数</a></li>
+<li>下一节：<a href="06.2.html">函数参数与返回值</a></li>
+</ul>
+<div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
+  <div>
+	</body>
+</html>

@@ -198,14 +198,15 @@ Bundle <span class="Constant">'gmarik/vundle'</span>
 <span class="Statement">func</span>! <span class="Statement">g</span>:compileByFileType<span class="Special">()</span>
     <span class="Statement">if</span> &amp;<span class="Statement">filetype</span>    == <span class="Constant">&quot;c&quot;</span>
     ¦   <span class="Statement">call</span> Make<span class="Special">()</span>
-<span class="Comment">    </span>¦<span class="Comment">   &quot;&quot;      inoremap &lt;expr&gt;;    getline('.')[col('.')]==$ ? </span><span class="Constant">&quot;;&lt;CR&gt;&quot;</span><span class="Comment"> : </span><span class="Constant">&quot;;&quot;</span>
+    ¦   <span class="Statement">set</span> <span class="PreProc">tags</span>+=~/.vim/c.tags
+<span class="Comment">    </span>¦<span class="Comment">   &quot;&quot;inoremap &lt;expr&gt;;    getline('.')[col('.')]==$ ? </span><span class="Constant">&quot;;&lt;CR&gt;&quot;</span><span class="Comment"> : </span><span class="Constant">&quot;;&quot;</span>
     <span class="Statement">elseif</span> &amp;<span class="Statement">filetype</span> == <span class="Constant">&quot;cpp&quot;</span>
     ¦   <span class="Statement">call</span> Make<span class="Special">()</span>
     <span class="Statement">elseif</span> &amp;<span class="Statement">filetype</span> == <span class="Constant">&quot;go&quot;</span>
     ¦   <span class="Statement">call</span> Make<span class="Special">()</span>
 <span class="Comment">    </span>¦<span class="Comment">   &quot;&quot;      set dictionary+=/home/wweir/.vim/go.dict</span>
 <span class="Comment">    </span>¦<span class="Comment">   &quot;&quot;      set tags+=/home/wweir/.vim/go.tags</span>
-    ¦   <span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span>.    getline('.')[col('.')-2]=='[' &amp;&amp; getline('.')[col('.')-1] == ']' ? &quot;\.\.\.<span class="Special">\&lt;</span><span class="Special">right</span><span class="Special">&gt;</span>&quot; : &quot;\.&quot;
+    ¦   <span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span>.    getline('.')[col('.')-3]==' ' &amp;&amp; getline('.')[col('.')-2] == 'c' ? '<span class="Special">&lt;</span><span class="Special">ESC</span><span class="Special">&gt;</span>sC.' : &quot;\.&quot;
     <span class="Statement">elseif</span> &amp;<span class="Statement">filetype</span> == <span class="Constant">&quot;python&quot;</span>
     ¦   <span class="Statement">call</span> Make<span class="Special">()</span>
     ¦   <span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span>.    pumvisible() &amp;&amp; getline('.')[col('.') - 2] == &quot;(&quot; ? &quot;<span class="Special">&lt;</span><span class="Special">BS</span><span class="Special">&gt;</span>\.&quot; : &quot;\.&quot;
@@ -237,7 +238,7 @@ Bundle <span class="Constant">'gmarik/vundle'</span>
     <span class="Statement">if</span> <span class="Special">(</span><span class="Identifier">filereadable</span><span class="Special">(</span><span class="Constant">&quot;Makefile&quot;</span><span class="Special">)</span> || <span class="Identifier">filereadable</span><span class="Special">(</span><span class="Constant">&quot;makefile&quot;</span><span class="Special">))</span>
     <span class="Statement">elseif</span> &amp;<span class="Statement">filetype</span> == <span class="Constant">&quot;c&quot;</span>
 <span class="Comment">    </span>¦<span class="Comment">   &quot;&quot;set makeprg=gcc\ %\ -Wall\ -std=c99\ -lm\ -g\ -o\ %&lt;\ `pkg-config\ --cflags\ --libs\ gtk+-3.0`</span>
-    ¦   <span class="Statement">set</span> <span class="PreProc">makeprg</span>=gcc\ %\ -Wall\ -std=c99\ -lm\ -g\ -o\ %<span class="PreProc">&lt;</span>
+    ¦   <span class="Statement">set</span> <span class="PreProc">makeprg</span>=gcc\ %\ -Wall\ -std=c99\ -lm\ -g\ -lncurses\ -o\ %<span class="PreProc">&lt;</span>
     <span class="Statement">elseif</span> &amp;<span class="Statement">filetype</span> == <span class="Constant">&quot;cpp&quot;</span>
     ¦   <span class="Statement">set</span> <span class="PreProc">makeprg</span>=g++\ %\ -Wall\ -g\ -o\ %<span class="PreProc">&lt;</span>
     <span class="Statement">elseif</span> &amp;<span class="Statement">filetype</span> == <span class="Constant">&quot;go&quot;</span>
@@ -313,6 +314,18 @@ Bundle <span class="Constant">'gmarik/vundle'</span>
 <span class="Statement">let</span> <span class="Identifier">g:neocomplete#enable_at_startup</span> = <span class="Constant">1</span>
 <span class="Statement">let</span> <span class="Identifier">g:neocomplete#enable_smart_case</span> = <span class="Constant">1</span>
 <span class="Statement">let</span> <span class="Identifier">g:neocomplete#sources#syntax#min_keyword_length</span> = <span class="Constant">3</span>
+<span class="Statement">let</span> <span class="Identifier">g:neocomplete#lock_buffer_name_pattern</span> =  <span class="Constant">'\*ku\*'</span>
+<span class="Comment">&quot; Define keyword.</span>
+<span class="Statement">if</span> !<span class="Identifier">exists</span><span class="Special">(</span><span class="Constant">'g:neocomplete#keyword_patterns'</span><span class="Special">)</span>
+    <span class="Statement">let</span> <span class="Identifier">g:neocomplete#keyword_patterns</span> =  <span class="Special">{}</span>
+<span class="Statement">endif</span>
+<span class="Statement">let</span> <span class="Identifier">g:neocomplete#keyword_patterns</span>[<span class="Constant">'default'</span>] = <span class="Constant">'\h\w*'</span>
+<span class="Comment">&quot; Enable omni completion.</span>
+<span class="Statement">autocmd</span> <span class="Type">FileType</span> css <span class="Statement">setlocal</span> <span class="PreProc">omnifunc</span>=csscomplete#CompleteCSS
+<span class="Statement">autocmd</span> <span class="Type">FileType</span> html, markdown <span class="Statement">setlocal</span> <span class="PreProc">omnifunc</span>=htmlcomplete#CompleteTags
+<span class="Statement">autocmd</span> <span class="Type">FileType</span> javascript <span class="Statement">setlocal</span> <span class="PreProc">omnifunc</span>=javascriptcomplete#CompleteJS
+<span class="Statement">autocmd</span> <span class="Type">FileType</span> python <span class="Statement">setlocal</span> <span class="PreProc">omnifunc</span>=pythoncomplete#Complete
+<span class="Statement">autocmd</span> <span class="Type">FileType</span> xml <span class="Statement">setlocal</span> <span class="PreProc">omnifunc</span>=xmlcomplete#CompleteTags
 
 <span class="Comment">&quot;&quot;Vimwiki的一些设置&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
 <span class="Statement">let</span> <span class="Identifier">g:vimwiki_valid_html_tags</span>=<span class="Constant">'p,b,i,s,u,sub,sup,kdb,del,br,hr,div,code,h1'</span>
@@ -327,8 +340,7 @@ Bundle <span class="Constant">'gmarik/vundle'</span>
 
 <span class="Comment">&quot;备用&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
 <span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span><span class="Special">&lt;</span><span class="Special">TAB</span><span class="Special">&gt;</span> neosnippet#expandable_or_jumpable() ?
-<span class="Special">    </span>¦<span class="Special">   </span>¦<span class="Special">   \</span> &quot;<span class="Special">\&lt;</span><span class="Special">Plug</span><span class="Special">&gt;</span>(neosnippet_expand_or_jump)&quot;
-<span class="Special">    </span>¦<span class="Special">   </span>¦<span class="Special">   \</span>: pumvisible() ? &quot;<span class="Special">\&lt;</span><span class="Special">C-n</span><span class="Special">&gt;</span>&quot; : &quot;<span class="Special">\&lt;</span><span class="Special">TAB</span><span class="Special">&gt;</span>&quot;
+<span class="Special">    </span>¦<span class="Special">   </span>¦<span class="Special">   \</span> &quot;<span class="Special">\&lt;</span><span class="Special">Plug</span><span class="Special">&gt;</span>(neosnippet_expand_or_jump)&quot; : &quot;<span class="Special">\&lt;</span><span class="Special">TAB</span><span class="Special">&gt;</span>&quot;
 
 <span class="Statement">smap</span> <span class="Special">&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span><span class="Special">&lt;</span><span class="Special">TAB</span><span class="Special">&gt;</span> neosnippet#expandable_or_jumpable() ?
 <span class="Special">    </span>¦<span class="Special">   </span>¦<span class="Special">   \</span> &quot;<span class="Special">\&lt;</span><span class="Special">Plug</span><span class="Special">&gt;</span>(neosnippet_expand_or_jump)&quot;

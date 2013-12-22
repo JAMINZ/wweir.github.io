@@ -1,0 +1,709 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title></title>
+		<style text="text/css">
+body {
+    overflow-x: hidden;
+}
+.container {
+		margin: 0 auto;
+		width: 1020px;
+}
+.nav-wrap {
+    display: block;
+    height: 650px;
+    float: left;
+    position: fixed;
+		padding: 3px;
+		margin: 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    
+}
+.nav {
+		display: block;
+		float: left;
+		position: fixed;
+		padding: 3px;
+		border-radius: 2px;
+		margin: 40px 0 0 0;
+		border: 0;
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		line-height: 1.4;
+    background: #ffffff; overflow: hidden;
+}
+.nav ul {
+		background: #fafafb;
+		border-radius: 2px;
+		border: 1px solid #d8d8d8;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: block;
+}
+.nav ul li {
+		display: list-item;
+		border-top: 1px solid #fff;
+		border-bottom: 1px solid #eee;
+}
+.nav ul li a {
+		display: block;
+		padding: 8px 10px 8px 8px;
+		text-shadow: 0 1px 0 #fff;
+		border-left: 2px solid #fafafb;
+		color: #4183c4;
+		text-decoration: none;
+}
+.nav ul li a:-webkit-any-link {
+		cursor: auto;
+}
+.markdown-body {
+		font: 13px Helvetica, arial, freesans, clean, sans-serif;
+		display: block;
+		width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.markdown-body > *:first-child {
+    margin-top: 0 !important;
+}
+.markdown-body > *:last-child {
+    margin-bottom: 0 !important;
+}
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+.markdown-body a.absent {
+    color: #CC0000;
+}
+.markdown-body a.anchor {
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    position: absolute;
+    top: 0;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    cursor: text;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    padding: 0;
+    position: relative;
+}
+.markdown-body h1 .mini-icon-link, .markdown-body h2 .mini-icon-link, .markdown-body h3 .mini-icon-link, .markdown-body h4 .mini-icon-link, .markdown-body h5 .mini-icon-link, .markdown-body h6 .mini-icon-link {
+    color: #000000;
+    display: none;
+}
+.markdown-body h1:hover a.anchor, .markdown-body h2:hover a.anchor, .markdown-body h3:hover a.anchor, .markdown-body h4:hover a.anchor, .markdown-body h5:hover a.anchor, .markdown-body h6:hover a.anchor {
+    line-height: 1;
+    margin-left: -22px;
+    padding-left: 0;
+    text-decoration: none;
+    top: 15%;
+}
+.markdown-body h1:hover a.anchor .mini-icon-link, .markdown-body h2:hover a.anchor .mini-icon-link, .markdown-body h3:hover a.anchor .mini-icon-link, .markdown-body h4:hover a.anchor .mini-icon-link, .markdown-body h5:hover a.anchor .mini-icon-link, .markdown-body h6:hover a.anchor .mini-icon-link {
+    display: inline-block;
+}
+.markdown-body h1 tt, .markdown-body h1 code, .markdown-body h2 tt, .markdown-body h2 code, .markdown-body h3 tt, .markdown-body h3 code, .markdown-body h4 tt, .markdown-body h4 code, .markdown-body h5 tt, .markdown-body h5 code, .markdown-body h6 tt, .markdown-body h6 code {
+    font-size: inherit;
+}
+.markdown-body h1 {
+    color: #000000;
+    font-size: 28px;
+}
+.markdown-body h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+.markdown-body h3 {
+    font-size: 18px;
+}
+.markdown-body h4 {
+    font-size: 16px;
+}
+.markdown-body h5 {
+    font-size: 14px;
+}
+.markdown-body h6 {
+    color: #777777;
+    font-size: 14px;
+}
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+    margin: 15px 0;
+}
+.markdown-body li ul, .markdown-body li ol {
+    margin-top: 0;
+}
+.markdown-body hr {
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
+.markdown-body > h2:first-child, .markdown-body > h1:first-child, .markdown-body > h1:first-child + h2, .markdown-body > h3:first-child, .markdown-body > h4:first-child, .markdown-body > h5:first-child, .markdown-body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body a:first-child h1, .markdown-body a:first-child h2, .markdown-body a:first-child h3, .markdown-body a:first-child h4, .markdown-body a:first-child h5, .markdown-body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+.markdown-body h1 + p, .markdown-body h2 + p, .markdown-body h3 + p, .markdown-body h4 + p, .markdown-body h5 + p, .markdown-body h6 + p {
+    margin-top: 0;
+}
+.markdown-body li p.first {
+    display: inline-block;
+}
+.markdown-body ul, .markdown-body ol {
+    padding-left: 30px;
+}
+.markdown-body ul.no-list, .markdown-body ol.no-list {
+    list-style-type: none;
+    padding: 0;
+}
+.markdown-body ul li > *:first-child, .markdown-body ol li > *:first-child {
+    margin-top: 0;
+}
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-bottom: 0;
+}
+.markdown-body dl {
+    padding: 0;
+}
+.markdown-body dl dt {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 15px 0 5px;
+    padding: 0;
+}
+.markdown-body dl dt:first-child {
+    padding: 0;
+}
+.markdown-body dl dt > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dt > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px;
+}
+.markdown-body dl dd > *:first-child {
+    margin-top: 0;
+}
+.markdown-body dl dd > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body blockquote {
+    border-left: 4px solid #DDDDDD;
+    color: #777777;
+    padding: 0 15px;
+}
+.markdown-body blockquote > *:first-child {
+    margin-top: 0;
+}
+.markdown-body blockquote > *:last-child {
+    margin-bottom: 0;
+}
+.markdown-body table th {
+    font-weight: bold;
+}
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #CCCCCC;
+    padding: 6px 13px;
+}
+.markdown-body table tr {
+    background-color: #FFFFFF;
+    border-top: 1px solid #CCCCCC;
+}
+.markdown-body table tr:nth-child(2n) {
+    background-color: #F8F8F8;
+}
+.markdown-body img {
+    max-width: 100%;
+}
+.markdown-body span.frame {
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.frame > span {
+    border: 1px solid #DDDDDD;
+    display: block;
+    float: left;
+    margin: 13px 0 0;
+    overflow: hidden;
+    padding: 7px;
+    width: auto;
+}
+.markdown-body span.frame span img {
+    display: block;
+    float: left;
+}
+.markdown-body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0;
+}
+.markdown-body span.align-center {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-center > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: center;
+}
+.markdown-body span.align-center span img {
+    margin: 0 auto;
+    text-align: center;
+}
+.markdown-body span.align-right {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.markdown-body span.align-right > span {
+    display: block;
+    margin: 13px 0 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body span.align-right span img {
+    margin: 0;
+    text-align: right;
+}
+.markdown-body span.float-left {
+    display: block;
+    float: left;
+    margin-right: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-left span {
+    margin: 13px 0 0;
+}
+.markdown-body span.float-right {
+    display: block;
+    float: right;
+    margin-left: 13px;
+    overflow: hidden;
+}
+.markdown-body span.float-right > span {
+    display: block;
+    margin: 13px auto 0;
+    overflow: hidden;
+    text-align: right;
+}
+.markdown-body code, .markdown-body tt {
+		font-family: Consolas, "Liberation Mono", Courier, monospace;
+    background-color: #F8F8F8;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+.markdown-body pre > code {
+		font-size: 14px;
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #F8F8F8;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+}
+.markdown-body pre code, .markdown-body pre tt {
+    background-color: transparent;
+    border: medium none;
+}
+.container .logo {
+    display: block;
+    text-align: right;
+    font-size: 10px;
+}
+
+		</style>
+	</head>
+	<body>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="nav"></div>
+      
+    </div>
+  	<div class="markdown-body"><h1>4.7 strings 和 strconv 包</h1>
+
+<p>作为一种基本数据结构，每种语言都有一些对于字符串的预定义处理函数。Go 中使用 <code>strings</code> 包来完成对字符串的主要操作。</p>
+
+<h2>4.7.1 前缀和后缀</h2>
+
+<p><code>HasPrefix</code> 判断字符串 <code>s</code> 是否以 <code>prefix</code> 开头：</p>
+
+<pre><code>strings.HasPrefix(s, prefix string) bool
+</code></pre>
+
+<p><code>HasSuffix</code> 判断字符串 <code>s</code> 是否以 <code>suffix</code> 结尾：</p>
+
+<pre><code>strings.HasSuffix(s, suffix string) bool
+</code></pre>
+
+<p>Example 4.13 <a href="examples/chapter_4/presuffix.go">presuffix.go</a></p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;strings&#34;
+)
+
+func main() {
+    var str string = &#34;This is an example of a string&#34;
+    fmt.Printf(&#34;T/F? Does the string \&#34;%s\&#34; have prefix %s? &#34;, str, &#34;Th&#34;)
+    fmt.Printf(&#34;%t\n&#34;, strings.HasPrefix(str, &#34;Th&#34;))
+}
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>T/F? Does the string &#34;This is an example of a string&#34; have prefix Th? true
+</code></pre>
+
+<p>这个例子同样演示了转义字符 <code>\</code> 和格式化字符串的使用。</p>
+
+<h2>4.7.2 字符串包含关系</h2>
+
+<p><code>Contains</code> 判断字符串 <code>s</code> 是否包含 <code>substr</code>：</p>
+
+<pre><code>strings.Contains(s, substr string) bool
+</code></pre>
+
+<h2>4.7.3 判断子字符串或字符在父字符串中出现的位置（索引）</h2>
+
+<p><code>Index</code> 返回字符串 <code>str</code> 在字符串 <code>s</code> 中的索引（<code>str</code> 的第一个字符的索引），-1 表示字符串 <code>s</code> 不包含字符串 <code>str</code>：</p>
+
+<pre><code>strings.Index(s, str string) int
+</code></pre>
+
+<p><code>LastIndex</code> 返回字符串 <code>str</code> 在字符串 <code>s</code> 中最后出现位置的索引（<code>str</code> 的第一个字符的索引），-1 表示字符串 <code>s</code> 不包含字符串 <code>str</code>：</p>
+
+<pre><code>strings.LastIndex(s, str string) int
+</code></pre>
+
+<p>如果 <code>ch</code> 是非 ASCII 编码的字符，建议使用以下函数来对字符进行定位：</p>
+
+<pre><code>strings.IndexRune(s string, ch int) int
+</code></pre>
+
+<p>Example 4.14 <a href="examples/chapter_4/index_in_string.go">index<em>in</em>string.go</a></p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;strings&#34;
+)
+
+func main() {
+    var str string = &#34;Hi, I&#39;m Marc, Hi.&#34;
+
+    fmt.Printf(&#34;The position of \&#34;Marc\&#34; is: &#34;)
+    fmt.Printf(&#34;%d\n&#34;, strings.Index(str, &#34;Marc&#34;))
+
+    fmt.Printf(&#34;The position of the first instance of \&#34;Hi\&#34; is: &#34;)
+    fmt.Printf(&#34;%d\n&#34;, strings.Index(str, &#34;Hi&#34;))
+    fmt.Printf(&#34;The position of the last instance of \&#34;Hi\&#34; is: &#34;)
+    fmt.Printf(&#34;%d\n&#34;, strings.LastIndex(str, &#34;Hi&#34;))
+
+    fmt.Printf(&#34;The position of \&#34;Burger\&#34; is: &#34;)
+    fmt.Printf(&#34;%d\n&#34;, strings.Index(str, &#34;Burger&#34;))
+}
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>The position of &#34;Marc&#34; is: 8
+The position of the first instance of &#34;Hi&#34; is: 0
+The position of the last instance of &#34;Hi&#34; is: 14
+The position of &#34;Burger&#34; is: -1
+</code></pre>
+
+<h2>4.7.4 字符串替换</h2>
+
+<p><code>Replace</code> 用于将字符串 <code>str</code> 中的前 <code>n</code> 个字符串 <code>old</code> 替换为字符串 <code>new</code>，并返回一个新的字符串，如果 <code>n = -1</code> 则替换所有字符串 <code>old</code> 为字符串 <code>new</code>：</p>
+
+<pre><code>strings.Replace(str, old, new, n) string
+</code></pre>
+
+<h2>4.7.5 统计字符串出现次数</h2>
+
+<p><code>Count</code> 用于计算字符串 <code>str</code> 在字符串 <code>s</code> 中出现的非重叠次数：</p>
+
+<pre><code>strings.Count(s, str string) int
+</code></pre>
+
+<p>Example 4.15 <a href="examples/chapter_4/count_substring.go">count_substring.go</a></p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;strings&#34;
+)
+
+func main() {
+    var str string = &#34;Hello, how is it going, Hugo?&#34;
+    var manyG = &#34;gggggggggg&#34;
+
+    fmt.Printf(&#34;Number of H&#39;s in %s is: &#34;, str)
+    fmt.Printf(&#34;%d\n&#34;, strings.Count(str, &#34;H&#34;))
+
+    fmt.Printf(&#34;Number of double g&#39;s in %s is: &#34;, manyG)
+    fmt.Printf(&#34;%d\n&#34;, strings.Count(manyG, &#34;gg&#34;))
+}
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>Number of H&#39;s in Hello, how is it going, Hugo? is: 2
+Number of double g’s in gggggggggg is: 5
+</code></pre>
+
+<h2>4.7.6 重复字符串</h2>
+
+<p><code>Repeat</code> 用于重复 <code>count</code> 次字符串 <code>s</code> 并返回一个新的字符串：</p>
+
+<pre><code>strings.Repeat(s, count int) string
+</code></pre>
+
+<p>Example 4.16 <a href="examples/chapter_4/repeat_string.go">repeat_string.go</a></p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;strings&#34;
+)
+
+func main() {
+    var origS string = &#34;Hi there! &#34;
+    var newS string
+
+    newS = strings.Repeat(origS, 3)
+    fmt.Printf(&#34;The new repeated string is: %s\n&#34;, newS)
+}
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>The new repeated string is: Hi there! Hi there! Hi there!
+</code></pre>
+
+<h2>4.7.7 修改字符串大小写</h2>
+
+<p><code>ToLower</code> 将字符串中的 Unicode 字符全部转换为相应的小写字符：</p>
+
+<pre><code>strings.ToLower(s) string
+</code></pre>
+
+<p><code>ToUpper</code> 将字符串中的 Unicode 字符全部转换为相应的大写字符：</p>
+
+<pre><code>strings.ToUpper(s) string
+</code></pre>
+
+<p>Example 4.17 <a href="examples/chapter_4/toupper_lower.go">toupper_lower.go</a></p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;strings&#34;
+)
+
+func main() {
+    var orig string = &#34;Hey, how are you George?&#34;
+    var lower string
+    var upper string
+
+    fmt.Printf(&#34;The original string is: %s\n&#34;, orig)
+    lower = strings.ToLower(orig)
+    fmt.Printf(&#34;The lowercase string is: %s\n&#34;, lower)
+    upper = strings.ToUpper(orig)
+    fmt.Printf(&#34;The uppercase string is: %s\n&#34;, upper)
+}
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>The original string is: Hey, how are you George?
+The lowercase string is: hey, how are you george?
+The uppercase string is: HEY, HOW ARE YOU GEORGE?
+</code></pre>
+
+<h2>4.7.8 修剪字符串</h2>
+
+<p>你可以使用 <code>strings.TrimSpace(s)</code> 来剔除字符串开头和结尾的空白符号；如果你想要剔除指定字符，则可以使用 <code>strings.Trim(s, &#34;cut&#34;)</code> 来将开头和结尾的 <code>cut</code> 去除掉。该函数的第二个参数可以包含任何字符，如果你只想剔除开头或者结尾的字符串，则可以使用 <code>TrimLeft</code> 或者 <code>TrimRight</code> 来实现。</p>
+
+<h2>4.7.9 分割字符串</h2>
+
+<p><code>strings.Fields(s)</code> 将会利用 1 个或多个空白符号来作为动态长度的分隔符将字符串分割成若干小块，并返回一个 slice，如果字符串只包含空白符号，则返回一个长度为 0 的 slice。</p>
+
+<p><code>strings.Split(s, sep)</code> 用于自定义分割符号来对指定字符串进行分割，同样返回 slice。</p>
+
+<p>因为这 2 个函数都会返回 slice，所以习惯使用 for-range 循环来对其进行处理（第 7.3 节）。</p>
+
+<h2>4.7.10 拼接 slice 到字符串</h2>
+
+<p><code>Join</code> 用于将元素类型为 string 的 slice 使用分割符号来拼接组成一个字符串：</p>
+
+<pre><code>Strings.Join(sl []string, sep string)
+</code></pre>
+
+<p>Example 4.18 <a href="examples/chapter_4/strings_splitjoin.go">strings_splitjoin.go</a></p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;strings&#34;
+)
+
+func main() {
+    str := &#34;The quick brown fox jumps over the lazy dog&#34;
+    sl := strings.Fields(str)
+    fmt.Printf(&#34;Splitted in slice: %v\n&#34;, sl)
+    for _, val := range sl {
+        fmt.Printf(&#34;%s - &#34;, val)
+    }
+    fmt.Println()
+    str2 := &#34;GO1|The ABC of Go|25&#34;
+    sl2 := strings.Split(str2, &#34;|&#34;)
+    fmt.Printf(&#34;Splitted in slice: %v\n&#34;, sl2)
+    for _, val := range sl2 {
+        fmt.Printf(&#34;%s - &#34;, val)
+    }
+    fmt.Println()
+    str3 := strings.Join(sl2,&#34;;&#34;)
+    fmt.Printf(&#34;sl2 joined by ;: %s\n&#34;, str3)
+}
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>Splitted in slice: [The quick brown fox jumps over the lazy dog]
+The - quick - brown - fox - jumps - over - the - lazy - dog -
+Splitted in slice: [GO1 The ABC of Go 25]
+GO1 - The ABC of Go - 25 -
+sl2 joined by ;: GO1;The ABC of Go;25
+</code></pre>
+
+<p>其它有关字符串操作的文档请参阅官方文档 <a href="http://golang.org/pkg/strings/">http://golang.org/pkg/strings/</a>（ <strong><em>译者注：国内用户可访问 <a href="http://docs.studygolang.com/pkg/strings/">http://docs.studygolang.com/pkg/strings/</a></em></strong> ）。</p>
+
+<h2>4.7.11 从字符串中读取内容</h2>
+
+<p>函数 <code>strings.NewReader(str)</code> 用于生成一个 <code>Reader</code> 并读取字符串中的内容，然后返回指向该 <code>Reader</code> 的指针，从其它类型读取内容的函数还有：</p>
+
+<ul>
+<li><code>Read()</code> 从 []byte 中读取内容。</li>
+<li><code>ReadByte()</code> 和 <code>ReadRune()</code> 从字符串中读取下一个 byte 或者 rune。</li>
+</ul>
+
+<h2>4.7.12 字符串与其它类型的转换</h2>
+
+<p>与字符串相关的类型转换都是通过 <code>strconv</code> 包实现的。</p>
+
+<p>该包包含了一些变量用于获取程序运行的操作系统平台下 int 类型所占的位数，如：<code>strconv.IntSize</code>。</p>
+
+<p>任何类型 <strong>T</strong> 转换为字符串总是成功的。</p>
+
+<p>针对从数字类型转换到字符串，Go 提供了以下函数：</p>
+
+<ul>
+<li><code>strconv.Itoa(i int) string</code> 返回数字 i 所表示的字符串类型的十进制数。</li>
+<li><code>strconv.FormatFloat(f float64, fmt byte, prec int, bitSize int) string</code> 将 64 位浮点型的数字转换为字符串，其中 <code>fmt</code> 表示格式（其值可以是 <code>&#39;b&#39;</code>、<code>&#39;e&#39;</code>、<code>&#39;f&#39;</code> 或 <code>&#39;g&#39;</code>），<code>prec</code> 表示精度，<code>bitSize</code> 则使用 32 表示 float32，用 64 表示 float64。</li>
+</ul>
+
+<p>将字符串转换为其它类型 <strong>tp</strong> 并不总是可能的，可能会在运行时抛出错误 <code>parsing &#34;…&#34;: invalid argument</code>。</p>
+
+<p>针对从字符串类型转换为数字类型，Go 提供了以下函数：</p>
+
+<ul>
+<li><code>strconv.Atoi(s string) (i int, err error)</code> 将字符串转换为 int 型。</li>
+<li><code>strconv.ParseFloat(s string, bitSize int) (f float64, err error)</code> 将字符串转换为 float64 型。</li>
+</ul>
+
+<p>利用多返回值的特性，这些函数会返回 2 个值，第 1 个是转换后的结果（如果转换成功），第 2 个是可能出现的错误，因此，我们一般使用以下形式来进行从字符串到其它类型的转换：</p>
+
+<pre><code>val, err = strconv.Atoi(s)
+</code></pre>
+
+<p>在下面这个示例中，我们忽略可能出现的转换错误：</p>
+
+<p>Example 4.19 <a href="examples/chapter_4/string_conversion.go">string_conversion.go</a></p>
+
+<pre><code>package main
+
+import (
+    &#34;fmt&#34;
+    &#34;strconv&#34;
+)
+
+func main() {
+    var orig string = &#34;666&#34;
+    var an int
+    var newS string
+
+    fmt.Printf(&#34;The size of ints is: %d\n&#34;, strconv.IntSize)      
+
+    an, _ = strconv.Atoi(orig)
+    fmt.Printf(&#34;The integer is: %d\n&#34;, an) 
+    an = an + 5
+    newS = strconv.Itoa(an)
+    fmt.Printf(&#34;The new string is: %s\n&#34;, newS)
+}
+</code></pre>
+
+<p>输出：</p>
+
+<pre><code>The size of ints is: 32
+The integer is: 666
+The new string is: 671
+</code></pre>
+
+<p>在第 5.1 节，我们将会利用 if 语句来对可能出现的错误进行分类处理。</p>
+
+<p>更多有关该包的讨论，请参阅官方文档 <a href="http://golang.org/pkg/strconv/">http://golang.org/pkg/strconv/</a>（ <strong><em>译者注：国内用户可访问 <a href="http://docs.studygolang.com/pkg/strconv/">http://docs.studygolang.com/pkg/strconv/</a></em></strong> ）。</p>
+
+<h2>链接</h2>
+
+<ul>
+<li><a href="directory.html">目录</a></li>
+<li>上一节：<a href="04.6.html">字符串</a></li>
+<li>下一节：<a href="04.8.html">时间和日期</a></li>
+</ul>
+<div class="logo">Generated by <a href="https://github.com/fairlyblank/md2min">md2min</a></div></div>
+  <div>
+	</body>
+</html>
