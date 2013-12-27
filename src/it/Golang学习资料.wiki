@@ -1,6 +1,7 @@
+* [[http:../file/学习 Go 语言.pdf|学习Go语言]] 
 * [[./Go_Web_Program/ebook/preface|Go Web编程]]
 * [[./the-way-to-go_ZH_CN/README|Go入门指南]] 
 * [[./The-Golang-Standard-Library-by-Example/preface|Golang标准库]]
 * [[./go-fundamental-programming/README|Go编程基础(视频)]]
 * [[https://gobyexample.com|Go By Example]] 
-<p class="dateview">2013年12月22日 星期日 22时52分04秒</p>
+<p class="dateview">2013年12月27日 星期五 22时04分20秒</p>
