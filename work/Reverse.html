@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ReverseHelper</title>
+<style type='text/css'>
+body {font-family:monospace;}
+#top{font-size:28px; }
+#left{width:50%; float:left}
+</style>
+</head>
+<body>
+<div id="top">
+    ReverseHelper-HTML
+</div>
+<div id="workspace">
+    <div id="left">
+        <textarea id="input"></textarea>
+    </div>
+    <div id="right">
+        <select id="control" onchange=witchKindFun(this.value)>
+            <option value="0" selected="selected">请选择函数类型</option>
+            <option value="1">y = X(0)*a/b</option>
+            <option value="2">y = X(0)*a+b</option>
+        </select>
+        <br/>
+        <span id="output"></span>
+    </div>
+</div>
+<script type="text/javascript">
+function witchKindFun(funKind) {
+    xy = document.getElementById('input').value.split("\n"); 
+    switch(funKind) {
+        case "1":
+            funone(xy); 
+            break; 
+        case "2":
+            output("还没想好")
+    }
+}
+function funone(xy) {
+    for (t in xy) {
+        tm  = t.split(" "); 
+        tmp = tm[1]/tm[0]
+        output(String(tmp))
+    }
+}
+function output(aa){
+    s=document.getElementById('output'); 
+    s.innerHTML=aa
+}
+</script>
+</body>
+</html>
