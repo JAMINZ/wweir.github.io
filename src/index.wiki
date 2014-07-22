@@ -4,7 +4,7 @@
 * [[it/Vim家族|Vim编辑器家族]]
 * [[it/IT杂想|IT杂想]]
 * [[it/Golang学习资料|Golang学习资料]]
-* TCP/IP协议详解
+* [[it/TCP_IP协议详解|TCP/IP协议详解]]
 == 汽车学习 ==
 * [[automobile/模块化课程|模块化课程]]
 * [[automobile/两年多学习小结|两年多学习小结]]
