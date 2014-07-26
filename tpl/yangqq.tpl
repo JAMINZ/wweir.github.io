@@ -69,15 +69,14 @@
 </aside>
 
 <script type="text/javascript">var duoshuoQuery = {short_name:"wweir"};</script>
-<script type="text/javascript" src=http://static.duoshuo.com/embed.js></script>
-<script type="text/javascript">var pres=document.getElementsByTagName("pre");for(i in pres){pres[i].className="prettyprint linenums"}var codes=document.getElementsByTagName("code");for(i in codes){codes[i].className="prettyprint"}var root_path="%root_path%"</script>
+<script type="text/javascript" src=%root_path%tpl/embed.js></script>
+
+<script type="text/javascript">document.getElementsByTagName("pre").className="prettyprint linenums";document.getElementsByTagName("code").className="prettyprint"};var root_path="%root_path%loader"</script>
 <script src="%root_path%/loader/run_prettify.js"></script>
 
 </article>
 <div id="copright"><p>
-<a rel="license"
-href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img
-alt="知识共享许可协议" style="border-width:0" src="%root_path%88x31.png" /></a>本<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" rel="dct:type">作品</span>由<a xmlns:cc="http://creativecommons.org/ns#" href="http://weiki.tk/" property="cc:attributionName" rel="cc:attributionURL">温习江湖</a>创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a>进行许可。</p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="%root_path%88x31.png" /></a>本<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" rel="dct:type">作品</span>由<a xmlns:cc="http://creativecommons.org/ns#" href="http://weiki.tk/" property="cc:attributionName" rel="cc:attributionURL">温习江湖</a>创作，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议</a>进行许可。</p>
 <p>Powered by <a href="http://github.com">github</a> && <a href="https://code.google.com/p/vimwiki/">Vimwiki</a></p>
 </div>
 </body>
