@@ -1,0 +1,390 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                  此为温习江湖(wweir)的个人.vimrc文件,                   "
+"               不保证适合其它人，只希望其具有一些参考价值                "
+"            欢迎广大各位朋友与本作者(wweir9(at)gmail.com)交流            "
+"git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"脚本测试时打开
+inoremap <M-e>  <Esc>:echo 
+nnoremap <M-e>  :echo 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""Vundle
+set nocompatible               " Be iMproved
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'shougo/neocomplete'
+Plugin 'shougo/neosnippet'
+Plugin 'honza/vim-snippets'
+Plugin 'Yggdroot/indentLine'
+if &filetype != 'vimwiki'
+    let g:indentLine_noConcealCursor=1
+endif
+Plugin 'vimwiki/vimwiki'
+""go get github.com/nsf/gocode
+Plugin 'Blackrush/vim-gocode'
+Plugin 'wweir/go-vim-improved'
+Plugin 'plasticboy/vim-markdown'
+""Plugin 'fatih/vim-go'
+Plugin 'gdbmgr'
+Plugin 'scrooloose/syntastic'
+call vundle#end()
+filetype plugin indent on
+
+""set go=aAce
+""set transparency=30
+"set guifont=Monaco:h30
+"set showtabline=2
+"解决乱码
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk,gb2312,gb18030,big5,ucs-bom,cp936
+"设置主题色调为
+""set t_Co=256
+""colo codeschool
+colo ron
+""^$.*转义
+set magic
+""每行最长长度
+set textwidth=78
+""启用鼠标
+set mouse=a
+""高亮当前列
+"set cuc
+"与系统共享剪切板
+"set clipboard+=unnamed
+"自动检测文本类型, 打开语法高亮
+syntax enable
+syntax on
+filetype plugin indent on
+filetype plugin on
+""行号
+set rnu
+set nu
+"自动缩进、
+set autoindent
+set smartindent
+"自动换行
+se wrap
+set linebreak
+""翻页边距
+set so=3
+""搜索
+set ignorecase smartcase
+set incsearch
+set hlsearch
+""关机前编辑文件恢复
+set undodir=/tmp/
+set undofile
+""折行
+set foldmethod=indent
+set foldlevel=2
+""设置文件浏览器目录为当前目录
+set bsdir=buffer
+set autochdir
+""状态栏显示光标
+set ruler
+""允许删除任何东西
+set backspace=indent,eol,start
+""保证删除一个空行可以恢复
+inoremap <C-U>  <C-G>u<C-U>
+""状态栏
+set laststatus=1
+""gui右键
+set mousemodel=popup
+""粘贴不再错位""""副作用太多
+"set paste
+"自动添加tags文件
+set tags+=./tags,./../tags,./../../tags
+"<Space>缩进
+:set shiftwidth=4
+:set tabstop=4
+:set expandtab
+set softtabstop=4
+
+"预防手误的杀招""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <A-w>  :x<CR>
+inoremap <A-w>  <Esc><Esc>:x<CR>
+inoremap <A-W>  <Esc><Esc>:w !sudo tee %
+nnoremap <A-W>  :w !sudo tee %
+nnoremap <A-q>  :q
+inoremap <A-q>  <Esc><Esc>:q
+cnoremap <A-q>  !<CR>
+nnoremap ： :
+cnoremap Q! q!
+cnoremap Q1 q!
+command  Q  q
+command  Wq wq
+command  WQ wq
+command  W  w
+
+"在terminal中启用Alt快捷键
+set ttimeoutlen=1
+for UseAlt in range(65, 90)+range(97, 122)
+    exe "set <M-".nr2char(UseAlt).">=\<esc>".nr2char(UseAlt)
+endfor
+"保存换用其它工具打开""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <c-x>  <Esc>:w<CR>:!xdg-open %<CR>
+inoremap <c-z>  <c-o>u
+inoremap <M-t>  <Esc><Esc>:Tlist<CR>
+nnoremap <M-t>  <Esc>:Tlist<CR>
+"vnoremap <c-c> +y
+"inoremap <M-v> <c-o>+
+"nnoremap <m-v> +p
+"保存为HTML
+"let use_xhtml = 1
+nnoremap <M-T>  :TOhtml<CR>
+inoremap <M-T>  <Esc>:TOhtml<CR>
+nnoremap <M-c>  :Calendar<CR>
+inoremap <M-c>  <Esc>:Calendar<CR>
+
+"快捷移动""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <c-j>  <c-w>j
+inoremap <c-k>  <c-w>k
+inoremap <c-h>  <c-w>h
+inoremap <c-l>  <c-w>l
+inoremap <UP>   <c-o>k
+inoremap <Down> <c-o>j
+inoremap <M-o>  <esc>o
+vnoremap <M-o>  <esc>o
+nnoremap <M-o>  <Esc>o
+inoremap <M-O>  <c-o>O
+inoremap <expr><M-h>    getline('.')[col('.')-2]!~"[0-9a-zA-Z_]" ? "\<Left>" : "<Esc>ba"
+nnoremap <expr><M-h>    getline('.')[col('.')-2]!~"[0-9a-zA-Z_]" ? "\<Left>" : "b"
+inoremap <expr><M-l>    getline('.')[col('.')] !~ "[0-9a-zA-Z_]" ? "\<Right>" : "<Esc>wa"
+nnoremap <expr><M-l>    getline('.')[col('.')] !~ "[0-9a-zA-Z_]" ? "\<Right>" : "w"
+inoremap <expr><M-j>    pumvisible() ? "<c-n>" : "<c-o>gj"
+nnoremap <M-j>  gj
+inoremap <expr><M-k>    pumvisible() ? "<c-p>" : "<c-o>gk"
+nnoremap <M-k>  gk
+
+""快捷输入""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <expr>)    pumvisible() && getline('.')[col('.') - 2] == "(" ? ")<left>" : ")"
+inoremap <expr>(    pumvisible() && getline('.')[col('.') - 2] == "(" ? ")<left>" : "()<left>"
+inoremap <expr><CR> getline('.')[col('.')-2]=~"[{>]" && getline('.')[col('.')-1]=~"[}<]" ? "<left> <right><CR><Esc>ko" : "<CR>"
+inoremap <expr>;    getline('.')[col('.') - 1] == $ ? ";" : "; "
+inoremap <expr>s    getline('.')[col('.')-2]=="'" && getline('.')[col('.')-3]=~'\a' ? "s\<del>" : 's'
+inoremap ,  ,<space>
+inoremap '  <c-r>=ClosePair("\'")<CR>
+cnoremap '  ''<Left>
+inoremap "  <C-r>=ClosePair("\"")<CR>
+cnoremap "  ""<Left>
+cnoremap （ （）<left
+inoremap （ （）<left>
+inoremap [  []<Left>
+cnoremap [  []<left>
+inoremap ]  <c-r>=ClosePair(']')<CR>
+inoremap {  {}<Left>
+cnoremap {  {}<Left>
+inoremap }  <c-r>=ClosePair('}')<CR>
+cnoremap (  ()<left>
+
+""符号配对
+function ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "\<Right>"
+    elseif (a:char == "\'" || a:char == "\"" || a:char == "\`")
+        return a:char.a:char."\<left>"
+    else
+        return a:char
+    endif
+endf
+
+""自动执行""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType * call g:compileByFileType()
+func! g:compileByFileType()
+    if &filetype    == "c"
+        call Make()
+        set tags+=~/.vim/c.tags
+        ""inoremap <expr>;    getline('.')[col('.')]==$ ? ";<CR>" : ";"
+    elseif &filetype == "cpp"
+        call Make()
+    elseif &filetype == "go"
+        call Make()
+        ""      set dictionary+=/home/wweir/.vim/go.dict
+        ""      set tags+=/home/wweir/.vim/go.tags
+        inoremap <expr>.    getline('.')[col('.')-3]==' ' && getline('.')[col('.')-2] == 'c' ? '<ESC>sC.' : "\."
+    elseif &filetype == "python"
+        call Make()
+        inoremap <expr>.    pumvisible() && getline('.')[col('.') - 2] == "(" ? "<BS>\." : "\."
+    elseif &filetype == "html"
+        inoremap ; ;<space>
+    elseif &filetype == "Vimwiki"
+        inoremap `  <c-r>=ClosePair('`')<CR>
+        noremap <M-a>   <Esc><Esc>:VimwikiAll2HTML<CR>
+        noremap <M-b>   <Esc><Esc>:Vimwiki2HTMLBrowse<CR>
+        noremap <M-t>   <Esc><Esc>:VimwikiTable
+    elseif &filetype == "vim"
+        inoremap <  <><Left>
+        cnoremap <  <><Left>
+        inoremap >  <c-r>=ClosePair('>')<CR>
+        cnoremap >  <c-r>=ClosePair('>')<CR>
+    endif
+endfunction
+
+func! Make()
+    inoremap <M-m>  <Esc><Esc>:w<CR>:make<CR>
+    nnoremap <M-m>  <Esc>:w<CR>:make<CR>
+    if &filetype == "python"
+        inoremap <M-r>  <Esc><Esc>:w<Esc>:!chmod<Space>+x<Space>%<CR>
+        nnoremap <M-r>  <Esc><Esc>:w<Esc>:!chmod<Space>+x<Space>%<CR>
+    else
+        inoremap <M-r>  <Esc><Esc>:!gdb ./%<<CR>
+        nnoremap <M-r>  <Esc><Esc>:!gdb ./%<<CR>
+    endif
+    if (filereadable("Makefile") || filereadable("makefile"))
+    elseif &filetype == "c"
+        ""set makeprg=gcc\ %\ -Wall\ -std=c99\ -lm\ -g\ -o\ %<\ `pkg-config\ --cflags\ --libs\ gtk+-3.0`
+        set makeprg=gcc\ %\ -Wall\ -std=c99\ -lm\ -g\ -lncurses\ -o\ %<
+    elseif &filetype == "cpp"
+        set makeprg=g++\ %\ -Wall\ -g\ -o\ %<
+    elseif &filetype == "go"
+        "       set makeprg=gccgo\ %\ -Wall\ -g\ -o\ %<
+        set makeprg=go\ build\ %
+    elseif &filetype == "python"
+        set makeprg=python\ %
+    else
+    endif
+endf
+
+""自动插入文件头
+autocmd BufNewFile * call SetTitle()
+fun SetTitle()
+    if &filetype == 'sh'
+        call setline(1, "\#!/bin/bash")
+    elseif &filetype == 'python'
+        call setline(1, "\#!/usr/bin/python")
+        call append(line("."), "\#-\*- coding:utf-8 -\*-")
+        call append(line(".")+1, "\#\ ".expand("%"))
+    else
+    endif
+    normal G$
+endf
+
+""文件保存时动作
+autocmd BufWrite * call Time()
+fun Time()
+    normal G
+    if &filetype == 'Vimwiki' && expand("%<") != "index"
+        call setline(line(".")+1, '<p class="dateview">'.strftime("%c").'</p>')
+    endif
+endf
+
+
+
+""fbterm高亮当前行
+"if &term == "xterm" || &term == "screen"
+"       set cursorline
+"       set t_ve+=^[[?6c
+"       autocmd InsertEnter * set t_ve-=^[[?6c
+"       autocmd InsertLeave * set t_ve+=^[[?6c
+"   let &t_SI = "\<Esc>]12;purple\x7"
+"   let &t_EI = "\<Esc>]12;blue\x7"
+"endif
+
+""neocomplete自动补全""""""""""""""""""""""""""""""""""""""""""
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern =  '\*ku\*'
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns =  {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html, markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+""Vimwiki的一些设置""""""""""""""""""""""""""""""""""""""""""""
+let g:vimwiki_valid_html_tags='p,b,i,s,u,sub,sup,kdb,del,br,hr,div,code,h1'
+let g:vimwiki_use_mouse = 1
+let g:vimwiki_list = [{
+            \ 'path': '/home/wweir/.Blog/src',
+            \ 'index': '温习江湖的个人博客', 
+            \ 'path_html': '/home/wweir/.Blog',
+            \ 'syntax': 'default',
+            \ 'auto_export': 1,
+            \ 'template_path': '/home/wweir/.Blog/tpl/',
+            \ 'template_default': 'sinkery.tpl'}]
+
+"备用""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: "\<TAB>"
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+
+let g:vim_markdown_folding_disable=1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       空格自动化
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:space1 = ['+', '-', '*', '/', '%', '^', '<', '>', '=']
+let g:space2 = [':=', '==', '!=', '<<', '>>', '>=', '<=', '+=', '-=', "\*=" ,'/=', '^=', '&&', '||']
+"""""""""
+inoremap <space> <c-r>=SmartSpace()<CR>
+function! SmartSpace()
+    ""取上一行光标附近词s:char
+    let s:char    = ''
+    let s:prechar =' '
+    let s:lastchar=''
+    ""  for key in range(-8, 6)
+    for key in range(6, 6)
+        let s:char = s:char.getline(line('.')-1)[col('.') + key]
+    endfor
+    ""判断s:char是否含有单个符号
+    for key in g:space1
+        if -1 != match(s:char, '    '.key.' ')
+            let s:prechar  = '  '
+            let s:lastchar = ' '
+        elseif -1 != match(s:char, ' '.key.' ')
+            let s:prechar  = ' '
+            let s:lastchar = ''
+        endif
+    endfor
+    ""判断s:char是否含有两个连续符号
+    for key in g:space2
+        if -1 != match(s:char, '    '.'key'.' ') && 0 != match(s:char, '    '.key.' ') && 0 != match(s:char, '  '.'key'.' ')
+            let s:prechar  = '  '
+            let s:lastchar = ' '
+        elseif -1 != match(s:char, ' '.'key')
+            let s:prechar  = ' '
+            let s:lastchar = ' '
+        endif
+    endfor
+    ""当前行两个连续符号
+    let s:char = getline('.')[col('.')-3].getline('.')[col('.')-2]
+    for key in g:space2
+        if s:char == key
+            if '[    ]' !~ getline('.')[col('.')-4]
+                return "\<left>\<left>".s:prechar."\<right>\<right> "
+            else
+                return ' '
+            endif
+        endif
+    endfor
+    ""当前行一个符号
+    let s:char = getline('.')[col('.')-2]
+    for key in g:space1
+        if s:char == key
+            if '[    ]' !~ getline('.')[col('.')-3]
+                return "\<left>".s:prechar."\<right> ".s:lastchar
+            elseif '    ' =~ getline('.')[col('.')-3]
+                return "  "
+            endif
+        endif
+    endfor
+    return " "
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
