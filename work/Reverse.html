@@ -1,55 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
+<!-- saved from url=(0034)http://wweir.org/work/Reverse.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>ReverseHelper</title>
-<style type='text/css'>
-body {font-family:monospace;}
-#top{font-size:28px; }
-#left{width:70%; float:left}
+<style type="text/css">
+    body {font-family:monospace;}
+    #top{font-size:28px; }
+    #left{width:70%; float:left}
+    #output{text-align: left;}
 </style>
 </head>
 <body>
-<div id="top">
-    ReverseHelper-HTML
-</div>
-<div id="workspace">
-    <div id="left">
-        <textarea id="input"></textarea>
+    <div id="top">
+    ReverseHelper
     </div>
-    <div id="right">
-    <button onclick=witchKindFun("1")>y = X(0)*a/b</button><br/>
-    <button onclick=witchKindFun("2")>y = X(0)*a/b+c</button>
+    <div id="workspace">
+        <div id="left">
+            <textarea id="input"></textarea>
+        </div>
+        <div id="right">
+            <button onclick="witchKindFun(&quot;1&quot;)">y = X(0)*a/b</button></br>
+            <button onclick="witchKindFun(&quot;2&quot;)">y = X(0)*a/b+c</button>
 <!--        <select id="control" onchange=witchKindFun(this.value)>
             <option value="0">请选择函数类型</option>
             <option value="1">y = X(0)*a/b</option>
             <option value="2">y = X(0)*a/b+c</option>
         </select> -->
-        <div id="output"></div>
     </div>
+    <div id="output"></div>
 </div>
 <script type="text/javascript">
-function witchKindFun(funKind) {
-    xy = document.getElementById('input').value.split(/\s+/);
-    if (xy[0]==="") {
-    	output("请检查您的数据")
-    }else{
-    	switch(funKind) {
-    	case "1":
-    		if (xy.length<2) {
-    			output("请输入更多数据")
-    		}else{
-    			funone(xy[0],xy[1])
-    		}
-    	   break; 
-    	case "2":
-			if (xy.length<4) {
-				output("请输入更多数据")
-			}else{
-				funtwo(xy)
-			}
-    		break
-    	}
+    function witchKindFun(funKind) {
+        xy = document.getElementById('input').value.split(/\s+/);
+        if (xy[0]==="") {
+           output("请检查您的数据")
+       }else{
+           switch(funKind) {
+               case "1":
+               if (xy.length<2) {
+                 output("请输入更多数据")
+             }else{
+                 funone(xy[0],xy[1])
+             }
+             break;
+             case "2":
+             if (xy.length<4) {
+                output("请输入更多数据")
+            }else{
+                funtwo(xy)
+            }
+            break
+        }
     }
 }
 function funone(num1,num2){
@@ -87,9 +88,9 @@ function funtwo(xy) {
     tmp=zdgys(x,y)
     a=y/tmp
     b=x/tmp
-<!--y=x*a/b+c-->
+    <!--y=x*a/b+c-->
     c1=xy[1]-xy[0]*a/b
-<!--y=(x+c)*a/b-->
+    <!--y=(x+c)*a/b-->
     c2=xy[1]*b/a-xy[0]
     if (a==1) {
     	if (b==1) {
@@ -187,9 +188,10 @@ function zdgys (num1,num2) {
     };
 }
 function output(tmp){
-    s=document.getElementById('output'); 
+    s=document.getElementById('output');
     s.innerHTML=tmp
 }
 </script>
-</body>
-</html>
+
+
+<div class="vimiumReset vimiumHUD" style="right: 150px; display: none;"></div></body><div></div></html>
