@@ -43,7 +43,7 @@ set undodir=/tmp
 set undofile
 ""折行
 set foldmethod=indent
-set foldlevel=2
+set foldlevel=3
 ""设置文件浏览器目录为当前目录
 set bsdir=buffer
 set autochdir
