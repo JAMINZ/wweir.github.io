@@ -39,11 +39,11 @@ set incsearch
 set hlsearch
 set showmatch
 ""关机前编辑文件恢复
-set undodir=/tmp
+set undodir=/tmp/.vim_undo
 set undofile
 ""折行
 set foldmethod=indent
-set foldlevel=3
+set foldlevel=2
 ""设置文件浏览器目录为当前目录
 set bsdir=buffer
 set autochdir
@@ -61,7 +61,7 @@ set backspace=indent,eol,start "可删除任意东西
 set noswapfile "不要swap文件
 
 "在terminal中启用Alt快捷键
-set ttimeoutlen=1
+set ttimeoutlen=50
 for UseAlt in range(65, 90)+range(97, 122)
 	exe "set <M-".nr2char(UseAlt).">=\<esc>".nr2char(UseAlt)
 endfor
@@ -72,6 +72,9 @@ noremap <A-W>  <Esc>:w !sudo tee %
 noremap <A-q>  <Esc>:q<CR>
 noremap <A-Q>  <Esc>:q!<CR>
 inoremap <A-O>  <c-o>O
+inoremap <A-o>  <c-o>o
+nnoremap <A-d> <esc>:set background=dark<CR>
+inoremap <A-d> <c-o>:set background=dark<CR>
 nnoremap ： :
 "保存为HTML
 "let use_xhtml = 1
@@ -92,12 +95,10 @@ inoremap <expr><M-k>    pumvisible() ? "<c-p>" : "<c-o>gk"
 inoremap <expr>)    pumvisible() && getline('.')[col('.') - 2] == "(" ? ")<left>" : ")"
 inoremap <expr>(    pumvisible() && getline('.')[col('.') - 2] == "(" ? ")<left>" : "()<left>"
 inoremap <expr><CR> getline('.')[col('.')-2]=~"[{>]" && getline('.')[col('.')-1]=~"[}<]" ? "<left> <right><CR><Esc>ko" : "<CR>"
-inoremap <expr>;    getline('.')[col('.') - 1] == $ ? ";" : "; "
 inoremap <expr>s    getline('.')[col('.')-2]=="'" && getline('.')[col('.')-3]=~'\a' ? "s\<del>" : 's'
 inoremap ,  ,<space>
-inoremap '  <c-r>=ClosePair("\'")<CR>
+inoremap ;  ;<space>
 cnoremap '  ''<Left>
-inoremap "  <C-r>=ClosePair("\"")<CR>
 cnoremap "  ""<Left>
 inoremap (  ()<left>
 cnoremap (  ()<left>
@@ -107,25 +108,15 @@ vnoremap （ \"zdi（<c-r>z）<esc>
 inoremap [  []<Left>
 cnoremap [  []<left>
 vnoremap [ \"zdi[<c-r>z]<esc>
-inoremap ]  <c-r>=ClosePair(']')<CR>
 inoremap {  {}<Left>
 cnoremap {  {}<Left>
 vnoremap { \"zdi{<c-r>z}<esc>
-inoremap }  <c-r>=ClosePair('}')<CR>
-
-""符号配对
-function ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	elseif (a:char == "\'" || a:char == "\"" || a:char == "\`")
-		return a:char.a:char."\<left>"
-	else
-		return a:char
-	endif
-endf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if !isdirectory("/tmp/.vim_undo")
+	execute(mkdir("/tmp/.vim_undo"))
+endif
 if !isdirectory($HOME."/.vim")
-	execute("!wget -P ~/.vim/autoload https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+	execute("!wget -P ~/.vim/autoload https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")	
 	execute("!wget -P ~/.vim/colors https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim")
 endif
 call plug#begin('~/.vim/plugged')
@@ -136,10 +127,15 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'honza/vim-snippets'
 call plug#end()
 
-""neocomplete setting
-""let g:neocomplete#enable_at_startup = 1
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+			\ "\<Plug>(neosnippet_expand_or_jump)"
+			\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+			\ "\<Plug>(neosnippet_expand_or_jump)"
+			\: "\<TAB>"")"))")")"
 let g:neocomplcache_enable_at_startup = 1
-
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 """"背景透明
 hi Normal ctermbg=none
